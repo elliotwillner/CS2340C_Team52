@@ -73,6 +73,7 @@
 
     </RadioGroup>
 
+<<<<<<< Updated upstream
     <!-- First CardView -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView1"
@@ -82,6 +83,17 @@
         app:layout_constraintTop_toBottomOf="@+id/difficultyRadioGroup"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cardView2"
+=======
+    <!-- CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:text="Warrior"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintTop_toBottomOf="@+id/difficultyRadioGroup"
+        app:layout_constraintStart_toStartOf="parent"
+>>>>>>> Stashed changes
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp">
 
@@ -89,6 +101,7 @@
         <include layout="@layout/card_content_layout" />
     </androidx.cardview.widget.CardView>
 
+<<<<<<< Updated upstream
     <!-- Second CardView -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
@@ -121,13 +134,19 @@
         <include layout="@layout/card_content_layout" />
     </androidx.cardview.widget.CardView>
 
+=======
+>>>>>>> Stashed changes
     <!-- Continue Button -->
     <Button
         android:id="@+id/continueButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Continue"
+<<<<<<< Updated upstream
         app:layout_constraintTop_toBottomOf="@+id/cardView1"
+=======
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+>>>>>>> Stashed changes
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="32dp"
