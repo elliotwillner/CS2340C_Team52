@@ -58,7 +58,7 @@ public class GameScreen extends AppCompatActivity {
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(GameScreen.this, EndScreen.class);
+                Intent intent = new Intent(GameScreen.this, EndScreenActivity.class);
                 startActivity(intent);
             }
         });
