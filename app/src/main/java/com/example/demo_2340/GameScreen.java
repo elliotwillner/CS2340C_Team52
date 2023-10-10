@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.os.Handler;
 
+import java.util.Calendar;
+
 /*
  * Main Activity class that loads {@link MainFragment}.
  */
@@ -31,7 +33,9 @@ public class GameScreen extends AppCompatActivity {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
-                playerScore--;
+                if (playerScore != 0) {
+                    playerScore--;
+                }
                 playerScoreTextView.setText("Score: " + String.valueOf(playerScore));
                 handler.postDelayed(this, 1000);
             }
@@ -80,6 +84,7 @@ public class GameScreen extends AppCompatActivity {
             public void onClick(View view) {
                 Player.getInstance().setName(playerName);
                 Player.getInstance().setScore(playerScore);
+                Player.getInstance().setDate(Calendar.getInstance().getTime());
                 Leaderboard.addPlayer();
                 Player.getInstance().reset();
                 handler.removeCallbacks(runnable);
