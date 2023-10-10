@@ -1,14 +1,17 @@
 package com.example.demo_2340;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Leaderboard {
     private volatile static Leaderboard uniqueInstance;
     protected static ArrayList<Integer> scoreList;
     private static ArrayList<String> nameList;
+    private static ArrayList<String> dateList;
     private static int minScore;
     private Leaderboard() {
         scoreList = new ArrayList<>();
         nameList = new ArrayList<>();
+        dateList = new ArrayList<>();
     }
     public static Leaderboard getInstance() {
         if (uniqueInstance == null) {
@@ -21,18 +24,15 @@ public class Leaderboard {
         return uniqueInstance;
     }
     public static void addPlayer() {
+        scoreList.add(Player.getInstance().getScore());
+        nameList.add(Player.getInstance().getName());
+        dateList.add(Player.getInstance().getDate());
         if (scoreList.size() == 0) {
-            scoreList.add(Player.getInstance().getScore());
-            nameList.add(Player.getInstance().getName());
             minScore = Player.getInstance().getScore();
         } else if (scoreList.size() < 5) {
-            scoreList.add(Player.getInstance().getScore());
-            nameList.add(Player.getInstance().getName());
             sortLeaderboard();
             minScore = scoreList.get(scoreList.size() - 1);
         } else if (Player.getInstance().getScore() > minScore) {
-            scoreList.add(Player.getInstance().getScore());
-            nameList.add(Player.getInstance().getName());
             sortLeaderboard();
             minScore = scoreList.get(4);
         }
@@ -53,6 +53,7 @@ public class Leaderboard {
         if (scoreList.size() == 6) {
             scoreList.remove(5);
             nameList.remove(5);
+            dateList.remove(5);
         }
     }
 
@@ -60,9 +61,12 @@ public class Leaderboard {
         int tempInt = scoreList.get(i);
         scoreList.set(i, scoreList.get(j));
         scoreList.set(j, tempInt);
-        String tempString = nameList.get(i);
+        String tempName = nameList.get(i);
         nameList.set(i, nameList.get(j));
-        nameList.set(j, tempString);
+        nameList.set(j, tempName);
+        String tempDate = dateList.get(i);
+        dateList.set(i, dateList.get(j));
+        dateList.set(j, tempDate);
     }
 
     public static int getScore(int i) {
@@ -71,6 +75,9 @@ public class Leaderboard {
 
     public static String getName(int i) {
         return nameList.get(i);
+    }
+    public static String getDate(int i) {
+        return dateList.get(i);
     }
 
     public static int getScoreListSize() {
