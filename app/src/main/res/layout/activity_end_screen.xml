@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.265" />
+        app:layout_constraintVertical_bias="0.087" />
 
     <TableLayout
         android:layout_width="match_parent"
@@ -51,6 +51,16 @@
                 android:textColor="@color/white"
                 android:text="Score:"
                 android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:textColor="@color/white"
+                android:text="Date and Time:"
+                android:textSize="14sp" />
         </TableRow>
 
         <TableRow android:background="@color/white">
@@ -62,7 +72,7 @@
                 android:layout_weight="2"
                 android:gravity="center_horizontal"
                 android:padding="10sp"
-                android:text="regular schmegular"
+                android:text="-"
                 android:textSize="14sp" />
 
             <TextView
@@ -72,7 +82,17 @@
                 android:layout_weight="2"
                 android:gravity="center_horizontal"
                 android:padding="10sp"
-                android:text="regular schmegular"
+                android:text=""
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/playerDate1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text=""
                 android:textSize="14sp" />
         </TableRow>
 
@@ -85,7 +105,7 @@
                 android:layout_weight="2"
                 android:gravity="center_horizontal"
                 android:padding="10sp"
-                android:text="regular schmegular"
+                android:text="-"
                 android:textSize="14sp" />
 
             <TextView
@@ -95,7 +115,17 @@
                 android:layout_weight="2"
                 android:gravity="center_horizontal"
                 android:padding="10sp"
-                android:text="regular schmegular"
+                android:text=""
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/playerDate2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text=""
                 android:textSize="14sp" />
         </TableRow>
 
@@ -108,7 +138,7 @@
                 android:layout_weight="2"
                 android:gravity="center_horizontal"
                 android:padding="10sp"
-                android:text="regular schmegular"
+                android:text="-"
                 android:textSize="14sp" />
 
             <TextView
@@ -118,7 +148,17 @@
                 android:layout_weight="2"
                 android:gravity="center_horizontal"
                 android:padding="10sp"
-                android:text="regular schmegular"
+                android:text=""
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/playerDate3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text=""
                 android:textSize="14sp" />
         </TableRow>
 
@@ -131,7 +171,7 @@
                 android:layout_weight="2"
                 android:gravity="center_horizontal"
                 android:padding="10sp"
-                android:text="regular schmegular"
+                android:text="-"
                 android:textSize="14sp" />
 
             <TextView
@@ -141,7 +181,17 @@
                 android:layout_weight="2"
                 android:gravity="center_horizontal"
                 android:padding="10sp"
-                android:text="regular schmegular"
+                android:text=""
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/playerDate4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text=""
                 android:textSize="14sp" />
         </TableRow>
 
@@ -154,7 +204,7 @@
                 android:layout_weight="2"
                 android:gravity="center_horizontal"
                 android:padding="10sp"
-                android:text="regular schmegular"
+                android:text="-"
                 android:textSize="14sp" />
 
             <TextView
@@ -164,7 +214,17 @@
                 android:layout_weight="2"
                 android:gravity="center_horizontal"
                 android:padding="10sp"
-                android:text="regular schmegular"
+                android:text=""
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/playerDate5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center_horizontal"
+                android:padding="10sp"
+                android:text=""
                 android:textSize="14sp" />
         </TableRow>
 
@@ -180,6 +240,6 @@
         app:layout_constraintHorizontal_bias="0.948"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.862" />
+        app:layout_constraintVertical_bias="0.963" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
