@@ -7,7 +7,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class WelcomeScreen extends AppCompatActivity {
-
+    public Leaderboard leaderboard = Leaderboard.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,8 +19,7 @@ public class WelcomeScreen extends AppCompatActivity {
         startGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = new Intent(WelcomeScreen.this, MainActivity.class);
+                Intent intent = new Intent(WelcomeScreen.this, ConfigActivity.class);
                 startActivity(intent);
             }
         });
