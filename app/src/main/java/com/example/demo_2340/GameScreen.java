@@ -93,7 +93,7 @@ public class GameScreen extends AppCompatActivity {
             }
         });
     }
-    public int getScore() {
+    public static int getScore() {
         return playerScore;
     }
 }
