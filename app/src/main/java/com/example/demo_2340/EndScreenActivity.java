@@ -54,13 +54,14 @@ public class EndScreenActivity extends AppCompatActivity {
         scoreTextView = findViewById(R.id.score_text_view);
         restartButton = findViewById(R.id.restart_button);
 
-        int mostRecentAttemptScore = Leaderboard.getScore(0);
+        int mostRecentAttemptScore = GameScreen.getScore();
         scoreTextView.setText("Your Score: " + mostRecentAttemptScore);
 
         // add a click listener to the restart button
         restartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // restart the game activity
                 Intent intent = new Intent(EndScreenActivity.this, WelcomeScreen.class);
                 startActivity(intent);
             }
