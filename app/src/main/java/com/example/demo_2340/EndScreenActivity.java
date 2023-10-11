@@ -61,7 +61,6 @@ public class EndScreenActivity extends AppCompatActivity {
         restartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // restart the game activity
                 Intent intent = new Intent(EndScreenActivity.this, WelcomeScreen.class);
                 startActivity(intent);
             }
