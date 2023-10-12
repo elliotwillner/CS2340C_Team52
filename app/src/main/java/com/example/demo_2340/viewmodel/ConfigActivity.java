@@ -1,4 +1,4 @@
-package com.example.demo_2340;
+package com.example.demo_2340.viewmodel;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+
+import com.example.demo_2340.R;
 
 public class ConfigActivity extends AppCompatActivity {
 
@@ -50,15 +52,18 @@ public class ConfigActivity extends AppCompatActivity {
                 int selectedDifficultyId = difficultyRadioGroup.getCheckedRadioButtonId();
 
                 if (TextUtils.isEmpty(selectedCharacter)) {
-                    Toast.makeText(ConfigActivity.this, "Please select a character", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ConfigActivity.this,
+                            "Please select a character", Toast.LENGTH_SHORT).show();
                     return; // Exit the click listener without proceeding
                 }
 
                 // Validate user inputs
                 if (TextUtils.isEmpty(playerName) || playerName.trim().isEmpty()) {
-                    Toast.makeText(ConfigActivity.this, "Please enter a valid name", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ConfigActivity.this,
+                            "Please enter a valid name", Toast.LENGTH_SHORT).show();
                 } else if (selectedDifficultyId == -1) {
-                    Toast.makeText(ConfigActivity.this, "Please select a difficulty", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ConfigActivity.this,
+                            "Please select a difficulty", Toast.LENGTH_SHORT).show();
                 } else {
                     // Valid inputs, proceed to the game screen
                     int selectedDifficulty = getSelectedDifficulty(selectedDifficultyId);
@@ -84,8 +89,8 @@ public class ConfigActivity extends AppCompatActivity {
                     cardView.setCardElevation(elevation == 0 ? 8 : 0);
 
                     // Update the selected character based on the clicked card
-                    selectedCharacter = cardView.getContentDescription() != null ?
-                            cardView.getContentDescription().toString() : "";
+                    selectedCharacter = cardView.getContentDescription() != null
+                            ? cardView.getContentDescription().toString() : "";
 
                     // Unfocus the other character cards
                     if (cardView != warriorCard) {
