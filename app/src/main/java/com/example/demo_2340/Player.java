@@ -1,7 +1,7 @@
 package com.example.demo_2340;
 
+import java.util.ArrayList;
 import java.util.Date;
-
 public class Player {
     private String name;
     private int score;
@@ -46,6 +46,7 @@ public class Player {
     public synchronized void setScore(int score) {
         this.score = score;
     }
+
     public synchronized void setDate(Date date) {
         this.date = date;
     }
