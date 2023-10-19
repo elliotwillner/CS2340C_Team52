@@ -252,4 +252,13 @@ public class TileMap {
                     new Tile(13, 16, 1), new Tile(14, 16, 1), new Tile(15, 16, 1), new Tile(16, 16, 1)},
         };
     }
+    public Tile[][] getMap1() {
+        return map1;
+    }
+    public Tile[][] getMap2() {
+        return map2;
+    }
+    public Tile[][] getMap3() {
+        return map3;
+    }
 }
