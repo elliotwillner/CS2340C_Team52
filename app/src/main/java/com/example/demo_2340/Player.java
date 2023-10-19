@@ -8,6 +8,7 @@ public class Player {
     private Date date;
     //private int playerX;
     //private int playerY;
+    //private TileMap[][] map;
     private volatile static Player uniqueInstance;
     private Player() {
         this.name = "";
@@ -16,6 +17,7 @@ public class Player {
         //set player position
         //this.playerX =
         //this.playerY =
+        //this.map = TileMap.getMap1();
     }
     public static Player getInstance() {
         if (uniqueInstance == null) {
@@ -36,8 +38,8 @@ public class Player {
      *         switch (keyCode) {
      *         ...
      *              case KeyEvent.KEYCODE_DPAD_UP:
-     *                  if (checkCollision(playerX, player1 + 1)) {
-     *                      playerY++;
+     *                  if (checkCollision(playerX, player1 - 1)) {
+     *                      playerY--;
      *                      checkTile();
      *                  }
      *         ...
@@ -45,14 +47,16 @@ public class Player {
      *}
      * (check if player can move to new tile, tile type 1 is a wall and is currently the only impassable tile)
      * public boolean checkCollision(int x, int y) {
-     *     return (TileMap[x][y].getType() != 1);
+     *     return (map[x][y].getType() != 1);
      * }
      * (check new tile that the player is on, tile type 0 is the only safe tile)
      * public void checkTile(int x, int y) {
-     *     if (TileMap[x][y].getType() != 0) {
+     *     if (map[x][y].getType() != 0) {
      *         go to end screen idk
      *     }
      * }
+     *
+     * need to add tile types and checks to progress through rooms
      */
 
     public static void reset() {
