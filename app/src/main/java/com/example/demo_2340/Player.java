@@ -14,9 +14,8 @@ public class Player {
         this.name = "";
         this.score = 0;
         this.date = null;
-        //set player position
-        //this.playerX =
-        //this.playerY =
+        //this.playerX = 8;
+        //this.playerY = 14;
         //this.map = TileMap.getMap1();
     }
     public static Player getInstance() {
@@ -44,19 +43,35 @@ public class Player {
      *                  }
      *         ...
      *         }
-     *}
+     * }
      * (check if player can move to new tile, tile type 1 is a wall and is currently the only impassable tile)
      * public boolean checkCollision(int x, int y) {
      *     return (map[x][y].getType() != 1);
      * }
-     * (check new tile that the player is on, tile type 0 is the only safe tile)
+     * (check new tile that the player is on, tile type 1 and 2 will result in a game over)
      * public void checkTile(int x, int y) {
-     *     if (map[x][y].getType() != 0) {
-     *         go to end screen idk
-     *     }
+     *      switch map[x][y].getType() {
+     *          case 1:
+     *              go to end screen (specific for loss?)
+     *          case 2:
+     *              go to end screen (specific for loss?)
+     *          case 3:
+     *              map = getMap2();
+     *              playerY = 14;
+     *          case 4:
+     *              map = getMap3();
+     *              playerY = 14;
+     *          case 5:
+     *              go to end screen (win)
+     *          case 6:
+     *              map = getMap1();
+     *              playerY = 3;
+     *          case 7:
+     *              map = getMap2();
+     *              playerY = 3;
+     *      }
      * }
      *
-     * need to add tile types and checks to progress through rooms
      */
 
     public static void reset() {
