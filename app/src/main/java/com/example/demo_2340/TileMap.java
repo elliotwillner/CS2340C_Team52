@@ -13,8 +13,8 @@ public class TileMap {
                     new Tile(13, 1, 1), new Tile(14, 1, 1), new Tile(15, 1, 1), new Tile(16, 1, 1)},
             //row2
             {new Tile(1, 2, 1), new Tile(2, 2, 1), new Tile(3, 2, 1), new Tile(4, 2, 1),
-                    new Tile(5, 2, 1), new Tile(6, 2, 1), new Tile(7, 2, 1), new Tile(8, 2, 1),
-                    new Tile(9, 2, 1), new Tile(10, 2, 1), new Tile(11, 2, 1), new Tile(12, 2, 1),
+                    new Tile(5, 2, 1), new Tile(6, 2, 1), new Tile(7, 2, 1), new Tile(8, 2, 3),
+                    new Tile(9, 2, 3), new Tile(10, 2, 1), new Tile(11, 2, 1), new Tile(12, 2, 1),
                     new Tile(13, 2, 1), new Tile(14, 2, 1), new Tile(15, 2, 1), new Tile(16, 2, 1)},
             //row3
             {new Tile(1, 3, 1), new Tile(2, 3, 0), new Tile(3, 3, 1), new Tile(4, 3, 0),
@@ -95,13 +95,13 @@ public class TileMap {
                     new Tile(13, 1, 1), new Tile(14, 1, 1), new Tile(15, 1, 1), new Tile(16, 1, 1)},
             //row2
             {new Tile(1, 2, 1), new Tile(2, 2, 1), new Tile(3, 2, 1), new Tile(4, 2, 1),
-                    new Tile(5, 2, 1), new Tile(6, 2, 1), new Tile(7, 2, 1), new Tile(8, 2, 1),
-                    new Tile(9, 2, 1), new Tile(10, 2, 1), new Tile(11, 2, 1), new Tile(12, 2, 1),
+                    new Tile(5, 2, 1), new Tile(6, 2, 1), new Tile(7, 2, 1), new Tile(8, 2, 4),
+                    new Tile(9, 2, 4), new Tile(10, 2, 1), new Tile(11, 2, 1), new Tile(12, 2, 1),
                     new Tile(13, 2, 1), new Tile(14, 2, 1), new Tile(15, 2, 1), new Tile(16, 2, 1)},
             //row3
             {new Tile(1, 3, 1), new Tile(2, 3, 1), new Tile(3, 3, 0), new Tile(4, 3, 0),
                     new Tile(5, 3, 1), new Tile(6, 3, 1), new Tile(7, 3, 2), new Tile(8, 3, 0),
-                    new Tile(9, 3, 1), new Tile(10, 3, 2), new Tile(11, 3, 1), new Tile(12, 3, 0),
+                    new Tile(9, 3, 0), new Tile(10, 3, 2), new Tile(11, 3, 1), new Tile(12, 3, 0),
                     new Tile(13, 3, 1), new Tile(14, 3, 0), new Tile(15, 3, 0), new Tile(16, 3, 1)},
             //row4
             {new Tile(1, 4, 1), new Tile(2, 4, 0), new Tile(3, 4, 2), new Tile(4, 4, 0),
@@ -160,8 +160,8 @@ public class TileMap {
                     new Tile(13, 14, 0), new Tile(14, 14, 0), new Tile(15, 14, 0), new Tile(16, 14, 1)},
             //row15
             {new Tile(1, 15, 1), new Tile(2, 15, 2), new Tile(3, 15, 2), new Tile(4, 15, 2),
-                    new Tile(5, 15, 2), new Tile(6, 15, 2), new Tile(7, 15, 2), new Tile(8, 15, 1),
-                    new Tile(9, 15, 1), new Tile(10, 15, 2), new Tile(11, 15, 2), new Tile(12, 15, 2),
+                    new Tile(5, 15, 2), new Tile(6, 15, 2), new Tile(7, 15, 2), new Tile(8, 15, 6),
+                    new Tile(9, 15, 6), new Tile(10, 15, 2), new Tile(11, 15, 2), new Tile(12, 15, 2),
                     new Tile(13, 15, 2), new Tile(14, 15, 2), new Tile(15, 15, 2), new Tile(16, 15, 2)},
             //row16
             {new Tile(1, 16, 1), new Tile(2, 16, 1), new Tile(3, 16, 1), new Tile(4, 16, 1),
@@ -177,8 +177,8 @@ public class TileMap {
                     new Tile(13, 1, 1), new Tile(14, 1, 1), new Tile(15, 1, 1), new Tile(16, 1, 1)},
             //row2
             {new Tile(1, 2, 1), new Tile(2, 2, 1), new Tile(3, 2, 1), new Tile(4, 2, 1),
-                    new Tile(5, 2, 1), new Tile(6, 2, 1), new Tile(7, 2, 1), new Tile(8, 2, 1),
-                    new Tile(9, 2, 1), new Tile(10, 2, 1), new Tile(11, 2, 1), new Tile(12, 2, 1),
+                    new Tile(5, 2, 1), new Tile(6, 2, 1), new Tile(7, 2, 1), new Tile(8, 2, 5),
+                    new Tile(9, 2, 5), new Tile(10, 2, 1), new Tile(11, 2, 1), new Tile(12, 2, 1),
                     new Tile(13, 2, 1), new Tile(14, 2, 1), new Tile(15, 2, 1), new Tile(16, 2, 1)},
             //row3
             {new Tile(1, 3, 1), new Tile(2, 3, 2), new Tile(3, 3, 0), new Tile(4, 3, 0),
@@ -242,8 +242,8 @@ public class TileMap {
                     new Tile(13, 14, 0), new Tile(14, 14, 0), new Tile(15, 14, 0), new Tile(16, 14, 1)},
             //row15
             {new Tile(1, 15, 1), new Tile(2, 15, 0), new Tile(3, 15, 0), new Tile(4, 15, 0),
-                    new Tile(5, 15, 0), new Tile(6, 15, 0), new Tile(7, 15, 0), new Tile(8, 15, 1),
-                    new Tile(9, 15, 1), new Tile(10, 15, 0), new Tile(11, 15, 0), new Tile(12, 15, 0),
+                    new Tile(5, 15, 0), new Tile(6, 15, 0), new Tile(7, 15, 0), new Tile(8, 15, 7),
+                    new Tile(9, 15, 7), new Tile(10, 15, 0), new Tile(11, 15, 0), new Tile(12, 15, 0),
                     new Tile(13, 15, 0), new Tile(14, 15, 0), new Tile(15, 15, 0), new Tile(16, 15, 1)},
             //row16
             {new Tile(1, 16, 1), new Tile(2, 16, 1), new Tile(3, 16, 1), new Tile(4, 16, 1),
