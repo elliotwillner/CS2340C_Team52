@@ -11,9 +11,17 @@ public class Tile {
         height = 16;
         this.posX = posX;
         this.posY = posY;
-        //0 - open
-        //1 - wall
-        //2 - death
+        /**
+         * Tile Types:
+         * 0 - neutral
+         * 1 - wall
+         * 2 - hole
+         * 3 - progress to map 2
+         * 4 - progress to map 3
+         * 5 - win game
+         * 6 - go back to map 1
+         * 7 - go back to map 2
+         */
         this.type = type;
     }
     public int getWidth() {
