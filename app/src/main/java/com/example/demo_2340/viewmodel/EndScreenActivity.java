@@ -1,6 +1,4 @@
-package com.example.demo_2340;
-
-import static com.example.demo_2340.Leaderboard.getScore;
+package com.example.demo_2340.viewmodel;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +6,9 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
+
+import com.example.demo_2340.R;
+import com.example.demo_2340.view.WelcomeScreen;
 
 
 public class EndScreenActivity extends AppCompatActivity {

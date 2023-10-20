@@ -1,9 +1,10 @@
-package com.example.demo_2340;
-import java.lang.reflect.Array;
+package com.example.demo_2340.viewmodel;
+import com.example.demo_2340.model.Player;
+
 import java.util.ArrayList;
 
 public class Leaderboard {
-    private volatile static Leaderboard uniqueInstance;
+    private static volatile Leaderboard uniqueInstance;
     protected static ArrayList<Integer> scoreList;
     private static ArrayList<String> nameList;
     private static ArrayList<String> dateList;
@@ -57,7 +58,7 @@ public class Leaderboard {
         }
     }
 
-    public synchronized static void swap(int i, int j) {
+    public static synchronized void swap(int i, int j) {
         int tempInt = scoreList.get(i);
         scoreList.set(i, scoreList.get(j));
         scoreList.set(j, tempInt);

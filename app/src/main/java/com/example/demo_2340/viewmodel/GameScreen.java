@@ -1,4 +1,4 @@
-package com.example.demo_2340;
+package com.example.demo_2340.viewmodel;
 
 import android.os.Bundle;
 
@@ -11,12 +11,20 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.os.Handler;
 
+import com.example.demo_2340.R;
+import com.example.demo_2340.model.Player;
+
 import java.util.Calendar;
 
 /*
  * Main Activity class that loads {@link MainFragment}.
  */
 public class GameScreen extends AppCompatActivity {
+    private ImageView mapImageView;
+    private Button nextButton;
+    private int currentMapIndex = 0;
+
+    private final int[] mapImages = {R.drawable.map1, R.drawable.map2, R.drawable.map3};
     private TextView nameTextView;
     private TextView healthTextView;
     private ImageView spriteImageView;
@@ -47,6 +55,30 @@ public class GameScreen extends AppCompatActivity {
         healthTextView = findViewById(R.id.healthTextView);
         spriteImageView = findViewById(R.id.spriteImageView);
         difficultyTextView = findViewById(R.id.difficultyTextView);
+
+
+        mapImageView = findViewById(R.id.mapImageView);
+        nextButton = findViewById(R.id.next);
+
+        // Set the initial map image
+        mapImageView.setImageResource(mapImages[currentMapIndex]);
+
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Increment the map index
+                currentMapIndex++;
+
+                // Check if we've reached the end of the mapImages array
+                if (currentMapIndex >= mapImages.length) {
+                    // Reset to the first map if we've gone past the last one
+                    currentMapIndex = 0;
+                }
+
+                // Set the next map image
+                mapImageView.setImageResource(mapImages[currentMapIndex]);
+            }
+        });
 
         String playerName = getIntent().getStringExtra("playerName");
         String spriteID = getIntent().getStringExtra("selectedCharacter");
