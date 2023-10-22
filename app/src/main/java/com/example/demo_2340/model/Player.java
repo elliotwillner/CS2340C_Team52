@@ -2,11 +2,11 @@ package com.example.demo_2340.model;
 
 import android.view.KeyEvent;
 
+import com.example.demo_2340.R;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import com.example.demo_2340.R;
 public class Player implements  SpriteSubject {
     private String name;
     private int difficulty;

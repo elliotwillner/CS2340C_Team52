@@ -1,4 +1,4 @@
-package com.example.demo_2340;
+package com.example.demo_2340.viewmodel;
 
 import android.os.Bundle;
 
@@ -9,30 +9,52 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
+import android.os.Handler;
+
+import com.example.demo_2340.R;
+import com.example.demo_2340.model.Player;
+
+import java.util.Calendar;
 
 /*
  * Main Activity class that loads {@link MainFragment}.
  */
 public class GameScreen extends AppCompatActivity {
-
     private ImageView mapImageView;
     private Button nextButton;
     private int currentMapIndex = 0;
 
-    private final int[] mapImages = {
-            R.drawable.map1,
-            R.drawable.map2,
-            R.drawable.map3
-    };
+    private final int[] mapImages = {R.drawable.map1, R.drawable.map2, R.drawable.map3};
+    private TextView nameTextView;
+    private TextView healthTextView;
+    private ImageView spriteImageView;
+    private TextView difficultyTextView;
+    private TextView playerScoreTextView;
+    private static int playerScore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
+        playerScoreTextView = findViewById(R.id.playerScoreTextView);
+        playerScore = 101;
+        Handler handler = new Handler();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                if (playerScore != 0) {
+                    playerScore--;
+                }
+                playerScoreTextView.setText("Score: " + String.valueOf(playerScore));
+                handler.postDelayed(this, 1000);
+            }
+        };
 
-        TextView nameTextView = findViewById(R.id.nameTextView);
-        TextView healthTextView = findViewById(R.id.healthTextView);
-        ImageView spriteImageView = findViewById(R.id.spriteImageView);
-        TextView difficultyTextView = findViewById(R.id.difficultyTextView);
+        handler.postDelayed(runnable, 1000);
+
+        nameTextView = findViewById(R.id.nameTextView);
+        healthTextView = findViewById(R.id.healthTextView);
+        spriteImageView = findViewById(R.id.spriteImageView);
+        difficultyTextView = findViewById(R.id.difficultyTextView);
 
 
         mapImageView = findViewById(R.id.mapImageView);
@@ -92,9 +114,18 @@ public class GameScreen extends AppCompatActivity {
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Player.getInstance().setName(playerName);
+                Player.getInstance().setScore(playerScore);
+                Player.getInstance().setDate(Calendar.getInstance().getTime());
+                Leaderboard.addPlayer();
+                Player.getInstance().reset();
+                handler.removeCallbacks(runnable);
                 Intent intent = new Intent(GameScreen.this, EndScreenActivity.class);
                 startActivity(intent);
             }
         });
+    }
+    public static int getScore() {
+        return playerScore;
     }
 }
