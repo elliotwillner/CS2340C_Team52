@@ -29,6 +29,7 @@ public class EndScreenActivity extends AppCompatActivity {
     private TextView playerName5;
     private TextView playerScore5;
     private TextView playerDate5;
+    private TextView winTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,9 @@ public class EndScreenActivity extends AppCompatActivity {
 
         scoreTextView = findViewById(R.id.score_text_view);
         restartButton = findViewById(R.id.restart_button);
+        winTextView = findViewById(R.id.win_text_view);
+
+        winTextView.setText("You Win!");
 
         int mostRecentAttemptScore = GameScreen.getScore();
         scoreTextView.setText("Your Score: " + mostRecentAttemptScore);
