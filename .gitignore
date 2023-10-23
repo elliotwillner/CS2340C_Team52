@@ -1,31 +1,32 @@
-#disregard local files
-<<<<<<< HEAD
+.gradle/
+build/
+
 
 local.properties
-.gradle/
 
-.gradle
-**/build/
-!src/**/build/
 
-# Ignore Gradle GUI config
-gradle-app.setting
+*.log
 
-# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
-!gradle-wrapper.jar
 
-# Avoid ignore Gradle wrappper properties
-!gradle-wrapper.properties
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+output.json
 
-# Cache of project
-.gradletasknamecache
 
-# Eclipse Gradle plugin generated files
-# Eclipse Core
-.project
-# JDT-specific (Eclipse Java Development Tools)
-.classpath
-=======
-local.properties
-.gradle/
->>>>>>> julia
+*.iml
+.idea/
+
+
+*.jks
+*.keystore
+
+
+google-services.json
+
+
+*.hprof
+
+
+*.DS_Store

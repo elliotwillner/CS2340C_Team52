@@ -1,6 +1,7 @@
 package com.example.demo_2340.model;
 
 import android.view.KeyEvent;
+import android.widget.ImageView;
 
 import com.example.demo_2340.R;
 
@@ -13,6 +14,8 @@ public class Player implements  SpriteSubject {
     private int chosenClass;
     private int health;
     private int score;
+    private int mapOffsetX;
+    private int mapOffsetY;
     private Date date;
     private int playerX;
     private int playerY;
@@ -31,6 +34,7 @@ public class Player implements  SpriteSubject {
         this.date = null;
         this.playerX = 8;
         this.playerY = 14;
+        this.setMap(1);
     }
     public static Player getInstance() {
         if (uniqueInstance == null) {
@@ -51,18 +55,23 @@ public class Player implements  SpriteSubject {
         int newPlayerX = playerX;
         int newPlayerY = playerY;
 
+
         switch (keyCode) {
             case KeyEvent.KEYCODE_DPAD_UP:
                 newPlayerY = playerY - tileHeight;
+                System.out.println("UP");
                 break;
             case KeyEvent.KEYCODE_DPAD_LEFT:
                 newPlayerX = playerX - tileWidth;
+                System.out.println("LEFT");
                 break;
             case KeyEvent.KEYCODE_DPAD_DOWN:
-                newPlayerY = playerY - tileHeight;
+                newPlayerY = playerY + tileHeight;
+                System.out.println("DOWN");
                 break;
             case KeyEvent.KEYCODE_DPAD_RIGHT:
-                newPlayerX = playerX / tileWidth;
+                newPlayerX = playerX + tileWidth;
+                System.out.println("RIGHT");
                 break;
         }
         Player player = Player.getInstance();
@@ -87,6 +96,9 @@ public class Player implements  SpriteSubject {
         } else {
             player.setMovementStrategy(new IdleStrategy());
         }
+        System.out.println("x: " + Player.getInstance().getPlayerX());
+        System.out.println("y: " + Player.getInstance().getPlayerY());
+        notifySubscribers();
         player.move(player);
     }
 
@@ -194,6 +206,11 @@ public class Player implements  SpriteSubject {
                 map = tileMap.getMap3();
                 break;
         }
+    }
+
+    public void setMapOffset(int x, int y) {
+        mapOffsetX = x;
+        mapOffsetY = y;
     }
 
     @Override

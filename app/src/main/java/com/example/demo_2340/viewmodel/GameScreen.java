@@ -10,17 +10,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
 import android.os.Handler;
+import android.view.KeyEvent;
 
 import com.example.demo_2340.R;
 import com.example.demo_2340.model.Player;
+import com.example.demo_2340.model.SpriteObserver;
 
 import java.util.Calendar;
 
 /*
  * Main Activity class that loads {@link MainFragment}.
  */
-public class GameScreen extends AppCompatActivity {
+public class GameScreen extends AppCompatActivity implements SpriteObserver {
     private ImageView mapImageView;
+    private int mapOffsetX;
+    private int mapOffsetY;
     private Button nextButton;
     private int currentMapIndex = 0;
 
@@ -36,6 +40,7 @@ public class GameScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
         playerScoreTextView = findViewById(R.id.playerScoreTextView);
+        Player.getInstance().subscribe(this);
         playerScore = 101;
         Handler handler = new Handler();
         Runnable runnable = new Runnable() {
@@ -58,6 +63,7 @@ public class GameScreen extends AppCompatActivity {
 
 
         mapImageView = findViewById(R.id.mapImageView);
+        Player.getInstance().setMapOffset(mapImageView.getLeft(), mapImageView.getRight());
         nextButton = findViewById(R.id.next);
 
         // Set the initial map image
@@ -79,6 +85,7 @@ public class GameScreen extends AppCompatActivity {
                 mapImageView.setImageResource(mapImages[currentMapIndex]);
             }
         });
+
 
         String playerName = getIntent().getStringExtra("playerName");
         String spriteID = getIntent().getStringExtra("selectedCharacter");
@@ -127,5 +134,39 @@ public class GameScreen extends AppCompatActivity {
     }
     public static int getScore() {
         return playerScore;
+    }
+
+    @Override
+    public void update() {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                spriteImageView.setX(Player.getInstance().getPlayerX());
+                spriteImageView.setY(Player.getInstance().getPlayerY());
+                spriteImageView.invalidate();
+                System.out.println("Updating player sprite");
+            }
+        });
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // Check if the key event is from the arrow keys (DPAD keys)
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            if (keyCode == KeyEvent.KEYCODE_DPAD_UP ||
+                    keyCode == KeyEvent.KEYCODE_DPAD_DOWN ||
+                    keyCode == KeyEvent.KEYCODE_DPAD_LEFT ||
+                    keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
+
+                // Pass the key event to the Player class for handling
+                Player.getInstance().onKeyDown(keyCode, event);
+
+                // Return true to indicate that the key event was handled
+                return true;
+            }
+        }
+
+        // If the key event is not one of the arrow keys, handle it as needed
+        return super.onKeyDown(keyCode, event);
     }
 }
