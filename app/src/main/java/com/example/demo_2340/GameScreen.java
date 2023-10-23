@@ -126,6 +126,12 @@ public class GameScreen extends AppCompatActivity {
             }
         });
     }
+
+    if (isFinalExitReached) {
+        Intent intent = new Intent(GameScreen.this, EndScreenActivity.class);
+        intent.putExtra("score", playerScore);
+        startActivity(intent);
+    }
     public static int getScore() {
         return playerScore;
     }
