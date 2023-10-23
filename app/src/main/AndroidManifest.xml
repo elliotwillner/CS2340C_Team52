@@ -4,23 +4,12 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="2D Dungeon Game"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.S0">
         <activity
-            android:name="com.example.demo_2340.MainActivity"
-            android:exported="false"/>
-        <activity
-            android:name=".GameActivity"
-            android:exported="false" />
-        <activity android:name=".GameWinActivity"
-            android:exported="false" />
-        <activity android:name=".GameScreen"/>
-        <activity android:name=".EndScreenActivity"/>
-        <activity android:name=".ConfigActivity"/>
-        <activity
-            android:name=".WelcomeScreen"
+            android:name=".view.WelcomeScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +17,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".viewmodel.ConfigActivity"
+            android:exported="false" />
+        <activity
+            android:name=".viewmodel.GameScreen"
+            android:exported="false" />
+        <activity
+            android:name=".viewmodel.EndScreenActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

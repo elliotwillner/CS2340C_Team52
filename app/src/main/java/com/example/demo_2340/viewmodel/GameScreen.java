@@ -1,4 +1,4 @@
-package com.example.demo_2340;
+package com.example.demo_2340.viewmodel;
 
 import android.os.Bundle;
 
@@ -11,6 +11,9 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.os.Handler;
 
+import com.example.demo_2340.R;
+import com.example.demo_2340.model.Player;
+
 import java.util.Calendar;
 
 /*
@@ -21,11 +24,7 @@ public class GameScreen extends AppCompatActivity {
     private Button nextButton;
     private int currentMapIndex = 0;
 
-    private final int[] mapImages = {
-            R.drawable.map1,
-            R.drawable.map2,
-            R.drawable.map3
-    };
+    private final int[] mapImages = {R.drawable.map1, R.drawable.map2, R.drawable.map3};
     private TextView nameTextView;
     private TextView healthTextView;
     private ImageView spriteImageView;
