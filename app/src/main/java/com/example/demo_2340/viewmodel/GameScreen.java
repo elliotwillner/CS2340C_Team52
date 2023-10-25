@@ -5,9 +5,11 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
+import android.widget.Space;
 import android.widget.TextView;
 import android.widget.Button;
 import android.os.Handler;
@@ -47,7 +49,21 @@ public class GameScreen extends AppCompatActivity implements SpriteObserver {
         // test
         GridLayout gridLayout = findViewById(R.id.gameGrid);
         for (int x = 0; x < gridLayout.getColumnCount(); x++) {
-            // implementation goes here
+            GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+            params.columnSpec = GridLayout.spec(x, 1, 1);
+            params.rowSpec = GridLayout.spec(0, 1, 1);
+            params.setGravity(Gravity.FILL);
+            params.width = 0;
+            gridLayout.addView(new Space(this), params);
+        }
+
+        for (int y = 0; y < gridLayout.getRowCount(); y++) {
+            GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+            params.columnSpec = GridLayout.spec(0, 1, 1);
+            params.rowSpec = GridLayout.spec(y, 1, 1);
+            params.setGravity(Gravity.FILL);
+            params.width = 0;
+            gridLayout.addView(new Space(this), params);
         }
         // test - needed to put this segment inside a method
 
@@ -137,6 +153,15 @@ public class GameScreen extends AppCompatActivity implements SpriteObserver {
                 startActivity(intent);
             }
         });
+
+        private void moveViewToPosition(View view, int row, int column) {
+            GridLayout.LayoutParams params = (GridLayout.LayoutParams) view.getLayoutParams();
+
+            params.rowSpec = GridLayout.spec(row);
+            params.rowSpec = GridLayout.spec(column);
+            view.setLayoutParams(params);
+            view.getParent().requestLayout();
+        }
     }
     public static int getScore() {
         return playerScore;

@@ -100,7 +100,7 @@
             android:layout_column="1"
             android:layout_gravity="fill"
             android:visibility="visible"
-            app:drawableImage="@{viewModel.drawableImage"/>
+            tools:srcCompat="@tools:sample/avatars"/>
     </GridLayout>
 
     <Button
