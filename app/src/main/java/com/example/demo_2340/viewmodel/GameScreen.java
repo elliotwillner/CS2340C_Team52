@@ -153,16 +153,16 @@ public class GameScreen extends AppCompatActivity implements SpriteObserver {
                 startActivity(intent);
             }
         });
-
-        private void moveViewToPosition(View view, int row, int column) {
-            GridLayout.LayoutParams params = (GridLayout.LayoutParams) view.getLayoutParams();
-
-            params.rowSpec = GridLayout.spec(row);
-            params.rowSpec = GridLayout.spec(column);
-            view.setLayoutParams(params);
-            view.getParent().requestLayout();
-        }
     }
+    private void moveViewToPosition(View view, int row, int column) {
+        GridLayout.LayoutParams params = (GridLayout.LayoutParams) view.getLayoutParams();
+
+        params.rowSpec = GridLayout.spec(row);
+        params.rowSpec = GridLayout.spec(column);
+        view.setLayoutParams(params);
+        view.getParent().requestLayout();
+    }
+
     public static int getScore() {
         return playerScore;
     }
