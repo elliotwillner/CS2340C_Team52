@@ -7,8 +7,8 @@ public class Tile {
     private int posY;
     private int type;
     public Tile(int posX, int posY, int type) {
-        width = 16;
-        height = 16;
+        width = 25;
+        height = 25;
         this.posX = posX;
         this.posY = posY;
         /**

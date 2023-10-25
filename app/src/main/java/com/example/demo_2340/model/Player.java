@@ -14,8 +14,8 @@ public class Player implements  SpriteSubject {
     private int chosenClass;
     private int health;
     private int score;
-    private int mapOffsetX;
-    private int mapOffsetY;
+    private int mapOffsetX = 0;
+    private int mapOffsetY = 550;
     private Date date;
     private int playerX;
     private int playerY;
@@ -32,9 +32,11 @@ public class Player implements  SpriteSubject {
         this.chosenClass = chosenClass;
         this.score = 100;
         this.date = null;
-        this.playerX = 8;
-        this.playerY = 14;
+        this.playerX = 37;
+        this.playerY = 625;
         this.setMap(1);
+        System.out.println("playerX = " + playerX);
+        System.out.println("playerY = " + playerY);
     }
     public static Player getInstance() {
         if (uniqueInstance == null) {
@@ -74,8 +76,10 @@ public class Player implements  SpriteSubject {
                 System.out.println("RIGHT");
                 break;
         }
+        System.out.println("relative X on map: " + (newPlayerX - mapOffsetX));
+        System.out.println("relative Y on map: " + (newPlayerY - mapOffsetY));
         Player player = Player.getInstance();
-        if (!collisionChecker.checkCollision(newPlayerX / tileWidth, newPlayerY /tileHeight, map)) {
+        if (!collisionChecker.checkCollision((newPlayerX - mapOffsetX) / tileWidth, (newPlayerY - mapOffsetY) /tileHeight, map)) {
             switch (keyCode) {
                 case KeyEvent.KEYCODE_DPAD_UP:
                     player.setMovementStrategy(new MoveUpStrategy(tileHeight));

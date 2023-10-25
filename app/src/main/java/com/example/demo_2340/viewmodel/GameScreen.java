@@ -63,7 +63,6 @@ public class GameScreen extends AppCompatActivity implements SpriteObserver {
 
 
         mapImageView = findViewById(R.id.mapImageView);
-        Player.getInstance().setMapOffset(mapImageView.getLeft(), mapImageView.getRight());
         nextButton = findViewById(R.id.next);
 
         // Set the initial map image
@@ -86,6 +85,8 @@ public class GameScreen extends AppCompatActivity implements SpriteObserver {
             }
         });
 
+        System.out.println("X: " + mapImageView.getX());
+        System.out.println("Y: " + mapImageView.getY());
 
         String playerName = getIntent().getStringExtra("playerName");
         String spriteID = getIntent().getStringExtra("selectedCharacter");
@@ -116,6 +117,8 @@ public class GameScreen extends AppCompatActivity implements SpriteObserver {
         } else if (spriteID.equals("Warrior")) {
             spriteImageView.setImageResource(R.drawable.warrior_image);
         }
+        System.out.println("Sprite X: " + spriteImageView.getX());
+        System.out.println("Sprite Y: " + spriteImageView.getY());
 
         Button exit = findViewById(R.id.exit);
         exit.setOnClickListener(new View.OnClickListener() {
@@ -151,22 +154,18 @@ public class GameScreen extends AppCompatActivity implements SpriteObserver {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        // Check if the key event is from the arrow keys (DPAD keys)
         if (event.getAction() == KeyEvent.ACTION_DOWN) {
             if (keyCode == KeyEvent.KEYCODE_DPAD_UP ||
                     keyCode == KeyEvent.KEYCODE_DPAD_DOWN ||
                     keyCode == KeyEvent.KEYCODE_DPAD_LEFT ||
                     keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
 
-                // Pass the key event to the Player class for handling
                 Player.getInstance().onKeyDown(keyCode, event);
 
-                // Return true to indicate that the key event was handled
                 return true;
             }
         }
 
-        // If the key event is not one of the arrow keys, handle it as needed
         return super.onKeyDown(keyCode, event);
     }
 }

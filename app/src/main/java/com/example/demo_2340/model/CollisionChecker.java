@@ -2,6 +2,8 @@ package com.example.demo_2340.model;
 
 public class CollisionChecker {
     public boolean checkCollision(int x, int y, Tile[][] map) {
+        System.out.println("Collision x: " + x);
+        System.out.println("Collision y: " + y);
         int mapWidth = map.length;
         int mapHeight = map[0].length;
 
@@ -14,6 +16,7 @@ public class CollisionChecker {
 
     public void checkTile(int x, int y, Tile[][] map, Player player) {
         int tileType = map[x][y].getType();
+        System.out.println("Tile type: " + tileType);
 
         switch (tileType) {
             case 0:
