@@ -77,16 +77,31 @@
         app:layout_constraintVertical_bias="0.17"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <ImageView
-        android:id="@+id/mapImageView"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
+
+    <GridLayout
+        android:id="@+id/gameGrid"
+        android:layout_width="0dp"
+        android:layout_height="692dp"
+        android:background="@drawable/map1"
+        android:columnCount="16"
+        android:rowCount="16"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.645"
-        tools:srcCompat="@tools:sample/avatars" />
+        >
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="50dp"
+            android:layout_height="46dp"
+            android:layout_row="0"
+            android:layout_rowSpan="1"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            app:drawableImage="@{viewModel.drawableImage"/>
+    </GridLayout>
 
     <Button
         android:id="@+id/next"
@@ -100,19 +115,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
 
-
-    <ImageView
-        android:id="@+id/spriteImageView"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_row="5"
-        android:layout_column="5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.348"
-        tools:srcCompat="@tools:sample/avatars" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

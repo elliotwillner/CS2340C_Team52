@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
@@ -42,6 +43,14 @@ public class GameScreen extends AppCompatActivity implements SpriteObserver {
         playerScoreTextView = findViewById(R.id.playerScoreTextView);
         Player.getInstance().subscribe(this);
         playerScore = 101;
+
+        // test
+        GridLayout gridLayout = findViewById(R.id.gameGrid);
+        for (int x = 0; x < gridLayout.getColumnCount(); x++) {
+            // implementation goes here
+        }
+        // test - needed to put this segment inside a method
+
         Handler handler = new Handler();
         Runnable runnable = new Runnable() {
             @Override
@@ -58,25 +67,19 @@ public class GameScreen extends AppCompatActivity implements SpriteObserver {
 
         nameTextView = findViewById(R.id.nameTextView);
         healthTextView = findViewById(R.id.healthTextView);
-        spriteImageView = findViewById(R.id.spriteImageView);
         difficultyTextView = findViewById(R.id.difficultyTextView);
 
 
-        mapImageView = findViewById(R.id.mapImageView);
         nextButton = findViewById(R.id.next);
 
-        // Set the initial map image
         mapImageView.setImageResource(mapImages[currentMapIndex]);
 
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Increment the map index
                 currentMapIndex++;
 
-                // Check if we've reached the end of the mapImages array
                 if (currentMapIndex >= mapImages.length) {
-                    // Reset to the first map if we've gone past the last one
                     currentMapIndex = 0;
                 }
 
@@ -151,6 +154,11 @@ public class GameScreen extends AppCompatActivity implements SpriteObserver {
             }
         });
     }
+
+    //Movement
+    int initY = 10;
+    int initX = 10;
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
