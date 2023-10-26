@@ -1,4 +1,4 @@
-package com.example.demo_2340.viewmodel;
+package com.example.demo_2340;
 
 import android.content.Intent;
 import android.os.Bundle;

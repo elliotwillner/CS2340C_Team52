@@ -1,4 +1,4 @@
-package com.example.demo_2340.viewmodel;
+package com.example.demo_2340;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 import android.widget.Button;
 
 import com.example.demo_2340.R;
-import com.example.demo_2340.view.WelcomeScreen;
+import com.example.demo_2340.WelcomeScreen;
 
 
 public class EndScreenActivity extends AppCompatActivity {

@@ -1,5 +1,5 @@
-package com.example.demo_2340.viewmodel;
-import com.example.demo_2340.model.Player;
+package com.example.demo_2340;
+import com.example.demo_2340.Player;
 
 import java.util.ArrayList;
 

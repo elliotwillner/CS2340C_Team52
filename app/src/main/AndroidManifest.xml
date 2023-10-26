@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.S0">
         <activity
-            android:name=".view.WelcomeScreen"
+            android:name=".WelcomeScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,13 +18,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".viewmodel.ConfigActivity"
+            android:name=".ConfigActivity"
             android:exported="false" />
         <activity
-            android:name=".viewmodel.GameScreen"
+            android:name=".GameScreen"
             android:exported="false" />
         <activity
-            android:name=".viewmodel.EndScreenActivity"
+            android:name=".EndScreenActivity"
             android:exported="false" />
     </application>
 

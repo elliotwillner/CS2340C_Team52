@@ -3,7 +3,7 @@ package test;
 import static org.junit.Assert.assertEquals;
 
 import com.example.demo_2340.R;
-import com.example.demo_2340.model.Player;
+import com.example.demo_2340.Player;
 
 import org.junit.Test;
 public class PlayerUnitTest {
