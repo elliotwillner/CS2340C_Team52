@@ -3,12 +3,13 @@ package com.example.demo_2340;
 public class MoveDown implements MoveStrategy {
     @Override
     public void move(Player player, Tile[][] map) {
-        int newPosY = player.getMapPosY() + 1;
-        if (newPosY < 15) {
-            int tileType = map[newPosY][player.getMapPosX()].getType();
-            if (tileType != 1) {
-                player.setViewPos(player.getViewPosX(), newPosY);
-                player.setMapPos(player.getMapPosX(), newPosY);
+        int row = player.getRow();
+        int column = player.getColumn();
+        if (row < map.length - 1) {
+            int newRow = row + 1;
+            Tile newTile = map[newRow][column];
+            if (newTile.getType() != 1) {
+                player.setRow(newRow);
             }
         }
     }

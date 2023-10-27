@@ -1,5 +1,8 @@
 package com.example.demo_2340;
 
+/**
+ * getMaps don't work for some reason so just copy and paste to the game screen
+ */
 public class TileMap {
     private static Tile[][] map1;
     private Tile[][] map2;
