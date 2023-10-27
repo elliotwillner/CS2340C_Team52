@@ -118,6 +118,24 @@ public class GameScreen extends AppCompatActivity implements Observer {
         //Intent intent = new Intent (GameScreen.this, GameScreen2.class);
         //also transfer name, difficulty, sprite, and score variables <-- figure this out
         //startActivity(intent);
+        int tileType = map[y][x].getType();
+        switch (tileType) {
+            case 3:
+                // Handle type 3 tile
+                break;
+            case 4:
+                // Handle type 4 tile
+                break;
+            case 6:
+                // Handle type 6 tile
+                break;
+            case 7:
+                // Handle type 7 tile
+                break;
+            default:
+                // Handle other cases (if needed)
+                break;
+        }
     }
 
     /**
