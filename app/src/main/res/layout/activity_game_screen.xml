@@ -6,7 +6,7 @@
     android:id="@+id/main_browse_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".viewmodel.GameScreen"
+    tools:context=".GameScreen"
     tools:deviceIds="tv"
     tools:ignore="MergeRootFrame">
 
@@ -22,18 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
-
-    <Button
-        android:id="@+id/exit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Exit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.95"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
 
     <TextView
         android:id="@+id/difficultyTextView"
@@ -88,28 +76,28 @@
         app:layout_constraintVertical_bias="0.645"
         tools:srcCompat="@tools:sample/avatars" />
 
-    <Button
-        android:id="@+id/next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next"
+    <GridLayout
+        android:id="@+id/grid"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:background="@drawable/map1"
+        android:columnCount="16"
+        android:rowCount="16"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.942"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.646">
 
-    <ImageView
+        <ImageView
             android:id="@+id/spriteImageView"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_row="5"
-            android:layout_column="5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible" />
+    </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

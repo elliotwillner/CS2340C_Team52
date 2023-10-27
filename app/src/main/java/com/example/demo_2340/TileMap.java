@@ -1,7 +1,10 @@
 package com.example.demo_2340;
 
+/**
+ * getMaps don't work for some reason so just copy and paste to the game screen
+ */
 public class TileMap {
-    private Tile[][] map1;
+    private static Tile[][] map1;
     private Tile[][] map2;
     private Tile[][] map3;
     public TileMap() {
@@ -252,7 +255,7 @@ public class TileMap {
                     new Tile(13, 16, 1), new Tile(14, 16, 1), new Tile(15, 16, 1), new Tile(16, 16, 1)},
         };
     }
-    public Tile[][] getMap1() {
+    public static Tile[][] getMap1() {
         return map1;
     }
     public Tile[][] getMap2() {
