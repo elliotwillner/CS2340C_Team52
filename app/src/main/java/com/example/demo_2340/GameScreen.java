@@ -214,15 +214,26 @@ public class GameScreen extends AppCompatActivity implements Observer {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
-            //add other cases
+            case KeyEvent.KEYCODE_DPAD_LEFT:
+                if (player.getColumn() > 0) {
+                    player.setMoveStrategy(new MoveLeft());
+                    player.move(map);
+                }
+                break;
             case KeyEvent.KEYCODE_DPAD_UP:
                 if (player.getRow() > 0) {
                     player.setMoveStrategy(new MoveUp());
                     player.move(map);
                 }
                 break;
+            case KeyEvent.KEYCODE_DPAD_RIGHT:
+                if (player.getColumn() < 15) {
+                    player.setMoveStrategy(new MoveRight());
+                    player.move(map);
+                }
+                break;
             case KeyEvent.KEYCODE_DPAD_DOWN:
-                if (player.getRow() < grid.getRowCount() - 1) {
+                if (player.getRow() < 15) {
                     player.setMoveStrategy(new MoveDown());
                     player.move(map);
                 }
