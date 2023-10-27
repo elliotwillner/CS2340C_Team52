@@ -5,7 +5,7 @@ public class MoveDown implements MoveStrategy {
     public void move(Player player, Tile[][] map) {
         int row = player.getRow();
         int column = player.getColumn();
-        if (row < map.length - 1) {
+        if (row < 15) {
             int newRow = row + 1;
             Tile newTile = map[newRow][column];
             if (newTile.getType() != 1) {
