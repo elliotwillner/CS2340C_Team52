@@ -15,6 +15,6 @@ Sarah Islam
 - [ ] Sprint 5
 
 for sprint 3:
-- implement moveright and moveleft
 - make 2 more game screens + xml
 - add transitions to update()
+- minor tilemap issues
