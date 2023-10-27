@@ -28,6 +28,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
     private Player player = Player.getInstance();
     private static int playerScore;
     private GridLayout grid;
+    private int currMap;
 
     Tile[][] map = new Tile[][] {
         //row1
@@ -118,19 +119,43 @@ public class GameScreen extends AppCompatActivity implements Observer {
         //Intent intent = new Intent (GameScreen.this, GameScreen2.class);
         //also transfer name, difficulty, sprite, and score variables <-- figure this out
         //startActivity(intent);
-        int tileType = map[y][x].getType();
+        int tileType = 0;
+        if (currMap == R.drawable.map1) {
+            tileType = TileMap.getMap1()[y][x].getType();
+        } else if (currMap == R.drawable.map2) {
+            tileType = TileMap.getMap2()[y][x].getType();
+        } else if (currMap == R.drawable.map3) {
+            tileType = TileMap.getMap3()[y][x].getType();
+        }
+
         switch (tileType) {
             case 3:
                 // Handle type 3 tile
+                mapImageView.setImageResource(R.drawable.map2);
+                player.setRow(7);
+                player.setColumn(2);
+                currMap = R.drawable.map2;
                 break;
             case 4:
                 // Handle type 4 tile
+                mapImageView.setImageResource(R.drawable.map3);
+                player.setRow(7);
+                player.setColumn(2);
+                currMap = R.drawable.map3;
                 break;
             case 6:
                 // Handle type 6 tile
+                mapImageView.setImageResource(R.drawable.map1);
+                player.setRow(7);
+                player.setColumn(13);
+                currMap = R.drawable.map1;
                 break;
             case 7:
                 // Handle type 7 tile
+                mapImageView.setImageResource(R.drawable.map2);
+                player.setRow(7);
+                player.setColumn(13);
+                currMap = R.drawable.map2;
                 break;
             default:
                 // Handle other cases (if needed)

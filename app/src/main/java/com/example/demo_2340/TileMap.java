@@ -5,8 +5,8 @@ package com.example.demo_2340;
  */
 public class TileMap {
     private static Tile[][] map1;
-    private Tile[][] map2;
-    private Tile[][] map3;
+    private static Tile[][] map2;
+    private static Tile[][] map3;
     public TileMap() {
         map1 = new Tile[][] {
             //row1
@@ -71,7 +71,7 @@ public class TileMap {
                     new Tile(13, 12, 0), new Tile(14, 12, 0), new Tile(15, 12, 0), new Tile(16, 12, 1)},
             //row13
             {new Tile(1, 13, 1), new Tile(2, 13, 0), new Tile(3, 13, 0), new Tile(4, 13, 1),
-                    new Tile(5, 13, 0), new Tile(6, 13, 0), new Tile(7, 13, 0), new Tile(8, 13, 0),
+                    new Tile(5, 13, 0), new Tile(6, 13, 0), new Tile(7, 13, 3), new Tile(8, 13, 3),
                     new Tile(9, 13, 0), new Tile(10, 13, 0), new Tile(11, 13, 0), new Tile(12, 13, 0),
                     new Tile(13, 13, 1), new Tile(14, 13, 0), new Tile(15, 13, 0), new Tile(16, 13, 1)},
             //row14
@@ -258,10 +258,10 @@ public class TileMap {
     public static Tile[][] getMap1() {
         return map1;
     }
-    public Tile[][] getMap2() {
+    public static Tile[][] getMap2() {
         return map2;
     }
-    public Tile[][] getMap3() {
+    public static Tile[][] getMap3() {
         return map3;
     }
 }
