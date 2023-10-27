@@ -1,5 +1,6 @@
 package com.example.demo_2340.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import com.example.demo_2340.R;
 public class Player {
@@ -10,6 +11,10 @@ public class Player {
     private int score;
     private Date date;
     private static volatile Player uniqueInstance;
+    private int mapPosX;
+    private int mapPosY;
+    private int viewPosX;
+    private int viewPosY;
 
     public Player(String name, int difficulty, int chosenClass) {
         this.name = name;
@@ -94,5 +99,42 @@ public class Player {
 
     public synchronized void setDate(Date date) {
         this.date = date;
+    }
+    //movement getters/setters
+    public int getMapPosY() {
+        return mapPosY;
+    }
+
+    public int getMapPosX() {
+        return mapPosX;
+    }
+
+    public int getViewPosX() {
+        return viewPosX;
+    }
+    public int getViewPosY() {
+        return viewPosY;
+    }
+
+    public void setViewPos(int x, int y) {
+        this.viewPosX = x;
+        this.viewPosY = y;
+        notifyObservers();
+    }
+
+    private final ArrayList<Observer> observerList = new ArrayList<>();
+    public void notifyObservers() {
+        for (Observer observers : observerList) {
+            observers.update(x, y);
+        }
+    }
+
+    public ArrayList<Observer> getObserverList() {
+        return observerList;
+    }
+
+    public void setMapPos(int x, int y) {
+        this.mapPosX = x;
+        this.mapPosY = y;
     }
 }
