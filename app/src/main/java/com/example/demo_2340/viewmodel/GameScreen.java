@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.view.View;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Button;
@@ -53,16 +54,16 @@ public class GameScreen extends AppCompatActivity {
 
         nameTextView = findViewById(R.id.nameTextView);
         healthTextView = findViewById(R.id.healthTextView);
-        spriteImageView = findViewById(R.id.spriteImageView);
+        spriteImageView = findViewById(R.id.player);
         difficultyTextView = findViewById(R.id.difficultyTextView);
 
 
-        mapImageView = findViewById(R.id.mapImageView);
+        //mapImageView = findViewById(R.id.mapImageView);
         nextButton = findViewById(R.id.next);
-
+        System.out.println("Hello");
         // Set the initial map image
-        mapImageView.setImageResource(mapImages[currentMapIndex]);
-
+        //mapImageView.setImageResource(mapImages[currentMapIndex]);
+        /*
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -79,10 +80,15 @@ public class GameScreen extends AppCompatActivity {
                 mapImageView.setImageResource(mapImages[currentMapIndex]);
             }
         });
-
+        */
         String playerName = getIntent().getStringExtra("playerName");
         String spriteID = getIntent().getStringExtra("selectedCharacter");
         int difficulty = getIntent().getIntExtra("selectedDifficulty", 1);
+
+        GridLayout gridLayout = findViewById(R.id.gameGrid);
+
+
+        for (int x = 0; x < gridLayout.)
 
         nameTextView.setText(playerName);
 
@@ -125,12 +131,13 @@ public class GameScreen extends AppCompatActivity {
             }
         });
     }
-
+    /*
     if (isFinalExitReached) {
         Intent intent = new Intent(GameScreen.this, EndScreenActivity.class);
         intent.putExtra("score", playerScore);
         startActivity(intent);
     }
+    */
     public static int getScore() {
         return playerScore;
     }

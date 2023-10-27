@@ -125,7 +125,7 @@ public class Player {
     private final ArrayList<Observer> observerList = new ArrayList<>();
     public void notifyObservers() {
         for (Observer observers : observerList) {
-            observers.update(x, y);
+            //observers.update(x, y);
         }
     }
 

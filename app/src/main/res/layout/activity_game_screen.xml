@@ -79,27 +79,2324 @@
 
     <GridLayout
         android:id="@+id/gameGrid"
-        android:layout_width="0dp"
-        android:layout_height="692dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:background="@drawable/map1"
         android:columnCount="16"
         android:rowCount="16"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         >
         <ImageView
-            android:id="@+id/player"
-            android:layout_columnSpan="1"
+            android:id="@+id/iv00"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_rowSpan="1"
-            android:layout_width="50dp"
-            android:layout_height="46dp"
+            android:layout_columnSpan="1"
+            android:layout_row="5"
             android:layout_gravity="fill"
             android:visibility="visible"
-            tools:srcCompat="@tools:sample/avatars"
-            />
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/iv01"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_row="5"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_row="5"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_row="5"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_rowSpan="1"
+            android:layout_columnSpan="1"
+            android:layout_gravity="fill"
+            android:visibility="visible"
+            tools:srcCompat="@tools:sample/avatars" />
 
     </GridLayout>
 
