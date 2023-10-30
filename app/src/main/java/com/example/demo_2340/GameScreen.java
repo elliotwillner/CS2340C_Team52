@@ -52,7 +52,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
                 new Tile(9, 4, 2), new Tile(10, 4, 0), new Tile(11, 4, 0), new Tile(12, 4, 0),
                 new Tile(13, 4, 0), new Tile(14, 4, 0), new Tile(15, 4, 0), new Tile(16, 4, 1)},
         //row5
-        {new Tile(1, 5, 1), new Tile(2, 5, 0), new Tile(3, 5, 0), new Tile(4, 5, 0),
+        {new Tile(1, 5, 1), new Tile(2, 5, 0), new Tile(3, 5, 0), new Tile(4, 5, 1),
                 new Tile(5, 5, 0), new Tile(6, 5, 0), new Tile(7, 5, 0), new Tile(8, 5, 0),
                 new Tile(9, 5, 0), new Tile(10, 5, 0), new Tile(11, 5, 0), new Tile(12, 5, 0),
                 new Tile(13, 5, 1), new Tile(14, 5, 2), new Tile(15, 5, 0), new Tile(16, 5, 1)},
@@ -62,10 +62,10 @@ public class GameScreen extends AppCompatActivity implements Observer {
                 new Tile(9, 6, 0), new Tile(10, 6, 0), new Tile(11, 6, 0), new Tile(12, 6, 0),
                 new Tile(13, 6, 1), new Tile(14, 6, 0), new Tile(15, 6, 0), new Tile(16, 6, 1)},
         //row7
-        {new Tile(1, 7, 1), new Tile(2, 7, 0), new Tile(3, 7, 0), new Tile(4, 7, 1),
+        {new Tile(1, 7, 1), new Tile(2, 7, 0), new Tile(3, 7, 0), new Tile(4, 7, 0),
                 new Tile(5, 7, 0), new Tile(6, 7, 0), new Tile(7, 7, 0), new Tile(8, 7, 2),
                 new Tile(9, 7, 0), new Tile(10, 7, 0), new Tile(11, 7, 0), new Tile(12, 7, 0),
-                new Tile(13, 7, 1), new Tile(14, 7, 0), new Tile(15, 7, 0), new Tile(16, 7, 1)},
+                new Tile(13, 7, 0), new Tile(14, 7, 0), new Tile(15, 7, 0), new Tile(16, 7, 1)},
         //row8
         {new Tile(1, 8, 1), new Tile(2, 8, 0), new Tile(3, 8, 0), new Tile(4, 8, 0),
                 new Tile(5, 8, 0), new Tile(6, 8, 0), new Tile(7, 8, 0), new Tile(8, 8, 0),
@@ -78,13 +78,13 @@ public class GameScreen extends AppCompatActivity implements Observer {
                 new Tile(13, 9, 0), new Tile(14, 9, 0), new Tile(15, 9, 0), new Tile(16, 9, 1)},
         //row10
         {new Tile(1, 10, 1), new Tile(2, 10, 0), new Tile(3, 10, 0), new Tile(4, 10, 0),
-                new Tile(5, 10, 0), new Tile(6, 10, 0), new Tile(7, 10, 0), new Tile(8, 10, 0),
+                new Tile(5, 10, 1), new Tile(6, 10, 0), new Tile(7, 10, 0), new Tile(8, 10, 0),
                 new Tile(9, 10, 0), new Tile(10, 10, 0), new Tile(11, 10, 0), new Tile(12, 10, 1),
                 new Tile(13, 10, 0), new Tile(14, 10, 0), new Tile(15, 10, 0), new Tile(16, 10, 1)},
         //row11
         {new Tile(1, 11, 1), new Tile(2, 11, 0), new Tile(3, 11, 0), new Tile(4, 11, 0),
-                new Tile(5, 11, 1), new Tile(6, 11, 2), new Tile(7, 11, 0), new Tile(8, 11, 0),
-                new Tile(9, 11, 0), new Tile(10, 11, 0), new Tile(11, 11, 0), new Tile(12, 11, 1),
+                new Tile(5, 11, 0), new Tile(6, 11, 2), new Tile(7, 11, 0), new Tile(8, 11, 0),
+                new Tile(9, 11, 0), new Tile(10, 11, 0), new Tile(11, 11, 0), new Tile(12, 11, 0),
                 new Tile(13, 11, 0), new Tile(14, 11, 0), new Tile(15, 11, 0), new Tile(16, 11, 1)},
         //row12
         {new Tile(1, 12, 1), new Tile(2, 12, 0), new Tile(3, 12, 2), new Tile(4, 12, 0),
@@ -102,10 +102,10 @@ public class GameScreen extends AppCompatActivity implements Observer {
                 new Tile(9, 14, 0), new Tile(10, 14, 0), new Tile(11, 14, 0), new Tile(12, 14, 0),
                 new Tile(13, 14, 1), new Tile(14, 14, 2), new Tile(15, 14, 0), new Tile(16, 14, 1)},
         //row15
-        {new Tile(1, 15, 1), new Tile(2, 15, 0), new Tile(3, 15, 0), new Tile(4, 15, 1),
+        {new Tile(1, 15, 1), new Tile(2, 15, 0), new Tile(3, 15, 0), new Tile(4, 15, 0),
                 new Tile(5, 15, 0), new Tile(6, 15, 2), new Tile(7, 15, 0), new Tile(8, 15, 1),
                 new Tile(9, 15, 1), new Tile(10, 15, 0), new Tile(11, 15, 0), new Tile(12, 15, 0),
-                new Tile(13, 15, 1), new Tile(14, 15, 0), new Tile(15, 15, 0), new Tile(16, 15, 1)},
+                new Tile(13, 15, 0), new Tile(14, 15, 0), new Tile(15, 15, 0), new Tile(16, 15, 1)},
         //row16
         {new Tile(1, 16, 1), new Tile(2, 16, 1), new Tile(3, 16, 1), new Tile(4, 16, 1),
                 new Tile(5, 16, 1), new Tile(6, 16, 1), new Tile(7, 16, 1), new Tile(8, 16, 1),
