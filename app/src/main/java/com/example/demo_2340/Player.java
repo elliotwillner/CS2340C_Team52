@@ -57,8 +57,8 @@ public class Player implements Observable{
         this.date = null;
         this.strategy = null;
         //start position
-        this.column = 9;
-        this.row = 14;
+        this.column = 7;
+        this.row = 2;
     }
     public static Player getInstance() {
         if (uniqueInstance == null) {
