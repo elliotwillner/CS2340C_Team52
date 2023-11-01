@@ -2,53 +2,126 @@ package test;
 
 import static org.junit.Assert.assertEquals;
 
-import com.example.demo_2340.R;
 import com.example.demo_2340.Player;
+import com.example.demo_2340.MoveLeft;
+import com.example.demo_2340.MoveRight;
+import com.example.demo_2340.MoveDown;
+import com.example.demo_2340.MoveUp;
+import com.example.demo_2340.Tile;
+import com.example.demo_2340.TileMap;
 
 import org.junit.Test;
+
 public class PlayerUnitTest {
 
-    Player p1 = new Player("Jin", 1, 2);
-    Player p2 = new Player("Julia", 1, 3);
-    Player p3 = new Player("Elliot", 2, 3);
-    Player p4 = new Player("Tyler", 2, 1);
-    Player p5 = new Player("Sarah", 3, 1);
-    @Test
-    public void testName() {
-        p1.setName("Jie");
-        assertEquals(p1.getName(), "Jie");
-        p2.setName("Julie");
-        assertEquals(p2.getName(), "Julie");
-        p3.setName("Ellie");
-        assertEquals(p3.getName(), "Ellie");
-        p4.setName("Tylie");
-        assertEquals(p4.getName(), "Tylie");
-        p5.setName("Sarie");
-        assertEquals(p5.getName(), "Sarie");
-    }
-    @Test
-    public void testDifficulty() {
-        assertEquals(p1.getDifficulty(), 1);
-        assertEquals(p2.getDifficulty(), 1);
-        assertEquals(p3.getDifficulty(), 2);
-        assertEquals(p4.getDifficulty(), 2);
-        assertEquals(p5.getDifficulty(), 3);
-    }
-    @Test
-    public void testPlayerHealth() {
-        assertEquals(p1.getHealth(), 100);
-        assertEquals(p2.getHealth(), 100);
-        assertEquals(p3.getHealth(), 75);
-        assertEquals(p4.getHealth(), 75);
-        assertEquals(p5.getHealth(), 50);
-    }
-    @Test
-    public void testScore() {
-        assertEquals(p1.getScore(), 100);
-        assertEquals(p2.getScore(), 100);
-        assertEquals(p3.getScore(), 100);
-        assertEquals(p4.getScore(), 100);
-        assertEquals(p5.getScore(), 100);
-    }
+    private final Player player1 = new Player();
+    private final Tile[][] testMap = new TileMap().getMap(2);
 
+    @Test
+    public void testPlayerMovementRight() {
+        Player player1 = Player.getInstance();
+        player1.setRow(3);
+        player1.setColumn(3);
+        player1.setMoveStrategy(new MoveRight());
+        player1.move(testMap);
+        assertEquals(player1.getRow(), 3);
+        assertEquals(player1.getColumn(), 4);
+    }
+    @Test
+    public void testPlayerMovementLeft() {
+        Player player1 = Player.getInstance();
+        player1.setRow(3);
+        player1.setColumn(3);
+        player1.setMoveStrategy(new MoveLeft());
+        player1.move(testMap);
+        assertEquals(player1.getRow(), 3);
+        assertEquals(player1.getColumn(), 2);
+    }
+    @Test
+    public void testPlayerMovementDown() {
+        Player player1 = Player.getInstance();
+        player1.setRow(3);
+        player1.setColumn(3);
+        player1.setMoveStrategy(new MoveDown());
+        player1.move(testMap);
+        assertEquals(player1.getRow(), 4);
+        assertEquals(player1.getColumn(), 3);
+    }
+    @Test
+    public void testPlayerMovementUp() {
+        Player player1 = Player.getInstance();
+        player1.setRow(3);
+        player1.setColumn(3);
+        player1.setMoveStrategy(new MoveUp());
+        player1.move(testMap);
+        assertEquals(player1.getRow(), 2);
+        assertEquals(player1.getColumn(), 3);
+    }
+    @Test
+    public void testPlayerCollisionRight() {
+        Player player1 = Player.getInstance();
+        player1.setRow(2);
+        player1.setColumn(14);
+        player1.setMoveStrategy(new MoveRight());
+        player1.move(testMap);
+        assertEquals(player1.getRow(), 2);
+        assertEquals(player1.getColumn(), 14);
+    }
+    @Test
+    public void testPlayerCollisionLeft() {
+        Player player1 = Player.getInstance();
+        player1.setRow(14);
+        player1.setColumn(1);
+        player1.setMoveStrategy(new MoveLeft());
+        player1.move(testMap);
+        assertEquals(player1.getRow(), 14);
+        assertEquals(player1.getColumn(), 1);
+    }
+    @Test
+    public void testPlayerCollisionDown() {
+        Player player1 = Player.getInstance();
+        player1.setRow(14);
+        player1.setColumn(1);
+        player1.setMoveStrategy(new MoveDown());
+        player1.move(testMap);
+        assertEquals(player1.getRow(), 14);
+        assertEquals(player1.getColumn(), 1);
+    }
+    @Test
+    public void testPlayerCollisionUp() {
+        Player player1 = Player.getInstance();
+        player1.setRow(2);
+        player1.setColumn(14);
+        player1.setMoveStrategy(new MoveUp());
+        player1.move(testMap);
+        assertEquals(player1.getRow(), 2);
+        assertEquals(player1.getColumn(), 14);
+    }
+    private final Tile[][] testMap2 = new TileMap().getMap(1);
+    @Test
+    public void testTileWall() {
+        Player player1 = Player.getInstance();
+        player1.setRow(13);
+        player1.setColumn(11);
+        player1.setMoveStrategy(new MoveRight());
+        player1.move(testMap2);
+        assertEquals(player1.getRow(), 13);
+        assertEquals(player1.getColumn(), 11);
+    }
+    @Test
+    public void testTileHole() {
+        Player player1 = Player.getInstance();
+        player1.setRow(13);
+        player1.setColumn(12);
+        player1.setMoveStrategy(new MoveDown());
+        player1.move(testMap2);
+        assertEquals(player1.getRow(), 14);
+        assertEquals(player1.getColumn(), 12);
+    }
+    /*
+    @Test
+    public void testPlayerWin() {}
+    @Test
+    public void testPlayerLose() {}
+    */
 }
