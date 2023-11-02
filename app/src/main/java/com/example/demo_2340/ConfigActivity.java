@@ -1,4 +1,4 @@
-package com.example.demo_2340.viewmodel;
+package com.example.demo_2340;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,8 +11,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-
-import com.example.demo_2340.R;
 
 public class ConfigActivity extends AppCompatActivity {
 
