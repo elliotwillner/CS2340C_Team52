@@ -27,7 +27,10 @@ public class GameScreen extends AppCompatActivity implements Observer {
     private TextView playerScoreTextView;
     private Player player = Player.getInstance();
     private static int playerScore;
+    private String playerName;
     private GridLayout grid;
+    private Handler handler;
+    private Runnable runnable;
     private int currMap = 1;
     private TileMap tileMap = new TileMap();
 
@@ -69,7 +72,16 @@ public class GameScreen extends AppCompatActivity implements Observer {
                 currMap = 3;
                 break;
             case 5:
-                System.out.println("Congrats you won!");
+                System.out.println("Won!");
+                Intent intent = new Intent(GameScreen.this, EndScreenActivity.class);
+                intent.putExtra("won", true);
+                Player.getInstance().setName(playerName);
+                Player.getInstance().setScore(playerScore);
+                Player.getInstance().setDate(Calendar.getInstance().getTime());
+                Leaderboard.addPlayer();
+                Player.getInstance().reset();
+                handler.removeCallbacks(runnable);
+                startActivity(intent);
                 break;
             case 6:
                 // Handle type 6 tile
@@ -106,8 +118,8 @@ public class GameScreen extends AppCompatActivity implements Observer {
         setContentView(R.layout.activity_game_screen);
         playerScoreTextView = findViewById(R.id.playerScoreTextView);
         playerScore = 101;
-        Handler handler = new Handler();
-        Runnable runnable = new Runnable() {
+        handler = new Handler();
+        runnable = new Runnable() {
             @Override
             public void run() {
                 if (playerScore != 0) {
@@ -146,13 +158,15 @@ public class GameScreen extends AppCompatActivity implements Observer {
         mapImageView = findViewById(R.id.mapImageView);
         mapImageView.setImageResource(R.drawable.map1);
 
-        String playerName = getIntent().getStringExtra("playerName");
+        playerName = getIntent().getStringExtra("playerName");
         String spriteID = getIntent().getStringExtra("selectedCharacter");
         int difficulty = getIntent().getIntExtra("selectedDifficulty", 1);
 
         player.setName(playerName);
         player.setDifficulty(difficulty);
-        player.addObserver(this);
+        if (!player.hasGameObserver(this)) {
+            player.addObserver(this);
+        }
         System.out.println("Initial Column: " + player.getColumn());
         System.out.println("Initial Row: " + player.getRow());
 
@@ -160,6 +174,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
         params.rowSpec = GridLayout.spec(player.getRow());
         params.columnSpec = GridLayout.spec(player.getColumn());
         spriteImageView.setLayoutParams(params);
+        System.out.println("Updating");
         update(player.getColumn(), player.getRow());
 
         nameTextView.setText(playerName);
@@ -220,11 +235,16 @@ public class GameScreen extends AppCompatActivity implements Observer {
         params.rowSpec = GridLayout.spec(player.getRow());
         params.columnSpec = GridLayout.spec(player.getColumn());
         spriteImageView.setLayoutParams(params);
-        update(player.getColumn(), player.getRow());
         return true;
     }
 
     public static int getScore() {
         return playerScore;
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        player.removeObserver(this);
+    }
+
 }

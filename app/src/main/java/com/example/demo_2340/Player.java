@@ -40,6 +40,7 @@ public class Player implements Observable{
     @Override
     public void notifyObservers() {
         for (Observer observer : observerList) {
+            System.out.println("Notifying observer: " + observer);
             observer.update(column, row);
         }
     }
@@ -122,5 +123,12 @@ public class Player implements Observable{
 
     public void setRow(int y) {
         this.row = y;
+    }
+
+    public boolean hasGameObserver(GameScreen gameScreen) {
+        for (Observer observer : observerList) {
+            if (observer.equals(gameScreen)) return true;
+        }
+        return false;
     }
 }

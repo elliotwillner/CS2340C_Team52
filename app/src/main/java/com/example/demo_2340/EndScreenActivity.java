@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.demo_2340.R;
 import com.example.demo_2340.WelcomeScreen;
@@ -94,6 +95,10 @@ public class EndScreenActivity extends AppCompatActivity {
             playerName5.setText(Leaderboard.getName(4));
             playerScore5.setText(String.valueOf(Leaderboard.getScore(4)));
             playerDate5.setText(Leaderboard.getDate(4));
+        }
+        if (getIntent().getBooleanExtra("won", false)) {
+            Toast.makeText(EndScreenActivity.this,
+                    "You won!", Toast.LENGTH_SHORT).show();
         }
     }
 
