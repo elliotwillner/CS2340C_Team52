@@ -7,15 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.view.Gravity;
 import android.view.KeyEvent;
-import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Button;
 import android.os.Handler;
 import android.widget.Space;
-
-import com.example.demo_2340.Player;
 
 import java.util.Calendar;
 public class GameScreen extends AppCompatActivity implements Observer {
@@ -53,53 +49,53 @@ public class GameScreen extends AppCompatActivity implements Observer {
         System.out.println("The tile type is " + tileType);
         GridLayout gridLayout = findViewById(R.id.grid);
         switch (tileType) {
-            case 2:
-                player.setRow(2);
-                player.setColumn(7);
-                break;
-            case 3:
-                // Handle type 3 tile
-                gridLayout.setBackgroundResource(R.drawable.map2);
-                player.setRow(2);
-                player.setColumn(7);
-                currMap = 2;
-                break;
-            case 4:
-                // Handle type 4 tile
-                gridLayout.setBackgroundResource(R.drawable.map3);
-                player.setRow(2);
-                player.setColumn(7);
-                currMap = 3;
-                break;
-            case 5:
-                System.out.println("Won!");
-                Intent intent = new Intent(GameScreen.this, EndScreenActivity.class);
-                intent.putExtra("won", true);
-                Player.getInstance().setName(playerName);
-                Player.getInstance().setScore(playerScore);
-                Player.getInstance().setDate(Calendar.getInstance().getTime());
-                Leaderboard.addPlayer();
-                Player.getInstance().reset();
-                handler.removeCallbacks(runnable);
-                startActivity(intent);
-                break;
-            case 6:
-                // Handle type 6 tile
-                gridLayout.setBackgroundResource(R.drawable.map1);
-                player.setRow(13);
-                player.setColumn(7);
-                currMap = 1;
-                break;
-            case 7:
-                // Handle type 7 tile
-                gridLayout.setBackgroundResource(R.drawable.map2);
-                player.setRow(13);
-                player.setColumn(7);
-                currMap = 2;
-                break;
-            default:
-                // Handle other cases (if needed)
-                break;
+        case 2:
+            player.setRow(2);
+            player.setColumn(7);
+            break;
+        case 3:
+            // Handle type 3 tile
+            gridLayout.setBackgroundResource(R.drawable.map2);
+            player.setRow(2);
+            player.setColumn(7);
+            currMap = 2;
+            break;
+        case 4:
+            // Handle type 4 tile
+            gridLayout.setBackgroundResource(R.drawable.map3);
+            player.setRow(2);
+            player.setColumn(7);
+            currMap = 3;
+            break;
+        case 5:
+            System.out.println("Won!");
+            Intent intent = new Intent(GameScreen.this, EndScreenActivity.class);
+            intent.putExtra("won", true);
+            Player.getInstance().setName(playerName);
+            Player.getInstance().setScore(playerScore);
+            Player.getInstance().setDate(Calendar.getInstance().getTime());
+            Leaderboard.addPlayer();
+            Player.getInstance().reset();
+            handler.removeCallbacks(runnable);
+            startActivity(intent);
+            break;
+        case 6:
+            // Handle type 6 tile
+            gridLayout.setBackgroundResource(R.drawable.map1);
+            player.setRow(13);
+            player.setColumn(7);
+            currMap = 1;
+            break;
+        case 7:
+            // Handle type 7 tile
+            gridLayout.setBackgroundResource(R.drawable.map2);
+            player.setRow(13);
+            player.setColumn(7);
+            currMap = 2;
+            break;
+        default:
+            // Handle other cases (if needed)
+            break;
         }
     }
 
@@ -170,7 +166,8 @@ public class GameScreen extends AppCompatActivity implements Observer {
         System.out.println("Initial Column: " + player.getColumn());
         System.out.println("Initial Row: " + player.getRow());
 
-        GridLayout.LayoutParams params = (GridLayout.LayoutParams) spriteImageView.getLayoutParams();
+        GridLayout.LayoutParams params =
+                (GridLayout.LayoutParams) spriteImageView.getLayoutParams();
         params.rowSpec = GridLayout.spec(player.getRow());
         params.columnSpec = GridLayout.spec(player.getColumn());
         spriteImageView.setLayoutParams(params);
@@ -206,32 +203,35 @@ public class GameScreen extends AppCompatActivity implements Observer {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
-            case KeyEvent.KEYCODE_DPAD_LEFT:
-                if (player.getColumn() > 0) {
-                    player.setMoveStrategy(new MoveLeft());
-                    player.move(tileMap.getMap(currMap));
-                }
-                break;
-            case KeyEvent.KEYCODE_DPAD_UP:
-                if (player.getRow() > 0) {
-                    player.setMoveStrategy(new MoveUp());
-                    player.move(tileMap.getMap(currMap));
-                }
-                break;
-            case KeyEvent.KEYCODE_DPAD_RIGHT:
-                if (player.getColumn() < 15) {
-                    player.setMoveStrategy(new MoveRight());
-                    player.move(tileMap.getMap(currMap));
-                }
-                break;
-            case KeyEvent.KEYCODE_DPAD_DOWN:
-                if (player.getRow() < 15) {
-                    player.setMoveStrategy(new MoveDown());
-                    player.move(tileMap.getMap(currMap));
-                }
-                break;
+        case KeyEvent.KEYCODE_DPAD_LEFT:
+            if (player.getColumn() > 0) {
+                player.setMoveStrategy(new MoveLeft());
+                player.move(tileMap.getMap(currMap));
+            }
+            break;
+        case KeyEvent.KEYCODE_DPAD_UP:
+            if (player.getRow() > 0) {
+                player.setMoveStrategy(new MoveUp());
+                player.move(tileMap.getMap(currMap));
+            }
+            break;
+        case KeyEvent.KEYCODE_DPAD_RIGHT:
+            if (player.getColumn() < 15) {
+                player.setMoveStrategy(new MoveRight());
+                player.move(tileMap.getMap(currMap));
+            }
+            break;
+        case KeyEvent.KEYCODE_DPAD_DOWN:
+            if (player.getRow() < 15) {
+                player.setMoveStrategy(new MoveDown());
+                player.move(tileMap.getMap(currMap));
+            }
+            break;
+        default:
+            break;
         }
-        GridLayout.LayoutParams params = (GridLayout.LayoutParams) spriteImageView.getLayoutParams();
+        GridLayout.LayoutParams params =
+                (GridLayout.LayoutParams) spriteImageView.getLayoutParams();
         params.rowSpec = GridLayout.spec(player.getRow());
         params.columnSpec = GridLayout.spec(player.getColumn());
         spriteImageView.setLayoutParams(params);

@@ -257,12 +257,12 @@ public class TileMap {
     }
     public static Tile[][] getMap(int num) {
         switch (num) {
-            case 1:
-                return map1;
-            case 2:
-                return map2;
-            case 3:
-                return map3;
+        case 1:
+            return map1;
+        case 2:
+            return map2;
+        case 3:
+            return map3;
         }
         return null;
     }

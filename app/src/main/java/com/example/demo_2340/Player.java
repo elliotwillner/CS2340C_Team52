@@ -2,8 +2,7 @@ package com.example.demo_2340;
 
 import java.util.ArrayList;
 import java.util.Date;
-import com.example.demo_2340.R;
-public class Player implements Observable{
+public class Player implements Observable {
     private static volatile Player uniqueInstance;
     private String name;
     private int difficulty;
@@ -127,7 +126,9 @@ public class Player implements Observable{
 
     public boolean hasGameObserver(GameScreen gameScreen) {
         for (Observer observer : observerList) {
-            if (observer.equals(gameScreen)) return true;
+            if (observer.equals(gameScreen)) {
+                return true;
+            }
         }
         return false;
     }

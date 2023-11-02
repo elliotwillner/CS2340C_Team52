@@ -1,6 +1,6 @@
 package com.example.demo_2340;
 
-public class MoveUp implements MoveStrategy{
+public class MoveUp implements MoveStrategy {
     @Override
     public void move(Player player, Tile[][] map) {
         int row = player.getRow();

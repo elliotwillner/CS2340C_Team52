@@ -8,9 +8,6 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.demo_2340.R;
-import com.example.demo_2340.WelcomeScreen;
-
 
 public class EndScreenActivity extends AppCompatActivity {
     private TextView scoreTextView;

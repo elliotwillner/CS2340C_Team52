@@ -12,8 +12,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import com.example.demo_2340.R;
-
 public class ConfigActivity extends AppCompatActivity {
 
     private EditText nameEditText;

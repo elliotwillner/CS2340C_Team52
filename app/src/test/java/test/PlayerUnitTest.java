@@ -2,6 +2,8 @@ package test;
 
 import static org.junit.Assert.assertEquals;
 
+import android.widget.TextView;
+
 import com.example.demo_2340.Player;
 import com.example.demo_2340.MoveLeft;
 import com.example.demo_2340.MoveRight;
@@ -9,6 +11,7 @@ import com.example.demo_2340.MoveDown;
 import com.example.demo_2340.MoveUp;
 import com.example.demo_2340.Tile;
 import com.example.demo_2340.TileMap;
+import com.example.demo_2340.EndScreenActivity;
 
 import org.junit.Test;
 
@@ -16,6 +19,7 @@ public class PlayerUnitTest {
 
     private final Player player1 = new Player();
     private final Tile[][] testMap = new TileMap().getMap(2);
+    private TextView winTextView;
 
     @Test
     public void testPlayerMovementRight() {
@@ -118,10 +122,4 @@ public class PlayerUnitTest {
         assertEquals(player1.getRow(), 14);
         assertEquals(player1.getColumn(), 12);
     }
-    /*
-    @Test
-    public void testPlayerWin() {}
-    @Test
-    public void testPlayerLose() {}
-    */
 }
