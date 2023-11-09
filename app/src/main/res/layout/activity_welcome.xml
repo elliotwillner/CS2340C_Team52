@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/black">
 
     <Button
         android:id="@+id/start_button"
@@ -33,7 +34,7 @@
         android:layout_marginBottom="93dp"
         android:scaleX="4"
         android:scaleY="4"
-        android:text="Game Name"
+        android:text="Crawl of Duty"
         app:layout_constraintBottom_toTopOf="@+id/start_button"
         app:layout_constraintStart_toStartOf="@+id/start_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>

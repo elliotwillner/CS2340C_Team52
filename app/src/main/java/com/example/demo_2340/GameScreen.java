@@ -1,5 +1,6 @@
 package com.example.demo_2340;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,18 +8,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.ViewGroup;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.os.Handler;
 import android.widget.Space;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+
 public class GameScreen extends AppCompatActivity implements Observer {
     private ImageView mapImageView;
     private TextView nameTextView;
     private TextView healthTextView;
     private ImageView spriteImageView;
+    private ImageView enemyImageView;
     private TextView difficultyTextView;
     private TextView playerScoreTextView;
     private Player player = Player.getInstance();
@@ -27,6 +33,11 @@ public class GameScreen extends AppCompatActivity implements Observer {
     private GridLayout grid;
     private Handler handler;
     private Runnable runnable;
+
+    private List<Enemy> enemies;
+    private Handler enemyHandler;
+    private Runnable enemyRunnable;
+
     private int currMap = 1;
     private TileMap tileMap = new TileMap();
 
@@ -149,6 +160,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
         nameTextView = findViewById(R.id.nameTextView);
         healthTextView = findViewById(R.id.healthTextView);
         spriteImageView = findViewById(R.id.spriteImageView);
+        enemyImageView = findViewById(R.id.enemyImageView);
         difficultyTextView = findViewById(R.id.difficultyTextView);
 
         mapImageView = findViewById(R.id.mapImageView);
@@ -160,9 +172,8 @@ public class GameScreen extends AppCompatActivity implements Observer {
 
         player.setName(playerName);
         player.setDifficulty(difficulty);
-        if (!player.hasGameObserver(this)) {
-            player.addObserver(this);
-        }
+        player.addObserver(this);
+
         System.out.println("Initial Column: " + player.getColumn());
         System.out.println("Initial Row: " + player.getRow());
 
@@ -171,10 +182,45 @@ public class GameScreen extends AppCompatActivity implements Observer {
         params.rowSpec = GridLayout.spec(player.getRow());
         params.columnSpec = GridLayout.spec(player.getColumn());
         spriteImageView.setLayoutParams(params);
-        System.out.println("Updating");
-        update(player.getColumn(), player.getRow());
 
+        EnemyFactory enemyFactory = new EnemyFactory(this, R.drawable.dungeon_tileset, 16, 16);
+        Enemy troll = enemyFactory.createEnemy(EnemyType.TROLL);
+
+        GridLayout.LayoutParams enemyParams =
+                (GridLayout.LayoutParams) enemyImageView.getLayoutParams();
+        enemyParams.rowSpec = GridLayout.spec(5);
+        enemyParams.columnSpec = GridLayout.spec(5);
+        enemyImageView.setLayoutParams(enemyParams);
+        enemyImageView.setImageResource(R.drawable.troll_image);
+
+        System.out.println("Updating");
         nameTextView.setText(playerName);
+
+        enemies = new ArrayList<>();
+        enemies.add(troll);
+        System.out.println("HERE");
+
+        enemyHandler = new Handler();
+        enemyRunnable = new Runnable() {
+            @Override
+            public void run() {
+                // Update the position for each enemy
+                for (Enemy enemy : enemies) {
+                    enemy.move();
+                }
+                // Schedule the next update after a certain delay
+                enemyHandler.postDelayed(this, 2000); // Update every 2 seconds
+
+                GridLayout.LayoutParams params =
+                        (GridLayout.LayoutParams) enemyImageView.getLayoutParams();
+                params.rowSpec = GridLayout.spec(troll.getRow());
+                params.columnSpec = GridLayout.spec(troll.getColumn());
+                System.out.println("Troll x: " + troll.getColumn());
+                System.out.println("Troll y: " + troll.getRow());
+                enemyImageView.setLayoutParams(params);
+            }
+        };
+        enemyHandler.postDelayed(enemyRunnable, 2000);
 
         if (difficulty == 3) {
             difficultyTextView.setText("Difficulty: Hard");
