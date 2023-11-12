@@ -242,7 +242,9 @@ public class GameScreen extends AppCompatActivity implements Observer {
     }
 
     public static void updateHealth() {
-        healthTextView.setText("Health: " + String.valueOf(player.getHealth()));
+        if (healthTextView != null) {
+            healthTextView.setText("Health: " + String.valueOf(player.getHealth()));
+        }
     }
 
     @Override

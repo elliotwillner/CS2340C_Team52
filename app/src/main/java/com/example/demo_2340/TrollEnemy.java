@@ -40,11 +40,9 @@ public class TrollEnemy implements Enemy {
             player.takeDamage(DAMAGE);
         }
     }
-
     public int getRow() {
         return row;
     }
-
     public int getColumn() {
         return column;
     }

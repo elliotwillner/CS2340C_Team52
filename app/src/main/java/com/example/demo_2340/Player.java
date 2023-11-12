@@ -154,7 +154,7 @@ public class Player implements Observable {
     }
 
     public void takeDamage(int damage) {
-        health -= damage * damageMultiplier;
+        health -= damage; //* damageMultiplier;
         GameScreen.updateHealth();
         if (health <= 0 ) {
             isAlive = false;

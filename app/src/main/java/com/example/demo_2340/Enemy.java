@@ -5,4 +5,5 @@ public interface Enemy {
     void move();
     int getRow();
     int getColumn();
+    void onCollision();
 }
