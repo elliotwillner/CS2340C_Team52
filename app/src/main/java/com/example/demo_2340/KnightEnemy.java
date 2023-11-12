@@ -3,6 +3,10 @@ package com.example.demo_2340;
 import android.graphics.Bitmap;
 
 public class KnightEnemy implements Enemy {
+    private Player player = Player.getInstance();
+    final int DAMAGE = 12;
+    private int row;
+    private int column;
     private Bitmap sprite;
     private Player player = Player.getInstance();
     final int DAMAGE = 10;
@@ -12,7 +16,12 @@ public class KnightEnemy implements Enemy {
     public KnightEnemy(Bitmap sprite) {
         this.sprite = sprite;
     }
-
+    @Override
+    public void update(int x, int y) {
+        if ((row == player.getRow()) && (column == player.getColumn())) {
+            player.takeDamage(DAMAGE);
+        }
+    }
     @Override
     public void display() {
         // Display logic for knight
@@ -21,6 +30,12 @@ public class KnightEnemy implements Enemy {
     @Override
     public void move() {
         // Movement logic for knight
+    }
+
+    public void onCollision() {
+        if ((row == player.getRow()) && (column == player.getColumn())) {
+            player.takeDamage(DAMAGE);
+        }
     }
 
     @Override

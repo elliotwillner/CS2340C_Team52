@@ -43,12 +43,6 @@ public class GameScreen extends AppCompatActivity implements Observer {
 
     @Override
     public void update(int x, int y) {
-        //System.out.println("updating!");
-        //transition should go here
-        //like if (map[y][x].getType())
-        //Intent intent = new Intent (GameScreen.this, GameScreen2.class);
-        //also transfer name, difficulty, sprite, and score variables <-- figure this out
-        //startActivity(intent);
         mapImageView = findViewById(R.id.mapImageView);
         System.out.println("x = " + x);
         System.out.println("y = " + y);
@@ -185,6 +179,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
 
         EnemyFactory enemyFactory = new EnemyFactory(this, R.drawable.dungeon_tileset, 16, 16);
         Enemy troll = enemyFactory.createEnemy(EnemyType.TROLL);
+        player.addObserver(troll);
 
         GridLayout.LayoutParams enemyParams =
                 (GridLayout.LayoutParams) enemyImageView.getLayoutParams();

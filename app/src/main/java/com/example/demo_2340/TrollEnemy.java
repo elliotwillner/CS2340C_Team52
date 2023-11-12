@@ -14,6 +14,12 @@ public class TrollEnemy implements Enemy {
         this.row = 5;
         this.column = 5;
     }
+    @Override
+    public void update(int x, int y) {
+        if ((row == player.getRow()) && (column == player.getColumn())) {
+            player.takeDamage(DAMAGE);
+        }
+    }
 
     @Override
     public void display() {
@@ -32,17 +38,20 @@ public class TrollEnemy implements Enemy {
         onCollision();
     }
 
-    public Bitmap getSprite() {
-        return sprite;
-    }
     public void onCollision() {
         if ((row == player.getRow()) && (column == player.getColumn())) {
             player.takeDamage(DAMAGE);
         }
     }
+
+    public Bitmap getSprite() {
+        return sprite;
+    }
+
     public int getRow() {
         return row;
     }
+
     public int getColumn() {
         return column;
     }
