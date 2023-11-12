@@ -8,10 +8,6 @@ public class KnightEnemy implements Enemy {
     private int row;
     private int column;
     private Bitmap sprite;
-    private Player player = Player.getInstance();
-    final int DAMAGE = 10;
-    private int row;
-    private int column;
 
     public KnightEnemy(Bitmap sprite) {
         this.sprite = sprite;
@@ -50,10 +46,5 @@ public class KnightEnemy implements Enemy {
 
     public Bitmap getSprite() {
         return sprite;
-    }
-    public void onCollision() {
-        if ((row == player.getRow()) && (column == player.getColumn())) {
-            player.takeDamage(DAMAGE);
-        }
     }
 }

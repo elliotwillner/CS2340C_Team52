@@ -83,7 +83,7 @@ public class Player implements Observable {
     public int getHealth() {
         return health;
     }
-
+    public boolean getIsAlive() { return isAlive;}
     public double getDamageMultiplier() {
         return damageMultiplier;
     }
@@ -110,7 +110,9 @@ public class Player implements Observable {
     public synchronized void setHealth(int health) {
         this.health = health;
     }
-
+    public synchronized void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
     public synchronized void setDamageMultiplier(double damageMultiplier) {
         this.damageMultiplier = damageMultiplier;
     }
