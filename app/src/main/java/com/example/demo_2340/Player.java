@@ -8,6 +8,8 @@ public class Player implements Observable {
     private int difficulty;
     private String chosenClass;
     private int health;
+    private int damage;
+    private boolean isAlive = true;
     private int score;
     private Date date;
     //movement variables
@@ -53,6 +55,7 @@ public class Player implements Observable {
         this.difficulty = 1;
         this.chosenClass = "";
         this.health = 150;
+        this.damage = 10;
         this.score = 100;
         this.date = null;
         this.strategy = null;
@@ -82,6 +85,12 @@ public class Player implements Observable {
     public int getDifficulty() {
         return difficulty;
     }
+    public int getHealth() {
+        return health;
+    }
+    public int getDamage() {
+        return damage;
+    }
 
     public int getScore() {
         return score;
@@ -97,6 +106,13 @@ public class Player implements Observable {
 
     public void setDifficulty(int diff) {
         this.difficulty = diff;
+    }
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
     }
 
     public synchronized void setScore(int score) {
@@ -131,5 +147,13 @@ public class Player implements Observable {
             }
         }
         return false;
+    }
+
+    public void takeDamage() {
+        health -= damage;
+        GameScreen.updateHealth();
+        if (health <= 0 ) {
+            isAlive = false;
+        }
     }
 }
