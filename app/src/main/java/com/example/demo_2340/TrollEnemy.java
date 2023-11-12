@@ -3,6 +3,7 @@ package com.example.demo_2340;
 import android.graphics.Bitmap;
 
 public class TrollEnemy implements Enemy {
+    private Player player = Player.getInstance();
     private int row;
     private int column;
     private Bitmap sprite;
@@ -27,10 +28,16 @@ public class TrollEnemy implements Enemy {
         // Adjust the movement based on the direction
         row += rowDirection;
         column += colDirection;
+        onCollision();
     }
 
     public Bitmap getSprite() {
         return sprite;
+    }
+    public void onCollision() {
+        if ((row == player.getRow()) && (column == player.getColumn())) {
+            player.takeDamage();
+        }
     }
 
     public int getRow() {
