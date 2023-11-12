@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 
 public class TrollEnemy implements Enemy {
     private Player player = Player.getInstance();
+    final int DAMAGE = 10;
     private int row;
     private int column;
     private Bitmap sprite;
@@ -36,7 +37,7 @@ public class TrollEnemy implements Enemy {
     }
     public void onCollision() {
         if ((row == player.getRow()) && (column == player.getColumn())) {
-            player.takeDamage();
+            player.takeDamage(DAMAGE);
         }
     }
 
