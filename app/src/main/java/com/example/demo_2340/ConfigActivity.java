@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 public class ConfigActivity extends AppCompatActivity {
-
+    private Player player = Player.getInstance();
     private EditText nameEditText;
     private RadioGroup difficultyRadioGroup;
     private Button continueButton;
@@ -107,12 +107,20 @@ public class ConfigActivity extends AppCompatActivity {
 
     private int getSelectedDifficulty(int radioButtonId) {
         if (radioButtonId == R.id.radioEasy) {
+            player.setDamageMultiplier(0.5);
+            player.setHealth(150);
             return 1;
         } else if (radioButtonId == R.id.radioMedium) {
+            player.setDamageMultiplier(1);
+            player.setHealth(100);
             return 2;
         } else if (radioButtonId == R.id.radioHard) {
+            player.setDamageMultiplier(2);
+            player.setHealth(50);
             return 3;
         } else {
+            player.setDamageMultiplier(0.5);
+            player.setHealth(150);
             return 1; // Default to Easy
         }
     }
