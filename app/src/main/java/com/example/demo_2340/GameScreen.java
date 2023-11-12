@@ -22,12 +22,12 @@ import java.util.List;
 public class GameScreen extends AppCompatActivity implements Observer {
     private ImageView mapImageView;
     private TextView nameTextView;
-    private TextView healthTextView;
+    private static TextView healthTextView;
     private ImageView spriteImageView;
     private ImageView enemyImageView;
     private TextView difficultyTextView;
     private TextView playerScoreTextView;
-    private Player player = Player.getInstance();
+    private static Player player = Player.getInstance();
     private static int playerScore;
     private String playerName;
     private GridLayout grid;
@@ -230,13 +230,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
             difficultyTextView.setText("Difficulty: Easy");
         }
 
-        if (difficulty == 3) {
-            healthTextView.setText("Health: 50");
-        } else if (difficulty == 2) {
-            healthTextView.setText("Health: 75");
-        } else {
-            healthTextView.setText("Health: 100");
-        }
+        healthTextView.setText("Health: " + player.getHealth());
 
         if (spriteID.equals("Mage")) {
             spriteImageView.setImageResource(R.drawable.mage_image);
@@ -246,6 +240,11 @@ public class GameScreen extends AppCompatActivity implements Observer {
             spriteImageView.setImageResource(R.drawable.warrior_image);
         }
     }
+
+    public static void updateHealth() {
+        healthTextView.setText("Health: " + String.valueOf(player.getHealth()));
+    }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
