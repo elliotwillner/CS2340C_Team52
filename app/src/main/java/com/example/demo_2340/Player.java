@@ -8,7 +8,7 @@ public class Player implements Observable {
     private int difficulty;
     private String chosenClass;
     private int health;
-    private int damage;
+    private double damageMultiplier;
     private boolean isAlive = true;
     private int score;
     private Date date;
@@ -51,11 +51,6 @@ public class Player implements Observable {
     }
 
     public Player() {
-        this.name = "";
-        this.difficulty = 1;
-        this.chosenClass = "";
-        this.health = 150;
-        this.damage = 10;
         this.score = 100;
         this.date = null;
         this.strategy = null;
@@ -88,8 +83,13 @@ public class Player implements Observable {
     public int getHealth() {
         return health;
     }
-    public int getDamage() {
-        return damage;
+
+    public double getDamageMultiplier() {
+        return damageMultiplier;
+    }
+
+    public String getChosenClass() {
+        return chosenClass;
     }
 
     public int getScore() {
@@ -104,15 +104,19 @@ public class Player implements Observable {
         this.name = name;
     }
 
-    public void setDifficulty(int diff) {
+    public synchronized void setDifficulty(int diff) {
         this.difficulty = diff;
     }
-    public void setHealth(int health) {
+    public synchronized void setHealth(int health) {
         this.health = health;
     }
 
-    public void setDamage(int damage) {
-        this.damage = damage;
+    public synchronized void setDamageMultiplier(double damageMultiplier) {
+        this.damageMultiplier = damageMultiplier;
+    }
+
+    public synchronized void setChosenClass(String chosenClass) {
+        this.chosenClass = chosenClass;
     }
 
     public synchronized void setScore(int score) {
@@ -149,8 +153,8 @@ public class Player implements Observable {
         return false;
     }
 
-    public void takeDamage() {
-        health -= damage;
+    public void takeDamage(int damage) {
+        health -= damage * damageMultiplier;
         GameScreen.updateHealth();
         if (health <= 0 ) {
             isAlive = false;
