@@ -8,7 +8,6 @@ import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
 
-
 public class EndScreenActivity extends AppCompatActivity {
     private TextView scoreTextView;
     private Button restartButton;
