@@ -83,7 +83,9 @@ public class Player implements Observable {
     public int getHealth() {
         return health;
     }
-    public boolean getIsAlive() { return isAlive;}
+    public boolean getIsAlive() {
+        return isAlive;
+    }
     public double getDamageMultiplier() {
         return damageMultiplier;
     }
@@ -158,7 +160,7 @@ public class Player implements Observable {
     public void takeDamage(int damage) {
         health -= damage; //* damageMultiplier;
         GameScreen.updateHealth();
-        if (health <= 0 ) {
+        if (health <= 0) {
             isAlive = false;
         }
     }

@@ -260,6 +260,7 @@ public class TileMap {
             return map2;
         case 3:
             return map3;
+        default:
         }
         return null;
     }

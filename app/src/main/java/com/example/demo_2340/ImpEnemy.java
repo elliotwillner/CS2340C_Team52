@@ -2,9 +2,9 @@ package com.example.demo_2340;
 
 import android.graphics.Bitmap;
 
-public class ImpEnemy implements Enemy{
+public class ImpEnemy implements Enemy {
     private Player player = Player.getInstance();
-    final int DAMAGE = 2;
+    private int damage = 2;
     private int row;
     private int column;
     private Bitmap sprite;
@@ -15,7 +15,7 @@ public class ImpEnemy implements Enemy{
     @Override
     public void update(int x, int y) {
         if ((row == player.getRow()) && (column == player.getColumn())) {
-            player.takeDamage(DAMAGE);
+            player.takeDamage(damage);
         }
     }
 
@@ -30,7 +30,7 @@ public class ImpEnemy implements Enemy{
     }
     public void onCollision() {
         if ((row == player.getRow()) && (column == player.getColumn())) {
-            player.takeDamage(DAMAGE);
+            player.takeDamage(damage);
         }
     }
     @Override

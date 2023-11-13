@@ -2,7 +2,6 @@ package com.example.demo_2340;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Rect;
 
 public class SpriteExtractor {
     private Bitmap tileset;
@@ -25,6 +24,7 @@ public class SpriteExtractor {
         int startX = (tileID % (1024 / tileWidth)) * tileWidth;
         int startY = (tileID / (1024 / tileWidth)) * tileHeight;
 
-        return Bitmap.createBitmap(tileset, startX, startY, tileWidth * widthInTiles, tileHeight * heightInTiles);
+        return Bitmap.createBitmap(tileset, startX, startY,
+                tileWidth * widthInTiles, tileHeight * heightInTiles);
     }
 }

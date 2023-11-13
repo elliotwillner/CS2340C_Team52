@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 
 public class GhoulEnemy implements Enemy {
     private Player player = Player.getInstance();
-    final int DAMAGE = 4;
+    private int damage = 4;
     private int row;
     private int column;
     private Bitmap sprite;
@@ -15,7 +15,7 @@ public class GhoulEnemy implements Enemy {
     @Override
     public void update(int x, int y) {
         if ((row == player.getRow()) && (column == player.getColumn())) {
-            player.takeDamage(DAMAGE);
+            player.takeDamage(damage);
         }
     }
 
@@ -30,7 +30,7 @@ public class GhoulEnemy implements Enemy {
     }
     public void onCollision() {
         if ((row == player.getRow()) && (column == player.getColumn())) {
-            player.takeDamage(DAMAGE);
+            player.takeDamage(damage);
         }
     }
     @Override
