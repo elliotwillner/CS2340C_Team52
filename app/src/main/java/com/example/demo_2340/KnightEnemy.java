@@ -51,4 +51,17 @@ public class KnightEnemy implements Enemy {
     public Bitmap getSprite() {
         return sprite;
     }
+
+    public int getDamage() {
+        return damage;
+    }
+    public void setDamage(int difficulty) {
+        if (player.getDifficulty() == 1) {
+            this.damage = damage * 2;
+        } else if (player.getDifficulty() == 2) {
+            this.damage = damage * 3;
+        } else {
+            this.damage = 100;
+        }
+    }
 }

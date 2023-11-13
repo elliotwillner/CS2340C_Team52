@@ -48,19 +48,6 @@ public class GameScreen extends AppCompatActivity implements Observer {
         System.out.println("y = " + y);
         System.out.println("currMap = " + currMap);
 
-        if (player.getHealth() <= 0 || player.getScore() <= 0) {
-            System.out.println("Game Over!");
-            Intent intent = new Intent(GameScreen.this, EndScreenActivity.class);
-            intent.putExtra("won", false);
-            Player.getInstance().setName(playerName);
-            Player.getInstance().setScore(0);
-            Player.getInstance().setDate(Calendar.getInstance().getTime());
-            Leaderboard.addPlayer();
-            Player.getInstance().reset();
-            handler.removeCallbacks(runnable);
-            startActivity(intent);
-        }
-
         int tileType = 0;
         tileType = tileMap.getMap(currMap)[y][x].getType();
 
@@ -139,14 +126,24 @@ public class GameScreen extends AppCompatActivity implements Observer {
             public void run() {
                 if (playerScore != 0) {
                     playerScore--;
+                    playerScoreTextView.setText("Score: " + String.valueOf(playerScore));
+                    handler.postDelayed(this, 1000);
                 }
-                playerScoreTextView.setText("Score: " + String.valueOf(playerScore));
-                handler.postDelayed(this, 1000);
+                if (player.getHealth() <= 0 || player.getScore() <= 0) {
+                    System.out.println("Game Over!");
+                    Intent intent = new Intent(GameScreen.this, EndScreenActivity.class);
+                    intent.putExtra("won", false);
+                    Player.getInstance().setName(playerName);
+                    Player.getInstance().setScore(0);
+                    Player.getInstance().setDate(Calendar.getInstance().getTime());
+                    Leaderboard.addPlayer();
+                    Player.getInstance().reset();
+                    handler.removeCallbacks(runnable);
+                    startActivity(intent);
+                }
             }
         };
-
         handler.postDelayed(runnable, 1000);
-
         grid = findViewById(R.id.grid);
         for (int x = 0; x < grid.getColumnCount(); x++) {
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
@@ -164,17 +161,14 @@ public class GameScreen extends AppCompatActivity implements Observer {
             params.width = 0;
             grid.addView(new Space(this), params);
         }
-
         nameTextView = findViewById(R.id.nameTextView);
         healthTextView = findViewById(R.id.healthTextView);
         spriteImageView = findViewById(R.id.spriteImageView);
         enemyImageView = findViewById(R.id.enemyImageView);
         enemyImageView2 = findViewById(R.id.enemyImageView2);
         difficultyTextView = findViewById(R.id.difficultyTextView);
-
         mapImageView = findViewById(R.id.mapImageView);
         mapImageView.setImageResource(R.drawable.map1);
-
         playerName = getIntent().getStringExtra("playerName");
         String spriteID = getIntent().getStringExtra("selectedCharacter");
         int difficulty = getIntent().getIntExtra("selectedDifficulty", 1);
@@ -182,7 +176,6 @@ public class GameScreen extends AppCompatActivity implements Observer {
         player.setName(playerName);
         player.setDifficulty(difficulty);
         player.addObserver(this);
-
         System.out.println("Initial Column: " + player.getColumn());
         System.out.println("Initial Row: " + player.getRow());
 
@@ -228,7 +221,6 @@ public class GameScreen extends AppCompatActivity implements Observer {
                 for (Enemy enemy : enemies) {
                     enemy.move();
                 }
-                // Schedule the next update after a certain delay
                 enemyHandler.postDelayed(this, 2000); // Update every 2 seconds
 
                 GridLayout.LayoutParams params =
@@ -258,6 +250,10 @@ public class GameScreen extends AppCompatActivity implements Observer {
             difficultyTextView.setText("Difficulty: Easy");
         }
 
+        for (Enemy enemy : enemies) {
+            enemy.setDamage(player.getDifficulty());
+        }
+
         healthTextView.setText("Health: " + player.getHealth());
 
         if (spriteID.equals("Mage")) {
@@ -268,13 +264,11 @@ public class GameScreen extends AppCompatActivity implements Observer {
             spriteImageView.setImageResource(R.drawable.warrior_image);
         }
     }
-
     public static void updateHealth() {
         if (healthTextView != null) {
             healthTextView.setText("Health: " + String.valueOf(player.getHealth()));
         }
     }
-
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
@@ -312,7 +306,6 @@ public class GameScreen extends AppCompatActivity implements Observer {
         spriteImageView.setLayoutParams(params);
         return true;
     }
-
     public static int getScore() {
         return playerScore;
     }
@@ -321,5 +314,4 @@ public class GameScreen extends AppCompatActivity implements Observer {
         super.onDestroy();
         player.removeObserver(this);
     }
-
 }

@@ -5,5 +5,6 @@ public interface Enemy extends Observer {
     void move();
     int getRow();
     int getColumn();
+    void setDamage(int difficulty);
     void onCollision();
 }
