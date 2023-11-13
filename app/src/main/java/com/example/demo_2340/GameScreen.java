@@ -48,6 +48,19 @@ public class GameScreen extends AppCompatActivity implements Observer {
         System.out.println("y = " + y);
         System.out.println("currMap = " + currMap);
 
+        if (player.getHealth() <= 0 || player.getScore() <= 0) {
+            System.out.println("Game Over!");
+            Intent intent = new Intent(GameScreen.this, EndScreenActivity.class);
+            intent.putExtra("won", false);
+            Player.getInstance().setName(playerName);
+            Player.getInstance().setScore(0);
+            Player.getInstance().setDate(Calendar.getInstance().getTime());
+            Leaderboard.addPlayer();
+            Player.getInstance().reset();
+            handler.removeCallbacks(runnable);
+            startActivity(intent);
+        }
+
         int tileType = 0;
         tileType = tileMap.getMap(currMap)[y][x].getType();
 

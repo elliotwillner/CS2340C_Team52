@@ -55,12 +55,12 @@ public class EndScreenActivity extends AppCompatActivity {
 
         // Check if the player has won or lost
         boolean hasWon = getIntent().getBooleanExtra("won", false);
-        if (hasWon) {
-            // Player won
-            setupWinScreen();
-        } else {
+        if (!hasWon) {
             // Player lost
             setupGameOverScreen();
+        } else {
+            // Player win
+            setupWinScreen();
         }
     }
 
