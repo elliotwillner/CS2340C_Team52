@@ -55,8 +55,19 @@ public class EndScreenActivity extends AppCompatActivity {
         restartButton = findViewById(R.id.restart_button);
         winTextView = findViewById(R.id.win_text_view);
 
-        winTextView.setText("You Win!");
+        // Check if the player has won or lost
+        boolean hasWon = getIntent().getBooleanExtra("won", false);
+        if (hasWon) {
+            // Player won
+            setupWinScreen();
+        } else {
+            // Player lost
+            setupGameOverScreen();
+        }
+    }
 
+    // Method to set up UI elements for both win and game over scenarios
+    private void setupCommonUI() {
         int mostRecentAttemptScore = GameScreen.getScore();
         scoreTextView.setText("Your Score: " + mostRecentAttemptScore);
 
@@ -93,10 +104,14 @@ public class EndScreenActivity extends AppCompatActivity {
             playerScore5.setText(String.valueOf(Leaderboard.getScore(4)));
             playerDate5.setText(Leaderboard.getDate(4));
         }
-        if (getIntent().getBooleanExtra("won", false)) {
-            Toast.makeText(EndScreenActivity.this,
-                    "You won!", Toast.LENGTH_SHORT).show();
-        }
+    }
+    private void setupWinScreen() {
+        winTextView.setText("You Win!");
+        setupCommonUI();
+    }
+    private void setupGameOverScreen() {
+        winTextView.setText("Game Over - You Lost!");
+        setupCommonUI();
     }
 
     // to start ending screen activity from game activity
