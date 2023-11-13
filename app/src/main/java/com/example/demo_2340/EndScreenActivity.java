@@ -105,7 +105,6 @@ public class EndScreenActivity extends AppCompatActivity {
             playerDate5.setText(Leaderboard.getDate(4));
         }
     }
-
     private void setupWinScreen() {
         winTextView.setText("You Win!");
         setupCommonUI();
