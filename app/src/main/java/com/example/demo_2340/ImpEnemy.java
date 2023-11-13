@@ -11,6 +11,8 @@ public class ImpEnemy implements Enemy {
 
     public ImpEnemy(Bitmap sprite) {
         this.sprite = sprite;
+        this.row = 5;
+        this.column = 5;
     }
     @Override
     public void update(int x, int y) {
@@ -26,7 +28,11 @@ public class ImpEnemy implements Enemy {
 
     @Override
     public void move() {
-        // Movement logic for imp
+        int rowDirection = Integer.compare(Player.getInstance().getRow(), row);
+        int colDirection = Integer.compare(Player.getInstance().getColumn(), column);
+        row += rowDirection * 2;
+        column += colDirection * 2;
+        onCollision();
     }
     public void onCollision() {
         if ((row == player.getRow()) && (column == player.getColumn())) {
@@ -35,12 +41,12 @@ public class ImpEnemy implements Enemy {
     }
     @Override
     public int getRow() {
-        return 0;
+        return row;
     }
 
     @Override
     public int getColumn() {
-        return 0;
+        return column;
     }
 
     public Bitmap getSprite() {

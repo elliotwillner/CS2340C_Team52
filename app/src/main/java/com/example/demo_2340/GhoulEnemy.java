@@ -26,7 +26,11 @@ public class GhoulEnemy implements Enemy {
 
     @Override
     public void move() {
-        // Movement logic for ghoul
+        int rowDirection = Integer.compare(Player.getInstance().getRow(), row);
+        int colDirection = Integer.compare(Player.getInstance().getColumn(), column);
+        row += rowDirection * 3;
+        column += colDirection * 3;
+        onCollision();
     }
     public void onCollision() {
         if ((row == player.getRow()) && (column == player.getColumn())) {

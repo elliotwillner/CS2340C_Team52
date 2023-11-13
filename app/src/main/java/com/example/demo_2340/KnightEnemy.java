@@ -25,7 +25,11 @@ public class KnightEnemy implements Enemy {
 
     @Override
     public void move() {
-        // Movement logic for knight
+        int rowDirection = Integer.compare(Player.getInstance().getRow(), row);
+        int colDirection = Integer.compare(Player.getInstance().getColumn(), column);
+        row += rowDirection * 4;
+        column += colDirection * 4;
+        onCollision();
     }
 
     public void onCollision() {

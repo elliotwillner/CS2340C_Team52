@@ -1,5 +1,6 @@
 package com.example.demo_2340;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
     private static TextView healthTextView;
     private ImageView spriteImageView;
     private ImageView enemyImageView;
+    private ImageView enemyImageView2;
     private TextView difficultyTextView;
     private TextView playerScoreTextView;
     private static Player player = Player.getInstance();
@@ -111,6 +113,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
     }
      */
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -153,6 +156,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
         healthTextView = findViewById(R.id.healthTextView);
         spriteImageView = findViewById(R.id.spriteImageView);
         enemyImageView = findViewById(R.id.enemyImageView);
+        enemyImageView2 = findViewById(R.id.enemyImageView2);
         difficultyTextView = findViewById(R.id.difficultyTextView);
 
         mapImageView = findViewById(R.id.mapImageView);
@@ -177,7 +181,9 @@ public class GameScreen extends AppCompatActivity implements Observer {
 
         EnemyFactory enemyFactory = new EnemyFactory(this, R.drawable.dungeon_tileset, 16, 16);
         Enemy troll = enemyFactory.createEnemy(EnemyType.TROLL);
+        Enemy imp = enemyFactory.createEnemy(EnemyType.IMP);
         player.addObserver(troll);
+        player.addObserver(imp);
 
         GridLayout.LayoutParams enemyParams =
                 (GridLayout.LayoutParams) enemyImageView.getLayoutParams();
@@ -186,11 +192,19 @@ public class GameScreen extends AppCompatActivity implements Observer {
         enemyImageView.setLayoutParams(enemyParams);
         enemyImageView.setImageResource(R.drawable.troll_image);
 
+        GridLayout.LayoutParams enemyParams2 =
+                (GridLayout.LayoutParams) enemyImageView2.getLayoutParams();
+        enemyParams2.rowSpec = GridLayout.spec(8);
+        enemyParams2.columnSpec = GridLayout.spec(8);
+        enemyImageView2.setLayoutParams(enemyParams2);
+        enemyImageView2.setImageResource(R.drawable.imp_image);
+
         System.out.println("Updating");
         nameTextView.setText(playerName);
 
         enemies = new ArrayList<>();
         enemies.add(troll);
+        enemies.add(imp);
         System.out.println("HERE");
 
         enemyHandler = new Handler();
@@ -211,6 +225,14 @@ public class GameScreen extends AppCompatActivity implements Observer {
                 System.out.println("Troll x: " + troll.getColumn());
                 System.out.println("Troll y: " + troll.getRow());
                 enemyImageView.setLayoutParams(params);
+
+                GridLayout.LayoutParams params2 =
+                        (GridLayout.LayoutParams) enemyImageView2.getLayoutParams();
+                params2.rowSpec = GridLayout.spec(imp.getRow());
+                params2.columnSpec = GridLayout.spec(imp.getColumn());
+                System.out.println("Imp x: " + imp.getColumn());
+                System.out.println("Imp y: " + imp.getRow());
+                enemyImageView2.setLayoutParams(params2);
             }
         };
         enemyHandler.postDelayed(enemyRunnable, 2000);
