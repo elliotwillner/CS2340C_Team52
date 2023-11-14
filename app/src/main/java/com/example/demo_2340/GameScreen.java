@@ -25,7 +25,6 @@ public class GameScreen extends AppCompatActivity implements Observer {
     private ImageView spriteImageView;
     private ImageView enemyImageView;
     private ImageView enemyImageView2;
-    private ImageView enemyImageView3;
     private TextView difficultyTextView;
     private TextView playerScoreTextView;
     private static Player player = Player.getInstance();
@@ -167,7 +166,6 @@ public class GameScreen extends AppCompatActivity implements Observer {
         spriteImageView = findViewById(R.id.spriteImageView);
         enemyImageView = findViewById(R.id.enemyImageView);
         enemyImageView2 = findViewById(R.id.enemyImageView2);
-        enemyImageView3 = findViewById(R.id.enemyImageView3);
         difficultyTextView = findViewById(R.id.difficultyTextView);
         mapImageView = findViewById(R.id.mapImageView);
         mapImageView.setImageResource(R.drawable.map1);
@@ -190,10 +188,8 @@ public class GameScreen extends AppCompatActivity implements Observer {
         EnemyFactory enemyFactory = new EnemyFactory(this, R.drawable.dungeon_tileset, 16, 16);
         Enemy troll = enemyFactory.createEnemy(EnemyType.TROLL);
         Enemy imp = enemyFactory.createEnemy(EnemyType.IMP);
-        Enemy knight = enemyFactory.createEnemy(EnemyType.KNIGHT);
         player.addObserver(troll);
         player.addObserver(imp);
-        player.addObserver(knight);
 
         GridLayout.LayoutParams enemyParams =
                 (GridLayout.LayoutParams) enemyImageView.getLayoutParams();
@@ -209,20 +205,12 @@ public class GameScreen extends AppCompatActivity implements Observer {
         enemyImageView2.setLayoutParams(enemyParams2);
         enemyImageView2.setImageResource(R.drawable.imp_image);
 
-        GridLayout.LayoutParams enemyParams3 =
-                (GridLayout.LayoutParams) enemyImageView3.getLayoutParams();
-        enemyParams3.rowSpec = GridLayout.spec(9);
-        enemyParams3.columnSpec = GridLayout.spec(9);
-        enemyImageView3.setLayoutParams(enemyParams3);
-        enemyImageView3.setImageResource(R.drawable.knight_image);
-
         System.out.println("Updating");
         nameTextView.setText(playerName);
 
         enemies = new ArrayList<>();
         enemies.add(troll);
         enemies.add(imp);
-        enemies.add(knight);
         System.out.println("HERE");
 
         enemyHandler = new Handler();
@@ -250,14 +238,6 @@ public class GameScreen extends AppCompatActivity implements Observer {
                 System.out.println("Imp x: " + imp.getColumn());
                 System.out.println("Imp y: " + imp.getRow());
                 enemyImageView2.setLayoutParams(params2);
-
-                GridLayout.LayoutParams params3 =
-                        (GridLayout.LayoutParams) enemyImageView3.getLayoutParams();
-                params3.rowSpec = GridLayout.spec(knight.getRow());
-                params3.columnSpec = GridLayout.spec(knight.getColumn());
-                System.out.println("Knight x: " + knight.getColumn());
-                System.out.println("Knight y: " + knight.getRow());
-                enemyImageView3.setLayoutParams(params3);
             }
         };
         enemyHandler.postDelayed(enemyRunnable, 2000);
