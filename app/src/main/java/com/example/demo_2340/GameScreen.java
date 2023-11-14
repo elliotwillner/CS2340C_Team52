@@ -25,6 +25,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
     private ImageView spriteImageView;
     private ImageView enemyImageView;
     private ImageView enemyImageView2;
+    private ImageView enemyImageView3;
     private TextView difficultyTextView;
     private TextView playerScoreTextView;
     private static Player player = Player.getInstance();
@@ -103,16 +104,6 @@ public class GameScreen extends AppCompatActivity implements Observer {
             break;
         }
     }
-
-    /**
-    private void moveSprite(View imageView) {
-        GridLayout.LayoutParams params = (GridLayout.LayoutParams) imageView.getLayoutParams();
-        params.rowSpec = GridLayout.spec(currentRow);
-        params.columnSpec = GridLayout.spec(currentColumn);
-        imageView.setLayoutParams(params);
-    }
-     */
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -166,6 +157,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
         spriteImageView = findViewById(R.id.spriteImageView);
         enemyImageView = findViewById(R.id.enemyImageView);
         enemyImageView2 = findViewById(R.id.enemyImageView2);
+        enemyImageView3 = findViewById(R.id.enemyImageView3);
         difficultyTextView = findViewById(R.id.difficultyTextView);
         mapImageView = findViewById(R.id.mapImageView);
         mapImageView.setImageResource(R.drawable.map1);
@@ -188,8 +180,11 @@ public class GameScreen extends AppCompatActivity implements Observer {
         EnemyFactory enemyFactory = new EnemyFactory(this, R.drawable.dungeon_tileset, 16, 16);
         Enemy troll = enemyFactory.createEnemy(EnemyType.TROLL);
         Enemy imp = enemyFactory.createEnemy(EnemyType.IMP);
+        Enemy knight = enemyFactory.createEnemy(EnemyType.KNIGHT);
         player.addObserver(troll);
         player.addObserver(imp);
+        player.addObserver(knight);
+
 
         GridLayout.LayoutParams enemyParams =
                 (GridLayout.LayoutParams) enemyImageView.getLayoutParams();
@@ -198,18 +193,22 @@ public class GameScreen extends AppCompatActivity implements Observer {
         enemyImageView.setLayoutParams(enemyParams);
         enemyImageView.setImageResource(R.drawable.troll_image);
 
+        GridLayout.LayoutParams enemyParams3 =
+                (GridLayout.LayoutParams) enemyImageView3.getLayoutParams();
+        enemyParams3.rowSpec = GridLayout.spec(10);
+        enemyParams3.columnSpec = GridLayout.spec(10);
+        enemyImageView3.setLayoutParams(enemyParams3);
+        enemyImageView3.setImageResource(R.drawable.knight_image);
+
         GridLayout.LayoutParams enemyParams2 =
                 (GridLayout.LayoutParams) enemyImageView2.getLayoutParams();
-        enemyParams2.rowSpec = GridLayout.spec(8);
-        enemyParams2.columnSpec = GridLayout.spec(8);
-        enemyImageView2.setLayoutParams(enemyParams2);
-        enemyImageView2.setImageResource(R.drawable.imp_image);
 
         System.out.println("Updating");
         nameTextView.setText(playerName);
 
         enemies = new ArrayList<>();
         enemies.add(troll);
+        enemies.add(knight);
         enemies.add(imp);
         System.out.println("HERE");
 
@@ -217,7 +216,12 @@ public class GameScreen extends AppCompatActivity implements Observer {
         enemyRunnable = new Runnable() {
             @Override
             public void run() {
-                // Update the position for each enemy
+                if (currMap == 2) {
+                    enemyParams2.rowSpec = GridLayout.spec(8);
+                    enemyParams2.columnSpec = GridLayout.spec(8);
+                    enemyImageView2.setLayoutParams(enemyParams2);
+                    enemyImageView2.setImageResource(R.drawable.imp_image);
+                }
                 for (Enemy enemy : enemies) {
                     enemy.move();
                 }
@@ -238,6 +242,14 @@ public class GameScreen extends AppCompatActivity implements Observer {
                 System.out.println("Imp x: " + imp.getColumn());
                 System.out.println("Imp y: " + imp.getRow());
                 enemyImageView2.setLayoutParams(params2);
+
+                GridLayout.LayoutParams params3 =
+                        (GridLayout.LayoutParams) enemyImageView3.getLayoutParams();
+                params2.rowSpec = GridLayout.spec(knight.getRow());
+                params2.columnSpec = GridLayout.spec(knight.getColumn());
+                System.out.println("Knight x: " + knight.getColumn());
+                System.out.println("Knight y: " + knight.getRow());
+                enemyImageView3.setLayoutParams(params3);
             }
         };
         enemyHandler.postDelayed(enemyRunnable, 2000);

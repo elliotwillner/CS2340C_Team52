@@ -11,6 +11,8 @@ public class KnightEnemy implements Enemy {
 
     public KnightEnemy(Bitmap sprite) {
         this.sprite = sprite;
+        this.row = 10;
+        this.column = 10;
     }
     @Override
     public void update(int x, int y) {
@@ -27,8 +29,8 @@ public class KnightEnemy implements Enemy {
     public void move() {
         int rowDirection = Integer.compare(Player.getInstance().getRow(), row);
         int colDirection = Integer.compare(Player.getInstance().getColumn(), column);
-        row += rowDirection * 4;
-        column += colDirection * 4;
+        row += rowDirection * 1.5;
+        column += colDirection * 1.5;
         onCollision();
     }
 
@@ -40,12 +42,12 @@ public class KnightEnemy implements Enemy {
 
     @Override
     public int getRow() {
-        return 0;
+        return row;
     }
 
     @Override
     public int getColumn() {
-        return 0;
+        return column;
     }
 
     public Bitmap getSprite() {
