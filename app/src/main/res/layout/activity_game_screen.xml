@@ -108,16 +108,8 @@
             android:visibility="visible" />
         <ImageView
             android:id="@+id/enemyImageView2"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_rowSpan="1"
-            android:layout_columnSpan="1"
-            android:layout_gravity="fill"
-            android:visibility="visible" />
-        <ImageView
-            android:id="@+id/enemyImageView3"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_rowSpan="1"
             android:layout_columnSpan="1"
             android:layout_gravity="fill"
