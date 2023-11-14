@@ -11,8 +11,8 @@ public class ImpEnemy implements Enemy {
 
     public ImpEnemy(Bitmap sprite) {
         this.sprite = sprite;
-        this.row = 5;
-        this.column = 5;
+        this.row = 8;
+        this.column = 8;
     }
     @Override
     public void update(int x, int y) {
