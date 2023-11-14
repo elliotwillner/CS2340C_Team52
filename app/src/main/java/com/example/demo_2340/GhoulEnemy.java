@@ -11,6 +11,8 @@ public class GhoulEnemy implements Enemy {
 
     public GhoulEnemy(Bitmap sprite) {
         this.sprite = sprite;
+        this.row = 2;
+        this.column = 2;
     }
     @Override
     public void update(int x, int y) {
@@ -28,8 +30,13 @@ public class GhoulEnemy implements Enemy {
     public void move() {
         int rowDirection = Integer.compare(Player.getInstance().getRow(), row);
         int colDirection = Integer.compare(Player.getInstance().getColumn(), column);
-        row += rowDirection * 3;
-        column += colDirection * 3;
+        if (Player.getInstance().getRow() % 2 == 0) {
+            row += 1;
+            column += 1;
+        } else {
+            row += rowDirection;
+            column += colDirection;
+        }
         onCollision();
     }
     public void onCollision() {
@@ -39,12 +46,12 @@ public class GhoulEnemy implements Enemy {
     }
     @Override
     public int getRow() {
-        return 0;
+        return row;
     }
 
     @Override
     public int getColumn() {
-        return 0;
+        return column;
     }
 
     public Bitmap getSprite() {
