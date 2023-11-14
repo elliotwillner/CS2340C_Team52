@@ -2,124 +2,117 @@ package test;
 
 import static org.junit.Assert.assertEquals;
 
-import android.widget.TextView;
+import android.graphics.Bitmap;
 
+import com.example.demo_2340.GhoulEnemy;
+import com.example.demo_2340.ImpEnemy;
+import com.example.demo_2340.KnightEnemy;
 import com.example.demo_2340.Player;
-import com.example.demo_2340.MoveLeft;
-import com.example.demo_2340.MoveRight;
-import com.example.demo_2340.MoveDown;
-import com.example.demo_2340.MoveUp;
 import com.example.demo_2340.Tile;
 import com.example.demo_2340.TileMap;
-import com.example.demo_2340.EndScreenActivity;
+import com.example.demo_2340.Enemy;
+import com.example.demo_2340.TrollEnemy;
 
 import org.junit.Test;
 
 public class PlayerUnitTest {
-
-    private final Player player1 = new Player();
+    /*Context context = new GameScreen();
+    EnemyFactory enemyFactory = new EnemyFactory(
+            context, R.drawable.dungeon_tileset, 16, 16);
+    Enemy troll = enemyFactory.createEnemy(EnemyType.TROLL);*/
     private final Tile[][] testMap = new TileMap().getMap(2);
-    private TextView winTextView;
-
+    private Bitmap sprite;
+    Enemy troll = new TrollEnemy(sprite);
     @Test
-    public void testPlayerMovementRight() {
+    public void testEnemyPosition() {
+        assertEquals(troll.getRow(), 5);
+        assertEquals(troll.getColumn(), 5);
+    }
+    @Test
+    public void testEnemyMovement() {
         Player player1 = Player.getInstance();
         player1.setRow(3);
         player1.setColumn(3);
-        player1.setMoveStrategy(new MoveRight());
-        player1.move(testMap);
-        assertEquals(player1.getRow(), 3);
-        assertEquals(player1.getColumn(), 4);
+        troll.move();
+        assertEquals(troll.getRow(), 4);
+        assertEquals(troll.getColumn(), 4);
     }
     @Test
-    public void testPlayerMovementLeft() {
+    public void testCollisionDamage() {
         Player player1 = Player.getInstance();
-        player1.setRow(3);
-        player1.setColumn(3);
-        player1.setMoveStrategy(new MoveLeft());
-        player1.move(testMap);
-        assertEquals(player1.getRow(), 3);
-        assertEquals(player1.getColumn(), 2);
+        player1.setHealth(100);
+        player1.setRow(troll.getRow());
+        player1.setColumn(troll.getColumn());
+        troll.onCollision();
+        assertEquals(player1.getHealth(), 90);
     }
     @Test
-    public void testPlayerMovementDown() {
+    public void testAdditionalDamage() {
         Player player1 = Player.getInstance();
-        player1.setRow(3);
-        player1.setColumn(3);
-        player1.setMoveStrategy(new MoveDown());
-        player1.move(testMap);
-        assertEquals(player1.getRow(), 4);
-        assertEquals(player1.getColumn(), 3);
+        player1.setHealth(100);
+        player1.setRow(troll.getRow());
+        player1.setColumn(troll.getColumn());
+        troll.onCollision();
+        troll.onCollision();
+        assertEquals(player1.getHealth(), 80);
     }
     @Test
-    public void testPlayerMovementUp() {
+    public void testNoCollisionDamage() {
         Player player1 = Player.getInstance();
-        player1.setRow(3);
-        player1.setColumn(3);
-        player1.setMoveStrategy(new MoveUp());
-        player1.move(testMap);
-        assertEquals(player1.getRow(), 2);
-        assertEquals(player1.getColumn(), 3);
+        player1.setHealth(100);
+        player1.setRow(troll.getRow() - 1);
+        player1.setColumn(troll.getColumn() - 1);
+        troll.onCollision();
+        assertEquals(player1.getHealth(), 100);
     }
     @Test
-    public void testPlayerCollisionRight() {
+    public void testCollisionDamageGhoul() {
+        Enemy ghoul = new GhoulEnemy(sprite);
         Player player1 = Player.getInstance();
-        player1.setRow(2);
-        player1.setColumn(14);
-        player1.setMoveStrategy(new MoveRight());
-        player1.move(testMap);
-        assertEquals(player1.getRow(), 2);
-        assertEquals(player1.getColumn(), 14);
+        player1.setHealth(100);
+        player1.setRow(ghoul.getRow());
+        player1.setColumn(ghoul.getColumn());
+        ghoul.onCollision();
+        assertEquals(player1.getHealth(), 96);
     }
     @Test
-    public void testPlayerCollisionLeft() {
+    public void testCollisionDamageImp() {
+        Enemy imp = new ImpEnemy(sprite);
         Player player1 = Player.getInstance();
-        player1.setRow(14);
-        player1.setColumn(1);
-        player1.setMoveStrategy(new MoveLeft());
-        player1.move(testMap);
-        assertEquals(player1.getRow(), 14);
-        assertEquals(player1.getColumn(), 1);
+        player1.setHealth(100);
+        player1.setRow(imp.getRow());
+        player1.setColumn(imp.getColumn());
+        imp.onCollision();
+        assertEquals(player1.getHealth(), 98);
     }
     @Test
-    public void testPlayerCollisionDown() {
+    public void testCollisionDamageKnight() {
+        Enemy knight = new KnightEnemy(sprite);
         Player player1 = Player.getInstance();
-        player1.setRow(14);
-        player1.setColumn(1);
-        player1.setMoveStrategy(new MoveDown());
-        player1.move(testMap);
-        assertEquals(player1.getRow(), 14);
-        assertEquals(player1.getColumn(), 1);
+        player1.setHealth(100);
+        player1.setRow(knight.getRow());
+        player1.setColumn(knight.getColumn());
+        knight.onCollision();
+        assertEquals(player1.getHealth(), 88);
     }
     @Test
-    public void testPlayerCollisionUp() {
+    public void testPlayerLife() {
         Player player1 = Player.getInstance();
-        player1.setRow(2);
-        player1.setColumn(14);
-        player1.setMoveStrategy(new MoveUp());
-        player1.move(testMap);
-        assertEquals(player1.getRow(), 2);
-        assertEquals(player1.getColumn(), 14);
-    }
-    private final Tile[][] testMap2 = new TileMap().getMap(1);
-    @Test
-    public void testTileWall() {
-        Player player1 = Player.getInstance();
-        player1.setRow(13);
-        player1.setColumn(11);
-        player1.setMoveStrategy(new MoveRight());
-        player1.move(testMap2);
-        assertEquals(player1.getRow(), 13);
-        assertEquals(player1.getColumn(), 11);
+        player1.setHealth(20);
+        player1.setIsAlive(true);
+        player1.setRow(troll.getRow());
+        player1.setColumn(troll.getColumn());
+        troll.onCollision();
+        assertEquals(player1.getIsAlive(), true);
     }
     @Test
-    public void testTileHole() {
+    public void testPlayerDeath() {
         Player player1 = Player.getInstance();
-        player1.setRow(13);
-        player1.setColumn(12);
-        player1.setMoveStrategy(new MoveDown());
-        player1.move(testMap2);
-        assertEquals(player1.getRow(), 14);
-        assertEquals(player1.getColumn(), 12);
+        player1.setHealth(10);
+        player1.setIsAlive(true);
+        player1.setRow(troll.getRow());
+        player1.setColumn(troll.getColumn());
+        troll.onCollision();
+        assertEquals(player1.getIsAlive(), false);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.demo_2340;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,31 +14,35 @@ import android.widget.TextView;
 import android.os.Handler;
 import android.widget.Space;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
+
 public class GameScreen extends AppCompatActivity implements Observer {
     private ImageView mapImageView;
     private TextView nameTextView;
-    private TextView healthTextView;
+    private static TextView healthTextView;
     private ImageView spriteImageView;
+    private ImageView enemyImageView;
+    private ImageView enemyImageView2;
     private TextView difficultyTextView;
     private TextView playerScoreTextView;
-    private Player player = Player.getInstance();
+    private static Player player = Player.getInstance();
     private static int playerScore;
     private String playerName;
     private GridLayout grid;
     private Handler handler;
     private Runnable runnable;
+
+    private List<Enemy> enemies;
+    private Handler enemyHandler;
+    private Runnable enemyRunnable;
+
     private int currMap = 1;
     private TileMap tileMap = new TileMap();
 
     @Override
     public void update(int x, int y) {
-        //System.out.println("updating!");
-        //transition should go here
-        //like if (map[y][x].getType())
-        //Intent intent = new Intent (GameScreen.this, GameScreen2.class);
-        //also transfer name, difficulty, sprite, and score variables <-- figure this out
-        //startActivity(intent);
         mapImageView = findViewById(R.id.mapImageView);
         System.out.println("x = " + x);
         System.out.println("y = " + y);
@@ -108,6 +113,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
     }
      */
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,14 +126,24 @@ public class GameScreen extends AppCompatActivity implements Observer {
             public void run() {
                 if (playerScore != 0) {
                     playerScore--;
+                    playerScoreTextView.setText("Score: " + String.valueOf(playerScore));
+                    handler.postDelayed(this, 1000);
                 }
-                playerScoreTextView.setText("Score: " + String.valueOf(playerScore));
-                handler.postDelayed(this, 1000);
+                if (player.getHealth() <= 0 || player.getScore() <= 0) {
+                    System.out.println("Game Over!");
+                    Intent intent = new Intent(GameScreen.this, EndScreenActivity.class);
+                    intent.putExtra("won", false);
+                    Player.getInstance().setName(playerName);
+                    Player.getInstance().setScore(0);
+                    Player.getInstance().setDate(Calendar.getInstance().getTime());
+                    Leaderboard.addPlayer();
+                    Player.getInstance().reset();
+                    handler.removeCallbacks(runnable);
+                    startActivity(intent);
+                }
             }
         };
-
         handler.postDelayed(runnable, 1000);
-
         grid = findViewById(R.id.grid);
         for (int x = 0; x < grid.getColumnCount(); x++) {
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
@@ -145,24 +161,21 @@ public class GameScreen extends AppCompatActivity implements Observer {
             params.width = 0;
             grid.addView(new Space(this), params);
         }
-
         nameTextView = findViewById(R.id.nameTextView);
         healthTextView = findViewById(R.id.healthTextView);
         spriteImageView = findViewById(R.id.spriteImageView);
+        enemyImageView = findViewById(R.id.enemyImageView);
+        enemyImageView2 = findViewById(R.id.enemyImageView2);
         difficultyTextView = findViewById(R.id.difficultyTextView);
-
         mapImageView = findViewById(R.id.mapImageView);
         mapImageView.setImageResource(R.drawable.map1);
-
         playerName = getIntent().getStringExtra("playerName");
         String spriteID = getIntent().getStringExtra("selectedCharacter");
         int difficulty = getIntent().getIntExtra("selectedDifficulty", 1);
 
         player.setName(playerName);
         player.setDifficulty(difficulty);
-        if (!player.hasGameObserver(this)) {
-            player.addObserver(this);
-        }
+        player.addObserver(this);
         System.out.println("Initial Column: " + player.getColumn());
         System.out.println("Initial Row: " + player.getRow());
 
@@ -171,10 +184,63 @@ public class GameScreen extends AppCompatActivity implements Observer {
         params.rowSpec = GridLayout.spec(player.getRow());
         params.columnSpec = GridLayout.spec(player.getColumn());
         spriteImageView.setLayoutParams(params);
-        System.out.println("Updating");
-        update(player.getColumn(), player.getRow());
 
+        EnemyFactory enemyFactory = new EnemyFactory(this, R.drawable.dungeon_tileset, 16, 16);
+        Enemy troll = enemyFactory.createEnemy(EnemyType.TROLL);
+        Enemy imp = enemyFactory.createEnemy(EnemyType.IMP);
+        player.addObserver(troll);
+        player.addObserver(imp);
+
+        GridLayout.LayoutParams enemyParams =
+                (GridLayout.LayoutParams) enemyImageView.getLayoutParams();
+        enemyParams.rowSpec = GridLayout.spec(5);
+        enemyParams.columnSpec = GridLayout.spec(5);
+        enemyImageView.setLayoutParams(enemyParams);
+        enemyImageView.setImageResource(R.drawable.troll_image);
+
+        GridLayout.LayoutParams enemyParams2 =
+                (GridLayout.LayoutParams) enemyImageView2.getLayoutParams();
+        enemyParams2.rowSpec = GridLayout.spec(8);
+        enemyParams2.columnSpec = GridLayout.spec(8);
+        enemyImageView2.setLayoutParams(enemyParams2);
+        enemyImageView2.setImageResource(R.drawable.imp_image);
+
+        System.out.println("Updating");
         nameTextView.setText(playerName);
+
+        enemies = new ArrayList<>();
+        enemies.add(troll);
+        enemies.add(imp);
+        System.out.println("HERE");
+
+        enemyHandler = new Handler();
+        enemyRunnable = new Runnable() {
+            @Override
+            public void run() {
+                // Update the position for each enemy
+                for (Enemy enemy : enemies) {
+                    enemy.move();
+                }
+                enemyHandler.postDelayed(this, 2000); // Update every 2 seconds
+
+                GridLayout.LayoutParams params =
+                        (GridLayout.LayoutParams) enemyImageView.getLayoutParams();
+                params.rowSpec = GridLayout.spec(troll.getRow());
+                params.columnSpec = GridLayout.spec(troll.getColumn());
+                System.out.println("Troll x: " + troll.getColumn());
+                System.out.println("Troll y: " + troll.getRow());
+                enemyImageView.setLayoutParams(params);
+
+                GridLayout.LayoutParams params2 =
+                        (GridLayout.LayoutParams) enemyImageView2.getLayoutParams();
+                params2.rowSpec = GridLayout.spec(imp.getRow());
+                params2.columnSpec = GridLayout.spec(imp.getColumn());
+                System.out.println("Imp x: " + imp.getColumn());
+                System.out.println("Imp y: " + imp.getRow());
+                enemyImageView2.setLayoutParams(params2);
+            }
+        };
+        enemyHandler.postDelayed(enemyRunnable, 2000);
 
         if (difficulty == 3) {
             difficultyTextView.setText("Difficulty: Hard");
@@ -184,13 +250,11 @@ public class GameScreen extends AppCompatActivity implements Observer {
             difficultyTextView.setText("Difficulty: Easy");
         }
 
-        if (difficulty == 3) {
-            healthTextView.setText("Health: 50");
-        } else if (difficulty == 2) {
-            healthTextView.setText("Health: 75");
-        } else {
-            healthTextView.setText("Health: 100");
+        for (Enemy enemy : enemies) {
+            enemy.setDamage(player.getDifficulty());
         }
+
+        healthTextView.setText("Health: " + player.getHealth());
 
         if (spriteID.equals("Mage")) {
             spriteImageView.setImageResource(R.drawable.mage_image);
@@ -198,6 +262,11 @@ public class GameScreen extends AppCompatActivity implements Observer {
             spriteImageView.setImageResource(R.drawable.rogue_image);
         } else if (spriteID.equals("Warrior")) {
             spriteImageView.setImageResource(R.drawable.warrior_image);
+        }
+    }
+    public static void updateHealth() {
+        if (healthTextView != null) {
+            healthTextView.setText("Health: " + String.valueOf(player.getHealth()));
         }
     }
     @Override
@@ -237,7 +306,6 @@ public class GameScreen extends AppCompatActivity implements Observer {
         spriteImageView.setLayoutParams(params);
         return true;
     }
-
     public static int getScore() {
         return playerScore;
     }
@@ -246,5 +314,4 @@ public class GameScreen extends AppCompatActivity implements Observer {
         super.onDestroy();
         player.removeObserver(this);
     }
-
 }

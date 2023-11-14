@@ -8,6 +8,8 @@ public class Player implements Observable {
     private int difficulty;
     private String chosenClass;
     private int health;
+    private double damageMultiplier;
+    private boolean isAlive = true;
     private int score;
     private Date date;
     //movement variables
@@ -49,10 +51,6 @@ public class Player implements Observable {
     }
 
     public Player() {
-        this.name = "";
-        this.difficulty = 1;
-        this.chosenClass = "";
-        this.health = 150;
         this.score = 100;
         this.date = null;
         this.strategy = null;
@@ -82,6 +80,19 @@ public class Player implements Observable {
     public int getDifficulty() {
         return difficulty;
     }
+    public int getHealth() {
+        return health;
+    }
+    public boolean getIsAlive() {
+        return isAlive;
+    }
+    public double getDamageMultiplier() {
+        return damageMultiplier;
+    }
+
+    public String getChosenClass() {
+        return chosenClass;
+    }
 
     public int getScore() {
         return score;
@@ -95,8 +106,21 @@ public class Player implements Observable {
         this.name = name;
     }
 
-    public void setDifficulty(int diff) {
+    public synchronized void setDifficulty(int diff) {
         this.difficulty = diff;
+    }
+    public synchronized void setHealth(int health) {
+        this.health = health;
+    }
+    public synchronized void setIsAlive(boolean isAlive) {
+        this.isAlive = isAlive;
+    }
+    public synchronized void setDamageMultiplier(double damageMultiplier) {
+        this.damageMultiplier = damageMultiplier;
+    }
+
+    public synchronized void setChosenClass(String chosenClass) {
+        this.chosenClass = chosenClass;
     }
 
     public synchronized void setScore(int score) {
@@ -131,5 +155,13 @@ public class Player implements Observable {
             }
         }
         return false;
+    }
+
+    public void takeDamage(int damage) {
+        health -= damage; //* damageMultiplier;
+        GameScreen.updateHealth();
+        if (health <= 0) {
+            isAlive = false;
+        }
     }
 }

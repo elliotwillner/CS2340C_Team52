@@ -1,8 +1,5 @@
 package com.example.demo_2340;
 
-/**
- * getMaps don't work for some reason so just copy and paste to the game screen
- */
 public class TileMap {
     private static Tile[][] map1;
     private static Tile[][] map2;
@@ -16,8 +13,8 @@ public class TileMap {
                         new Tile(13, 1, 1), new Tile(14, 1, 1), new Tile(15, 1, 1), new Tile(16, 1, 1)},
                 //row2
                 {new Tile(1, 2, 1), new Tile(2, 2, 1), new Tile(3, 2, 1), new Tile(4, 2, 1),
-                        new Tile(5, 2, 1), new Tile(6, 2, 1), new Tile(7, 2, 1), new Tile(8, 2, 3),
-                        new Tile(9, 2, 3), new Tile(10, 2, 1), new Tile(11, 2, 1), new Tile(12, 2, 1),
+                        new Tile(5, 2, 1), new Tile(6, 2, 1), new Tile(7, 2, 1), new Tile(8, 2, 1),
+                        new Tile(9, 2, 1), new Tile(10, 2, 1), new Tile(11, 2, 1), new Tile(12, 2, 1),
                         new Tile(13, 2, 1), new Tile(14, 2, 1), new Tile(15, 2, 1), new Tile(16, 2, 1)},
                 //row3
                 {new Tile(1, 3, 1), new Tile(2, 3, 0), new Tile(3, 3, 1), new Tile(4, 3, 0),
@@ -263,6 +260,7 @@ public class TileMap {
             return map2;
         case 3:
             return map3;
+        default:
         }
         return null;
     }
