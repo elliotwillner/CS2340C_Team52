@@ -12,7 +12,7 @@ Sarah Islam
     - Tag: v2.0.1
 - [x] Sprint 3 - **93%**
     - Tag: v3.0.1
-- [x] Sprint 4
+- [x] Sprint 4 - **95.5%**
     - Tag: v4.0.0
 - [ ] Sprint 5
 
