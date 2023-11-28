@@ -39,6 +39,11 @@ public class KnightEnemy implements Enemy {
     }
 
     @Override
+    public void takeDamage(int damage) {
+
+    }
+
+    @Override
     public int getRow() {
         return 0;
     }

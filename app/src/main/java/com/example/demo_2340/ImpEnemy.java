@@ -39,6 +39,12 @@ public class ImpEnemy implements Enemy {
             player.takeDamage(damage);
         }
     }
+
+    @Override
+    public void takeDamage(int damage) {
+
+    }
+
     @Override
     public int getRow() {
         return row;

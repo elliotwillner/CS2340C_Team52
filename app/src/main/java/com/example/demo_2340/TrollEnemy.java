@@ -44,6 +44,11 @@ public class TrollEnemy implements Enemy {
         }
     }
 
+    @Override
+    public void takeDamage(int damage) {
+
+    }
+
     public Bitmap getSprite() {
         return sprite;
     }

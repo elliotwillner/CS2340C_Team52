@@ -9,6 +9,9 @@ import android.content.Intent;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.RotateAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,11 +31,12 @@ public class GameScreen extends AppCompatActivity implements Observer {
     private ImageView spriteImageView;
     private ImageView enemyImageView;
     private ImageView enemyImageView2;
+    private ImageView weaponImageView;
     private TextView difficultyTextView;
     private static TextView playerScoreTextView;
     private static Player player = Player.getInstance();
     //switch out playerScore and playerName uses for the Player variables
-    private int playerScore;
+    private static int playerScore;
     private String playerName;
     private GridLayout grid;
     private Handler handler;
@@ -99,6 +103,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
         potionsList3.add(potion10);
         potionsList3.add(potion11);
         potionsList3.add(potion12);
+        /*
         potionView1 = findViewById(R.id.potion1ImageView);
         potionView1.setImageResource(R.drawable.resistance_potion);
         potionView2 = findViewById(R.id.potion2ImageView);
@@ -123,6 +128,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
         potionView11.setImageResource(R.drawable.health_potion);
         potionView12 = findViewById(R.id.potion12ImageView);
         potionView12.setImageResource(R.drawable.health_potion);
+
         potionImageViewMap.put(potion1, potionView1);
         potionImageViewMap.put(potion2, potionView2);
         potionImageViewMap.put(potion3, potionView3);
@@ -135,9 +141,10 @@ public class GameScreen extends AppCompatActivity implements Observer {
         potionImageViewMap.put(potion10, potionView10);
         potionImageViewMap.put(potion11, potionView11);
         potionImageViewMap.put(potion12, potionView12);
+         */
     }
 
-
+/*
     public void activatePotionList(int map) {
         if (map == 1) {
            for (Potion potion : potionsList1) {
@@ -195,10 +202,11 @@ public class GameScreen extends AppCompatActivity implements Observer {
             }
         }
     }
-
+*/
     @Override
     public void update(int x, int y) {
         mapImageView = findViewById(R.id.mapImageView);
+        /*
         for (Potion potion : potionsList1) {
             if ((potion.getActive()) && !(potion.getCollected())) {
                 (potionImageViewMap.get(potion)).setVisibility(View.VISIBLE);
@@ -220,6 +228,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
                 (potionImageViewMap.get(potion)).setVisibility(View.INVISIBLE);
             }
         }
+         */
         System.out.println("x = " + x);
         System.out.println("y = " + y);
         System.out.println("currMap = " + currMap);
@@ -240,7 +249,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
             player.setRow(2);
             player.setColumn(7);
             currMap = 2;
-            activatePotionList(currMap);
+            //activatePotionList(currMap);
             break;
         case 4:
             // Handle type 4 tile
@@ -248,7 +257,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
             player.setRow(2);
             player.setColumn(7);
             currMap = 3;
-            activatePotionList(currMap);
+            //activatePotionList(currMap);
             break;
         case 5:
             System.out.println("Won!");
@@ -269,7 +278,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
             player.setRow(13);
             player.setColumn(7);
             currMap = 1;
-            activatePotionList(currMap);
+            //activatePotionList(currMap);
             break;
         case 7:
             // Handle type 7 tile
@@ -277,7 +286,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
             player.setRow(13);
             player.setColumn(7);
             currMap = 2;
-            activatePotionList(currMap);
+            //activatePotionList(currMap);
             break;
         default:
             // Handle other cases (if needed)
@@ -292,7 +301,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
         setContentView(R.layout.activity_game_screen);
         playerScoreTextView = findViewById(R.id.playerScoreTextView);
         initializePotionLists();
-        activatePotionList(1);
+        //activatePotionList(1);
         playerScore = 101;
         handler = new Handler();
         runnable = new Runnable() {
@@ -344,6 +353,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
         difficultyTextView = findViewById(R.id.difficultyTextView);
         mapImageView = findViewById(R.id.mapImageView);
         mapImageView.setImageResource(R.drawable.map1);
+        weaponImageView = findViewById(R.id.weaponImageView);
         playerName = getIntent().getStringExtra("playerName");
         String spriteID = getIntent().getStringExtra("selectedCharacter");
         int difficulty = getIntent().getIntExtra("selectedDifficulty", 1);
@@ -476,6 +486,10 @@ public class GameScreen extends AppCompatActivity implements Observer {
                 player.move(tileMap.getMap(currMap));
             }
             break;
+        case KeyEvent.KEYCODE_SPACE:
+            System.out.println("Attacking!");
+            attackWithWeapon();
+            break;
         default:
             break;
         }
@@ -488,6 +502,41 @@ public class GameScreen extends AppCompatActivity implements Observer {
     }
     public int getScore() {
         return playerScore;
+    }
+
+    private void attackWithWeapon() {
+        GridLayout.LayoutParams weaponParams =
+                (GridLayout.LayoutParams) spriteImageView.getLayoutParams();
+        weaponParams.rowSpec = GridLayout.spec(player.getRow() - 1);
+        weaponParams.columnSpec = GridLayout.spec(player.getColumn());
+        weaponImageView.setVisibility(View.VISIBLE);
+        weaponImageView.setLayoutParams(weaponParams);
+        player.attack();
+        animateWeapon();
+    }
+
+    private void animateWeapon() {
+        RotateAnimation animation = new RotateAnimation(30, 330,
+                Animation.RELATIVE_TO_SELF, 0.5f,
+                Animation.RELATIVE_TO_SELF, 0.5f);
+
+        animation.setDuration(500);
+        animation.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                weaponImageView.setVisibility(View.INVISIBLE);
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+        });
+
+        weaponImageView.startAnimation(animation);
     }
     @Override
     protected void onDestroy() {

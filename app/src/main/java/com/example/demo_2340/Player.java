@@ -16,6 +16,7 @@ public class Player implements Observable {
     private MoveStrategy strategy;
     private int column;
     private int row;
+    private Weapon weapon;
 
     //set movement strategy
     public void setMoveStrategy(MoveStrategy strategy) {
@@ -176,5 +177,9 @@ public class Player implements Observable {
 
     public void applyPowerUp(PowerUp powerUp) {
         powerUp.decorate(this);
+    }
+
+    public void attack() {
+
     }
 }
