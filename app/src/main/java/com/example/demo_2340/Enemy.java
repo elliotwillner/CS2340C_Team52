@@ -9,4 +9,5 @@ public interface Enemy extends Observer {
     void onCollision();
 
     void takeDamage(int damage);
+    boolean isPendingRemoval();
 }

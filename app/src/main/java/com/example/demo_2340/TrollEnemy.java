@@ -8,15 +8,21 @@ public class TrollEnemy implements Enemy {
     private int row;
     private int column;
     private Bitmap sprite;
+    private boolean isPendingRemoval;
 
     public TrollEnemy(Bitmap sprite) {
         this.sprite = sprite;
         this.row = 5;
         this.column = 5;
+        this.isPendingRemoval = false;
     }
     @Override
     public void update(int x, int y) {
         if ((row == player.getRow()) && (column == player.getColumn())) {
+            if (Player.getInstance().getIsAttacking()) {
+                isPendingRemoval = true;
+                return;
+            }
             player.takeDamage(damage);
         }
     }
@@ -40,6 +46,11 @@ public class TrollEnemy implements Enemy {
 
     public void onCollision() {
         if ((row == player.getRow()) && (column == player.getColumn())) {
+            if (Player.getInstance().getIsAttacking()) {
+
+                isPendingRemoval = true;
+                return;
+            }
             player.takeDamage(damage);
         }
     }
@@ -72,5 +83,9 @@ public class TrollEnemy implements Enemy {
         } else {
             this.damage = 100;
         }
+    }
+
+    public boolean isPendingRemoval() {
+        return isPendingRemoval;
     }
 }

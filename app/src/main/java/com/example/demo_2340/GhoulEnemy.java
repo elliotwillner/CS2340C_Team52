@@ -8,6 +8,7 @@ public class GhoulEnemy implements Enemy {
     private int row;
     private int column;
     private Bitmap sprite;
+    private boolean isPendingRemoval;
 
     public GhoulEnemy(Bitmap sprite) {
         this.sprite = sprite;
@@ -15,6 +16,10 @@ public class GhoulEnemy implements Enemy {
     @Override
     public void update(int x, int y) {
         if ((row == player.getRow()) && (column == player.getColumn())) {
+            if (Player.getInstance().getIsAttacking()) {
+                isPendingRemoval = true;
+                return;
+            }
             player.takeDamage(damage);
         }
     }
@@ -34,6 +39,10 @@ public class GhoulEnemy implements Enemy {
     }
     public void onCollision() {
         if ((row == player.getRow()) && (column == player.getColumn())) {
+            if (Player.getInstance().getIsAttacking()) {
+                isPendingRemoval = true;
+                return;
+            }
             player.takeDamage(damage);
         }
     }
@@ -41,6 +50,11 @@ public class GhoulEnemy implements Enemy {
     @Override
     public void takeDamage(int damage) {
 
+    }
+
+    @Override
+    public boolean isPendingRemoval() {
+        return isPendingRemoval;
     }
 
     @Override

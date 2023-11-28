@@ -401,6 +401,11 @@ public class GameScreen extends AppCompatActivity implements Observer {
                 // Update the position for each enemy
                 for (Enemy enemy : enemies) {
                     enemy.move();
+                    enemy.onCollision();
+                    if (enemy.isPendingRemoval()) {
+                        System.out.println("Removing enemy");
+                        enemies.remove(enemy);
+                    }
                 }
                 enemyHandler.postDelayed(this, 2000); // Update every 2 seconds
 
@@ -502,8 +507,8 @@ public class GameScreen extends AppCompatActivity implements Observer {
 
     private void attackWithWeapon() {
         GridLayout.LayoutParams weaponParams =
-                (GridLayout.LayoutParams) spriteImageView.getLayoutParams();
-        weaponParams.rowSpec = GridLayout.spec(player.getRow() - 1);
+                (GridLayout.LayoutParams) weaponImageView.getLayoutParams();
+        weaponParams.rowSpec = GridLayout.spec(player.getRow());
         weaponParams.columnSpec = GridLayout.spec(player.getColumn());
         weaponImageView.setVisibility(View.VISIBLE);
         weaponImageView.setLayoutParams(weaponParams);
@@ -512,6 +517,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
     }
 
     private void animateWeapon() {
+        Player.getInstance().setIsAttacking(true);
         RotateAnimation animation = new RotateAnimation(30, 330,
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
@@ -524,6 +530,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
 
             @Override
             public void onAnimationEnd(Animation animation) {
+                Player.getInstance().setIsAttacking(false);
                 weaponImageView.setVisibility(View.INVISIBLE);
             }
 

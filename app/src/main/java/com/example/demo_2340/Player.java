@@ -17,6 +17,7 @@ public class Player implements Observable {
     private int column;
     private int row;
     private Weapon weapon;
+    private boolean isAttacking = false;
 
     //set movement strategy
     public void setMoveStrategy(MoveStrategy strategy) {
@@ -180,6 +181,12 @@ public class Player implements Observable {
     }
 
     public void attack() {
+    }
 
+    public void setIsAttacking(boolean b) {
+        isAttacking = b;
+    }
+    public boolean getIsAttacking() {
+        return isAttacking;
     }
 }
