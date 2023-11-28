@@ -103,7 +103,6 @@ public class GameScreen extends AppCompatActivity implements Observer {
         potionsList3.add(potion10);
         potionsList3.add(potion11);
         potionsList3.add(potion12);
-        /*
         potionView1 = findViewById(R.id.potion1ImageView);
         potionView1.setImageResource(R.drawable.resistance_potion);
         potionView2 = findViewById(R.id.potion2ImageView);
@@ -141,10 +140,9 @@ public class GameScreen extends AppCompatActivity implements Observer {
         potionImageViewMap.put(potion10, potionView10);
         potionImageViewMap.put(potion11, potionView11);
         potionImageViewMap.put(potion12, potionView12);
-         */
     }
 
-/*
+
     public void activatePotionList(int map) {
         if (map == 1) {
            for (Potion potion : potionsList1) {
@@ -202,11 +200,10 @@ public class GameScreen extends AppCompatActivity implements Observer {
             }
         }
     }
-*/
+
     @Override
     public void update(int x, int y) {
         mapImageView = findViewById(R.id.mapImageView);
-        /*
         for (Potion potion : potionsList1) {
             if ((potion.getActive()) && !(potion.getCollected())) {
                 (potionImageViewMap.get(potion)).setVisibility(View.VISIBLE);
@@ -228,7 +225,6 @@ public class GameScreen extends AppCompatActivity implements Observer {
                 (potionImageViewMap.get(potion)).setVisibility(View.INVISIBLE);
             }
         }
-         */
         System.out.println("x = " + x);
         System.out.println("y = " + y);
         System.out.println("currMap = " + currMap);
@@ -249,7 +245,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
             player.setRow(2);
             player.setColumn(7);
             currMap = 2;
-            //activatePotionList(currMap);
+            activatePotionList(currMap);
             break;
         case 4:
             // Handle type 4 tile
@@ -257,7 +253,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
             player.setRow(2);
             player.setColumn(7);
             currMap = 3;
-            //activatePotionList(currMap);
+            activatePotionList(currMap);
             break;
         case 5:
             System.out.println("Won!");
@@ -278,7 +274,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
             player.setRow(13);
             player.setColumn(7);
             currMap = 1;
-            //activatePotionList(currMap);
+            activatePotionList(currMap);
             break;
         case 7:
             // Handle type 7 tile
@@ -286,7 +282,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
             player.setRow(13);
             player.setColumn(7);
             currMap = 2;
-            //activatePotionList(currMap);
+            activatePotionList(currMap);
             break;
         default:
             // Handle other cases (if needed)
