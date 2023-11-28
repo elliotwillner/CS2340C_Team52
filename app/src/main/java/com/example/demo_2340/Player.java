@@ -70,7 +70,12 @@ public class Player implements Observable {
     }
 
     public static void reset() {
-        uniqueInstance = null;
+        //uniqueInstance = null;
+        (Player.getInstance()).setScore(100);
+        (Player.getInstance()).setDate(null);
+        //start position
+        (Player.getInstance()).setColumn(7);
+        (Player.getInstance()).setRow(2);
     }
 
     public String getName() {
@@ -158,10 +163,18 @@ public class Player implements Observable {
     }
 
     public void takeDamage(int damage) {
-        health -= damage; //* damageMultiplier;
+        health -= (damage * damageMultiplier);
         GameScreen.updateHealth();
         if (health <= 0) {
             isAlive = false;
         }
+    }
+
+    public void increaseScore(int points) {
+        score += points;
+    }
+
+    public void applyPowerUp(PowerUp powerUp) {
+        powerUp.decorate(this);
     }
 }
