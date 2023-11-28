@@ -99,10 +99,10 @@ public class TileMap {
                     new Tile(9, 2, 6), new Tile(10, 2, 1), new Tile(11, 2, 1), new Tile(12, 2, 1),
                     new Tile(13, 2, 1), new Tile(14, 2, 1), new Tile(15, 2, 1), new Tile(16, 2, 1)},
             //row3
-            {new Tile(1, 3, 1), new Tile(2, 3, 1), new Tile(3, 3, 0), new Tile(4, 3, 0),
-                    new Tile(5, 3, 1), new Tile(6, 3, 1), new Tile(7, 3, 2), new Tile(8, 3, 0),
+            {new Tile(1, 3, 1), new Tile(2, 3, 0), new Tile(3, 3, 0), new Tile(4, 3, 0),
+                    new Tile(5, 3, 0), new Tile(6, 3, 1), new Tile(7, 3, 2), new Tile(8, 3, 0),
                     new Tile(9, 3, 0), new Tile(10, 3, 2), new Tile(11, 3, 1), new Tile(12, 3, 0),
-                    new Tile(13, 3, 1), new Tile(14, 3, 0), new Tile(15, 3, 0), new Tile(16, 3, 1)},
+                    new Tile(13, 3, 0), new Tile(14, 3, 0), new Tile(15, 3, 0), new Tile(16, 3, 1)},
             //row4
             {new Tile(1, 4, 1), new Tile(2, 4, 0), new Tile(3, 4, 2), new Tile(4, 4, 0),
                     new Tile(5, 4, 2), new Tile(6, 4, 2), new Tile(7, 4, 2), new Tile(8, 4, 0),
