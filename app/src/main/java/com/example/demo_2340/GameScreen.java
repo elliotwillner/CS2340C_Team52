@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.view.Gravity;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +17,9 @@ import android.widget.Space;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class GameScreen extends AppCompatActivity implements Observer {
     private ImageView mapImageView;
@@ -26,9 +29,10 @@ public class GameScreen extends AppCompatActivity implements Observer {
     private ImageView enemyImageView;
     private ImageView enemyImageView2;
     private TextView difficultyTextView;
-    private TextView playerScoreTextView;
+    private static TextView playerScoreTextView;
     private static Player player = Player.getInstance();
-    private static int playerScore;
+    //switch out playerScore and playerName uses for the Player variables
+    private int playerScore;
     private String playerName;
     private GridLayout grid;
     private Handler handler;
@@ -37,13 +41,185 @@ public class GameScreen extends AppCompatActivity implements Observer {
     private List<Enemy> enemies;
     private Handler enemyHandler;
     private Runnable enemyRunnable;
+    private ImageView potionView1;
+    private ImageView potionView2;
+    private ImageView potionView3;
+    private ImageView potionView4;
+    private ImageView potionView5;
+    private ImageView potionView6;
+    private ImageView potionView7;
+    private ImageView potionView8;
+    private ImageView potionView9;
+    private ImageView potionView10;
+    private ImageView potionView11;
+    private ImageView potionView12;
+    private Potion potion1;
+    private Potion potion2;
+    private Potion potion3;
+    private Potion potion4;
+    private Potion potion5;
+    private Potion potion6;
+    private Potion potion7;
+    private Potion potion8;
+    private Potion potion9;
+    private Potion potion10;
+    private Potion potion11;
+    private Potion potion12;
+
 
     private int currMap = 1;
     private TileMap tileMap = new TileMap();
+    private List<Potion> potionsList1 = new ArrayList<>();
+    private List<Potion> potionsList2 = new ArrayList<>();
+    private List<Potion> potionsList3 = new ArrayList<>();
+    private Map<Potion, ImageView> potionImageViewMap;
+    public void initializePotionLists() {
+        potionImageViewMap = new HashMap<>();
+        potion1 = new resistancePotion(9, 8, true);
+        potion2 = new healthPotion(13, 10, true);
+        potion3 = new scorePotion(5, 9, false);
+        potion4 = new scorePotion(4, 2, false);
+        potion5 = new scorePotion(10, 3, false);
+        potion6 = new scorePotion(12, 7, false);
+        potion7 = new scorePotion(5, 13, false);
+        potion8 = new healthPotion(1, 14, false);
+        potion9 = new healthPotion(14, 14, false);
+        potion10 = new healthPotion(14, 2, false);
+        potion11 = new healthPotion(1, 7, false);
+        potion12 = new healthPotion(14, 8, false);
+        potionsList1.add(potion1);
+        potionsList1.add(potion2);
+        potionsList2.add(potion3);
+        potionsList2.add(potion4);
+        potionsList2.add(potion5);
+        potionsList2.add(potion6);
+        potionsList2.add(potion7);
+        potionsList3.add(potion8);
+        potionsList3.add(potion9);
+        potionsList3.add(potion10);
+        potionsList3.add(potion11);
+        potionsList3.add(potion12);
+        potionView1 = findViewById(R.id.potion1ImageView);
+        potionView1.setImageResource(R.drawable.resistance_potion);
+        potionView2 = findViewById(R.id.potion2ImageView);
+        potionView2.setImageResource(R.drawable.health_potion);
+        potionView3 = findViewById(R.id.potion3ImageView);
+        potionView3.setImageResource(R.drawable.score_potion);
+        potionView4 = findViewById(R.id.potion4ImageView);
+        potionView4.setImageResource(R.drawable.score_potion);
+        potionView5 = findViewById(R.id.potion5ImageView);
+        potionView5.setImageResource(R.drawable.score_potion);
+        potionView6 = findViewById(R.id.potion6ImageView);
+        potionView6.setImageResource(R.drawable.score_potion);
+        potionView7 = findViewById(R.id.potion7ImageView);
+        potionView7.setImageResource(R.drawable.score_potion);
+        potionView8 = findViewById(R.id.potion8ImageView);
+        potionView8.setImageResource(R.drawable.health_potion);
+        potionView9 = findViewById(R.id.potion9ImageView);
+        potionView9.setImageResource(R.drawable.health_potion);
+        potionView10 = findViewById(R.id.potion10ImageView);
+        potionView10.setImageResource(R.drawable.health_potion);
+        potionView11 = findViewById(R.id.potion11ImageView);
+        potionView11.setImageResource(R.drawable.health_potion);
+        potionView12 = findViewById(R.id.potion12ImageView);
+        potionView12.setImageResource(R.drawable.health_potion);
+        potionImageViewMap.put(potion1, potionView1);
+        potionImageViewMap.put(potion2, potionView2);
+        potionImageViewMap.put(potion3, potionView3);
+        potionImageViewMap.put(potion4, potionView4);
+        potionImageViewMap.put(potion5, potionView5);
+        potionImageViewMap.put(potion6, potionView6);
+        potionImageViewMap.put(potion7, potionView7);
+        potionImageViewMap.put(potion8, potionView8);
+        potionImageViewMap.put(potion9, potionView9);
+        potionImageViewMap.put(potion10, potionView10);
+        potionImageViewMap.put(potion11, potionView11);
+        potionImageViewMap.put(potion12, potionView12);
+    }
+
+
+    public void activatePotionList(int map) {
+        if (map == 1) {
+           for (Potion potion : potionsList1) {
+               potion.activate();
+           }
+           //deactivate
+           for (Potion potion : potionsList2) {
+               potion.deactivate();
+           }
+           for (Potion potion : potionsList3) {
+               potion.deactivate();
+           }
+        } else if (map == 2) {
+           for (Potion potion : potionsList2) {
+               potion.activate();
+           }
+           //deactivate
+           for (Potion potion : potionsList1) {
+               potion.deactivate();
+           }
+           for (Potion potion : potionsList3) {
+               potion.deactivate();
+           }
+        } else {
+           for (Potion potion : potionsList3) {
+               potion.activate();
+           }
+           //deactivate
+           for (Potion potion : potionsList1) {
+               potion.deactivate();
+           }
+           for (Potion potion : potionsList2) {
+               potion.deactivate();
+           }
+        }
+        for (Potion potion : potionsList1) {
+            if ((potion.getActive()) && !(potion.getCollected())) {
+                (potionImageViewMap.get(potion)).setVisibility(View.VISIBLE);
+            } else {
+                (potionImageViewMap.get(potion)).setVisibility(View.INVISIBLE);
+            }
+        }
+        for (Potion potion : potionsList2) {
+            if ((potion.getActive()) && !(potion.getCollected())) {
+                (potionImageViewMap.get(potion)).setVisibility(View.VISIBLE);
+            } else {
+                (potionImageViewMap.get(potion)).setVisibility(View.INVISIBLE);
+            }
+        }
+        for (Potion potion : potionsList3) {
+            if ((potion.getActive()) && !(potion.getCollected())) {
+                (potionImageViewMap.get(potion)).setVisibility(View.VISIBLE);
+            } else {
+                (potionImageViewMap.get(potion)).setVisibility(View.INVISIBLE);
+            }
+        }
+    }
 
     @Override
     public void update(int x, int y) {
         mapImageView = findViewById(R.id.mapImageView);
+        for (Potion potion : potionsList1) {
+            if ((potion.getActive()) && !(potion.getCollected())) {
+                (potionImageViewMap.get(potion)).setVisibility(View.VISIBLE);
+            } else {
+                (potionImageViewMap.get(potion)).setVisibility(View.INVISIBLE);
+            }
+        }
+        for (Potion potion : potionsList2) {
+            if ((potion.getActive()) && !(potion.getCollected())) {
+                (potionImageViewMap.get(potion)).setVisibility(View.VISIBLE);
+            } else {
+                (potionImageViewMap.get(potion)).setVisibility(View.INVISIBLE);
+            }
+        }
+        for (Potion potion : potionsList3) {
+            if ((potion.getActive()) && !(potion.getCollected())) {
+                (potionImageViewMap.get(potion)).setVisibility(View.VISIBLE);
+            } else {
+                (potionImageViewMap.get(potion)).setVisibility(View.INVISIBLE);
+            }
+        }
         System.out.println("x = " + x);
         System.out.println("y = " + y);
         System.out.println("currMap = " + currMap);
@@ -64,6 +240,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
             player.setRow(2);
             player.setColumn(7);
             currMap = 2;
+            activatePotionList(currMap);
             break;
         case 4:
             // Handle type 4 tile
@@ -71,18 +248,20 @@ public class GameScreen extends AppCompatActivity implements Observer {
             player.setRow(2);
             player.setColumn(7);
             currMap = 3;
+            activatePotionList(currMap);
             break;
         case 5:
             System.out.println("Won!");
             Intent intent = new Intent(GameScreen.this, EndScreenActivity.class);
             intent.putExtra("won", true);
-            Player.getInstance().setName(playerName);
-            Player.getInstance().setScore(playerScore);
+            Player.getInstance().setName(player.getName());
+            Player.getInstance().setScore(player.getScore());
             Player.getInstance().setDate(Calendar.getInstance().getTime());
             Leaderboard.addPlayer();
-            Player.getInstance().reset();
+            player.reset();
             handler.removeCallbacks(runnable);
             startActivity(intent);
+            finish();
             break;
         case 6:
             // Handle type 6 tile
@@ -90,6 +269,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
             player.setRow(13);
             player.setColumn(7);
             currMap = 1;
+            activatePotionList(currMap);
             break;
         case 7:
             // Handle type 7 tile
@@ -97,6 +277,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
             player.setRow(13);
             player.setColumn(7);
             currMap = 2;
+            activatePotionList(currMap);
             break;
         default:
             // Handle other cases (if needed)
@@ -104,29 +285,22 @@ public class GameScreen extends AppCompatActivity implements Observer {
         }
     }
 
-    /**
-    private void moveSprite(View imageView) {
-        GridLayout.LayoutParams params = (GridLayout.LayoutParams) imageView.getLayoutParams();
-        params.rowSpec = GridLayout.spec(currentRow);
-        params.columnSpec = GridLayout.spec(currentColumn);
-        imageView.setLayoutParams(params);
-    }
-     */
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_screen);
         playerScoreTextView = findViewById(R.id.playerScoreTextView);
+        initializePotionLists();
+        activatePotionList(1);
         playerScore = 101;
         handler = new Handler();
         runnable = new Runnable() {
             @Override
             public void run() {
                 if (playerScore != 0) {
-                    playerScore--;
-                    playerScoreTextView.setText("Score: " + String.valueOf(playerScore));
+                    player.setScore(player.getScore() - 1);
+                    updateScore();
                     handler.postDelayed(this, 1000);
                 }
                 if (player.getHealth() <= 0 || player.getScore() <= 0) {
@@ -134,12 +308,13 @@ public class GameScreen extends AppCompatActivity implements Observer {
                     Intent intent = new Intent(GameScreen.this, EndScreenActivity.class);
                     intent.putExtra("won", false);
                     Player.getInstance().setName(playerName);
-                    Player.getInstance().setScore(0);
+                    Player.getInstance().setScore(playerScore);
                     Player.getInstance().setDate(Calendar.getInstance().getTime());
                     Leaderboard.addPlayer();
-                    Player.getInstance().reset();
+                    player.reset();
                     handler.removeCallbacks(runnable);
                     startActivity(intent);
+                    finish();
                 }
             }
         };
@@ -269,6 +444,11 @@ public class GameScreen extends AppCompatActivity implements Observer {
             healthTextView.setText("Health: " + String.valueOf(player.getHealth()));
         }
     }
+    public static void updateScore() {
+        if (playerScoreTextView != null) {
+            playerScoreTextView.setText("Score: " + String.valueOf(player.getScore()));
+        }
+    }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         switch (keyCode) {
@@ -306,7 +486,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
         spriteImageView.setLayoutParams(params);
         return true;
     }
-    public static int getScore() {
+    public int getScore() {
         return playerScore;
     }
     @Override
