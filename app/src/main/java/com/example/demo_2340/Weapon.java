@@ -12,7 +12,7 @@ public class Weapon {
     }
 
     public void attack(Enemy enemy) {
-        enemy.takeDamage(damage);
+        enemy.takeDamage();
     }
 }
 

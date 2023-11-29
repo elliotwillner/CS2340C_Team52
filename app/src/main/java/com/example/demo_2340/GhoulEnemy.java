@@ -48,8 +48,8 @@ public class GhoulEnemy implements Enemy {
     }
 
     @Override
-    public void takeDamage(int damage) {
-
+    public void takeDamage() {
+        isPendingRemoval = true;
     }
 
     @Override

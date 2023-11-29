@@ -56,8 +56,8 @@ public class TrollEnemy implements Enemy {
     }
 
     @Override
-    public void takeDamage(int damage) {
-
+    public void takeDamage() {
+        isPendingRemoval = true;
     }
 
     public Bitmap getSprite() {

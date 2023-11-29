@@ -512,7 +512,9 @@ public class GameScreen extends AppCompatActivity implements Observer {
         weaponParams.columnSpec = GridLayout.spec(player.getColumn());
         weaponImageView.setVisibility(View.VISIBLE);
         weaponImageView.setLayoutParams(weaponParams);
-        player.attack();
+        player.attack(enemies);
+        enemyImageView.setVisibility(View.INVISIBLE);
+        enemyImageView2.setVisibility(View.INVISIBLE);
         animateWeapon();
     }
 

@@ -2,6 +2,8 @@ package com.example.demo_2340;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 public class Player implements Observable {
     private static volatile Player uniqueInstance;
     private String name;
@@ -180,7 +182,13 @@ public class Player implements Observable {
         powerUp.decorate(this);
     }
 
-    public void attack() {
+    public void attack(List<Enemy> enemies) {
+        for (Enemy enemy : enemies) {
+            if (isInRange(enemy)) {
+                isAttacking = true;
+                enemy.takeDamage();
+            }
+        }
     }
 
     public void setIsAttacking(boolean b) {
@@ -188,5 +196,13 @@ public class Player implements Observable {
     }
     public boolean getIsAttacking() {
         return isAttacking;
+    }
+    private boolean isInRange(Enemy enemy) {
+        int playerRow = getRow();
+        int playerColumn = getColumn();
+        int enemyRow = enemy.getRow();
+        int enemyColumn = enemy.getColumn();
+        int range = 1;
+        return Math.abs(playerRow - enemyRow) <= range && Math.abs(playerColumn - enemyColumn) <= range;
     }
 }

@@ -50,8 +50,8 @@ public class ImpEnemy implements Enemy {
     }
 
     @Override
-    public void takeDamage(int damage) {
-
+    public void takeDamage() {
+        isPendingRemoval = true;
     }
 
     @Override
