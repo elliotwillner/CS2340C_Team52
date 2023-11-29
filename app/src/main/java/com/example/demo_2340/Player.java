@@ -18,6 +18,7 @@ public class Player implements Observable {
     private int row;
     private Weapon weapon;
     private boolean isAttacking = false;
+    public int enemyKilled = 0;
 
     //set movement strategy
     public void setMoveStrategy(MoveStrategy strategy) {
@@ -167,6 +168,7 @@ public class Player implements Observable {
     public void takeDamage(int damage) {
         health -= (damage * damageMultiplier);
         GameScreen.updateHealth();
+        GameScreen.damageScore();
         if (health <= 0) {
             isAlive = false;
         }
@@ -188,5 +190,14 @@ public class Player implements Observable {
     }
     public boolean getIsAttacking() {
         return isAttacking;
+    }
+    public void DefeatEnemyUpdateScore(Enemy enemy) {
+        this.score += 20;
+        if (enemyKilled == 1) {
+            this.score += 10;
+        } else if (enemyKilled > 1) {
+            this.score += 20;
+        }
+        enemyKilled += 1;
     }
 }

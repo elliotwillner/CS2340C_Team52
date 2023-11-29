@@ -405,6 +405,8 @@ public class GameScreen extends AppCompatActivity implements Observer {
                     if (enemy.isPendingRemoval()) {
                         System.out.println("Removing enemy");
                         enemies.remove(enemy);
+                        player.DefeatEnemyUpdateScore(enemy);
+                        updateScore();
                     }
                 }
                 enemyHandler.postDelayed(this, 2000); // Update every 2 seconds
@@ -459,6 +461,10 @@ public class GameScreen extends AppCompatActivity implements Observer {
         if (playerScoreTextView != null) {
             playerScoreTextView.setText("Score: " + String.valueOf(player.getScore()));
         }
+    }
+    public static void damageScore() {
+        player.setScore(player.getScore() - 5);
+        updateScore();
     }
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

@@ -15,7 +15,7 @@ import com.example.demo_2340.TrollEnemy;
 
 import org.junit.Test;
 
-public class PlayerUnitTest {
+public class PlayerUnitTest_Sprint4 {
     /*Context context = new GameScreen();
     EnemyFactory enemyFactory = new EnemyFactory(
             context, R.drawable.dungeon_tileset, 16, 16);
