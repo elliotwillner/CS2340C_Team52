@@ -8,6 +8,6 @@ public interface Enemy extends Observer {
     void setDamage(int difficulty);
     void onCollision();
 
-    void takeDamage(int damage);
+    void takeDamage();
     boolean isPendingRemoval();
 }
