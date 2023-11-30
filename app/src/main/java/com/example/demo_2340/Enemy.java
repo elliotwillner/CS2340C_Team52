@@ -7,4 +7,7 @@ public interface Enemy extends Observer {
     int getColumn();
     void setDamage(int difficulty);
     void onCollision();
+
+    void takeDamage();
+    boolean isPendingRemoval();
 }

@@ -2,6 +2,8 @@ package com.example.demo_2340;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+
 public class Player implements Observable {
     private static volatile Player uniqueInstance;
     private String name;
@@ -16,6 +18,10 @@ public class Player implements Observable {
     private MoveStrategy strategy;
     private int column;
     private int row;
+    private Weapon weapon;
+    private boolean isAttacking = false;
+    public int enemyKilled = 0;
+
 
     //set movement strategy
     public void setMoveStrategy(MoveStrategy strategy) {
@@ -70,7 +76,12 @@ public class Player implements Observable {
     }
 
     public static void reset() {
-        uniqueInstance = null;
+        //uniqueInstance = null;
+        (Player.getInstance()).setScore(100);
+        (Player.getInstance()).setDate(null);
+        //start position
+        (Player.getInstance()).setColumn(7);
+        (Player.getInstance()).setRow(2);
     }
 
     public String getName() {
@@ -158,10 +169,53 @@ public class Player implements Observable {
     }
 
     public void takeDamage(int damage) {
-        health -= damage; //* damageMultiplier;
+        health -= (damage * damageMultiplier);
         GameScreen.updateHealth();
+        GameScreen.damageScore();
         if (health <= 0) {
             isAlive = false;
         }
+    }
+
+    public void increaseScore(int points) {
+        score += points;
+    }
+
+    public void applyPowerUp(PowerUp powerUp) {
+        powerUp.decorate(this);
+    }
+
+    public void attack(List<Enemy> enemies) {
+        for (Enemy enemy : enemies) {
+            if (isInRange(enemy)) {
+                isAttacking = true;
+                enemy.takeDamage();
+                DefeatEnemyUpdateScore(enemy);
+            }
+        }
+    }
+
+    public void setIsAttacking(boolean b) {
+        isAttacking = b;
+    }
+    public boolean getIsAttacking() {
+        return isAttacking;
+    }
+    public void DefeatEnemyUpdateScore(Enemy enemy) {
+        this.score += 20;
+        if (enemyKilled == 1) {
+            this.score += 10;
+        } else if (enemyKilled > 1) {
+            this.score += 20;
+        }
+        enemyKilled += 1;
+    }
+    private boolean isInRange(Enemy enemy) {
+        int playerRow = getRow();
+        int playerColumn = getColumn();
+        int enemyRow = enemy.getRow();
+        int enemyColumn = enemy.getColumn();
+        int range = 1;
+        return Math.abs(playerRow - enemyRow) <= range && Math.abs(playerColumn - enemyColumn) <= range;
     }
 }

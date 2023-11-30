@@ -8,6 +8,7 @@ public class KnightEnemy implements Enemy {
     private int row;
     private int column;
     private Bitmap sprite;
+    private boolean isPendingRemoval;
 
     public KnightEnemy(Bitmap sprite) {
         this.sprite = sprite;
@@ -43,6 +44,16 @@ public class KnightEnemy implements Enemy {
         if ((row == player.getRow()) && (column == player.getColumn())) {
             player.takeDamage(damage);
         }
+    }
+
+    @Override
+    public void takeDamage() {
+        isPendingRemoval = true;
+    }
+
+    @Override
+    public boolean isPendingRemoval() {
+        return isPendingRemoval;
     }
 
     @Override

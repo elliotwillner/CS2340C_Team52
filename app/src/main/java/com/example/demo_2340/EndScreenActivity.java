@@ -66,7 +66,7 @@ public class EndScreenActivity extends AppCompatActivity {
 
     // Method to set up UI elements for both win and game over scenarios
     private void setupCommonUI() {
-        int mostRecentAttemptScore = GameScreen.getScore();
+        int mostRecentAttemptScore = (Player.getInstance().getScore());
         scoreTextView.setText("Your Score: " + mostRecentAttemptScore);
 
         // add a click listener to the restart button
