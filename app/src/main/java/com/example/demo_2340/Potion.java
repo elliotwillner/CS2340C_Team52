@@ -4,7 +4,7 @@ public abstract class Potion implements Observer {
     private int row;
     private int column;
     private boolean isActive;
-    private boolean isCollected;
+    public boolean isCollected;
     private Player player = Player.getInstance();
     public Potion(int column, int row, boolean isActive) {
         this.column = column;
