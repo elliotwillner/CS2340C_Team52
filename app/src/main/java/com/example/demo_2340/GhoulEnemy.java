@@ -1,6 +1,8 @@
 package com.example.demo_2340;
 
 import android.graphics.Bitmap;
+import android.view.View;
+import android.widget.ImageView;
 
 public class GhoulEnemy implements Enemy {
     private Player player = Player.getInstance();
@@ -9,6 +11,9 @@ public class GhoulEnemy implements Enemy {
     private int column;
     private Bitmap sprite;
     private boolean isPendingRemoval;
+    private ImageView imageView;
+
+    private boolean isActive = true;
 
     public GhoulEnemy(Bitmap sprite) {
         this.sprite = sprite;
@@ -19,10 +24,13 @@ public class GhoulEnemy implements Enemy {
     public void update(int x, int y) {
         if ((row == player.getRow()) && (column == player.getColumn())) {
             if (Player.getInstance().getIsAttacking()) {
+
                 isPendingRemoval = true;
                 return;
             }
-            player.takeDamage(damage);
+            if (isActive) {
+                player.takeDamage(damage);
+            }
         }
     }
 
@@ -47,10 +55,13 @@ public class GhoulEnemy implements Enemy {
     public void onCollision() {
         if ((row == player.getRow()) && (column == player.getColumn())) {
             if (Player.getInstance().getIsAttacking()) {
+
                 isPendingRemoval = true;
                 return;
             }
-            player.takeDamage(damage);
+            if (isActive) {
+                player.takeDamage(damage);
+            }
         }
     }
 
@@ -59,9 +70,33 @@ public class GhoulEnemy implements Enemy {
         isPendingRemoval = true;
     }
 
+    public void setImageView(ImageView imageView) {
+        this.imageView = imageView;
+    }
+
+    public void setImageViewVisibility(boolean visible) {
+        if (imageView != null) {
+            imageView.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+        }
+    }
+
     @Override
     public boolean isPendingRemoval() {
         return isPendingRemoval;
+    }
+
+    public void setPendingRemoval(boolean isPendingRemoval) {
+        this.isPendingRemoval = isPendingRemoval;
+    }
+
+    @Override
+    public boolean isActive() {
+        return isActive;
+    }
+
+    @Override
+    public void setActive(boolean b) {
+        isActive = b;
     }
 
     @Override

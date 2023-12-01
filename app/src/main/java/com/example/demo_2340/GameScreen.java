@@ -21,6 +21,7 @@ import android.widget.Space;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -73,6 +74,8 @@ public class GameScreen extends AppCompatActivity implements Observer {
     private Potion potion11;
     private Potion potion12;
 
+    private Map<Enemy, ImageView> enemyImageViewMap = new HashMap<>();
+
 
     private int currMap = 1;
     private TileMap tileMap = new TileMap();
@@ -80,6 +83,11 @@ public class GameScreen extends AppCompatActivity implements Observer {
     private List<Potion> potionsList2 = new ArrayList<>();
     private List<Potion> potionsList3 = new ArrayList<>();
     private Map<Potion, ImageView> potionImageViewMap;
+    private Enemy troll;
+    private Enemy imp;
+    private Enemy knight;
+    private Enemy ghoul;
+
     public void initializePotionLists() {
         potionImageViewMap = new HashMap<>();
         potion1 = new resistancePotion(9, 8, true);
@@ -249,6 +257,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
             player.setColumn(7);
             currMap = 2;
             activatePotionList(currMap);
+            activateEnemies();
             break;
         case 4:
             // Handle type 4 tile
@@ -257,6 +266,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
             player.setColumn(7);
             currMap = 3;
             activatePotionList(currMap);
+            activateEnemies();
             break;
         case 5:
             System.out.println("Won!");
@@ -266,6 +276,9 @@ public class GameScreen extends AppCompatActivity implements Observer {
             Player.getInstance().setScore(player.getScore());
             Player.getInstance().setDate(Calendar.getInstance().getTime());
             Leaderboard.addPlayer();
+            for (Enemy enemy : enemies) {
+                enemy.setActive(false);
+            }
             player.reset();
             handler.removeCallbacks(runnable);
             startActivity(intent);
@@ -278,6 +291,7 @@ public class GameScreen extends AppCompatActivity implements Observer {
             player.setColumn(7);
             currMap = 1;
             activatePotionList(currMap);
+            activateEnemies();
             break;
         case 7:
             // Handle type 7 tile
@@ -286,10 +300,43 @@ public class GameScreen extends AppCompatActivity implements Observer {
             player.setColumn(7);
             currMap = 2;
             activatePotionList(currMap);
+            activateEnemies();
             break;
         default:
             // Handle other cases (if needed)
             break;
+        }
+    }
+
+    private void activateEnemies() {
+        GridLayout.LayoutParams enemyParams =
+                (GridLayout.LayoutParams) enemyImageView.getLayoutParams();
+        enemyParams.rowSpec = GridLayout.spec(5);
+        enemyParams.columnSpec = GridLayout.spec(10);
+        enemyImageView.setLayoutParams(enemyParams);
+
+
+        GridLayout.LayoutParams enemyParams2 =
+                (GridLayout.LayoutParams) enemyImageView2.getLayoutParams();
+        enemyParams2.rowSpec = GridLayout.spec(8);
+        enemyParams2.columnSpec = GridLayout.spec(5);
+        enemyImageView2.setLayoutParams(enemyParams2);
+
+        GridLayout.LayoutParams enemyParams3 =
+                (GridLayout.LayoutParams) enemyImageView3.getLayoutParams();
+        enemyParams3.rowSpec = GridLayout.spec(7);
+        enemyParams3.columnSpec = GridLayout.spec(7);
+        enemyImageView3.setLayoutParams(enemyParams3);
+
+        GridLayout.LayoutParams enemyParams4 =
+                (GridLayout.LayoutParams) enemyImageView4.getLayoutParams();
+        enemyParams4.rowSpec = GridLayout.spec(14);
+        enemyParams4.columnSpec = GridLayout.spec(14);
+        enemyImageView4.setLayoutParams(enemyParams3);
+        for (Enemy enemy : enemies) {
+            enemy.setActive(true);
+            enemy.setPendingRemoval(false);
+            enemyImageViewMap.get(enemy).setVisibility(View.VISIBLE);
         }
     }
 
@@ -372,10 +419,10 @@ public class GameScreen extends AppCompatActivity implements Observer {
         spriteImageView.setLayoutParams(params);
 
         EnemyFactory enemyFactory = new EnemyFactory(this, R.drawable.dungeon_tileset, 16, 16);
-        Enemy troll = enemyFactory.createEnemy(EnemyType.TROLL);
-        Enemy imp = enemyFactory.createEnemy(EnemyType.IMP);
-        Enemy knight = enemyFactory.createEnemy(EnemyType.KNIGHT);
-        Enemy ghoul = enemyFactory.createEnemy(EnemyType.GHOUL);
+        troll = enemyFactory.createEnemy(EnemyType.TROLL);
+        imp = enemyFactory.createEnemy(EnemyType.IMP);
+        knight = enemyFactory.createEnemy(EnemyType.KNIGHT);
+        ghoul = enemyFactory.createEnemy(EnemyType.GHOUL);
         player.addObserver(troll);
         player.addObserver(imp);
         player.addObserver(knight);
@@ -384,28 +431,28 @@ public class GameScreen extends AppCompatActivity implements Observer {
         GridLayout.LayoutParams enemyParams =
                 (GridLayout.LayoutParams) enemyImageView.getLayoutParams();
         enemyParams.rowSpec = GridLayout.spec(5);
-        enemyParams.columnSpec = GridLayout.spec(5);
+        enemyParams.columnSpec = GridLayout.spec(10);
         enemyImageView.setLayoutParams(enemyParams);
         enemyImageView.setImageResource(R.drawable.troll_image);
 
         GridLayout.LayoutParams enemyParams2 =
                 (GridLayout.LayoutParams) enemyImageView2.getLayoutParams();
         enemyParams2.rowSpec = GridLayout.spec(8);
-        enemyParams2.columnSpec = GridLayout.spec(8);
+        enemyParams2.columnSpec = GridLayout.spec(5);
         enemyImageView2.setLayoutParams(enemyParams2);
         enemyImageView2.setImageResource(R.drawable.imp_image);
 
         GridLayout.LayoutParams enemyParams3 =
                 (GridLayout.LayoutParams) enemyImageView3.getLayoutParams();
-        enemyParams3.rowSpec = GridLayout.spec(3);
-        enemyParams3.columnSpec = GridLayout.spec(3);
+        enemyParams3.rowSpec = GridLayout.spec(7);
+        enemyParams3.columnSpec = GridLayout.spec(7);
         enemyImageView3.setLayoutParams(enemyParams3);
         enemyImageView3.setImageResource(R.drawable.knight_image);
 
         GridLayout.LayoutParams enemyParams4 =
                 (GridLayout.LayoutParams) enemyImageView4.getLayoutParams();
-        enemyParams4.rowSpec = GridLayout.spec(2);
-        enemyParams4.columnSpec = GridLayout.spec(2);
+        enemyParams4.rowSpec = GridLayout.spec(14);
+        enemyParams4.columnSpec = GridLayout.spec(14);
         enemyImageView4.setLayoutParams(enemyParams3);
         enemyImageView4.setImageResource(R.drawable.ghoul_image);
 
@@ -417,6 +464,12 @@ public class GameScreen extends AppCompatActivity implements Observer {
         enemies.add(imp);
         enemies.add(knight);
         enemies.add(ghoul);
+
+        enemyImageViewMap.put(troll, enemyImageView);
+        enemyImageViewMap.put(imp, enemyImageView2);
+        enemyImageViewMap.put(knight, enemyImageView3);
+        enemyImageViewMap.put(ghoul, enemyImageView4);
+
         System.out.println("HERE");
 
         enemyHandler = new Handler();
@@ -424,16 +477,20 @@ public class GameScreen extends AppCompatActivity implements Observer {
             @Override
             public void run() {
                 // Update the position for each enemy
-                for (Enemy enemy : enemies) {
+                Iterator<Enemy> iterator = enemies.iterator();
+                while (iterator.hasNext()) {
+                    Enemy enemy = iterator.next();
                     enemy.move();
-                    enemy.onCollision();
-                    if (enemy.isPendingRemoval()) {
+                    if (enemy.isPendingRemoval() && enemy.isActive()) {
                         System.out.println("Removing enemy");
-                        enemies.remove(enemy);
+                        enemyImageViewMap.get(enemy).setVisibility(View.INVISIBLE);
                         player.DefeatEnemyUpdateScore(enemy);
+                        enemy.setPendingRemoval(false);
+                        enemy.setActive(false);
                         updateScore();
                     }
                 }
+
                 enemyHandler.postDelayed(this, 2000); // Update every 2 seconds
 
                 enemyParams.rowSpec = GridLayout.spec(troll.getRow());
@@ -552,8 +609,6 @@ public class GameScreen extends AppCompatActivity implements Observer {
         weaponImageView.setVisibility(View.VISIBLE);
         weaponImageView.setLayoutParams(weaponParams);
         player.attack(enemies);
-        enemyImageView.setVisibility(View.INVISIBLE);
-        enemyImageView2.setVisibility(View.INVISIBLE);
         animateWeapon();
     }
 
