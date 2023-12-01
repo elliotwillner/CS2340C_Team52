@@ -1,6 +1,8 @@
 package com.example.demo_2340;
 
 import android.graphics.Bitmap;
+import android.view.View;
+import android.widget.ImageView;
 
 public class KnightEnemy implements Enemy {
     private Player player = Player.getInstance();
@@ -9,7 +11,8 @@ public class KnightEnemy implements Enemy {
     private int column;
     private Bitmap sprite;
     private boolean isPendingRemoval;
-
+    private ImageView imageView;
+    private boolean isActive = true;
     public KnightEnemy(Bitmap sprite) {
         this.sprite = sprite;
         this.row = 3;
@@ -18,7 +21,14 @@ public class KnightEnemy implements Enemy {
     @Override
     public void update(int x, int y) {
         if ((row == player.getRow()) && (column == player.getColumn())) {
-            player.takeDamage(damage);
+            if (Player.getInstance().getIsAttacking()) {
+
+                isPendingRemoval = true;
+                return;
+            }
+            if (isActive) {
+                player.takeDamage(damage);
+            }
         }
     }
     @Override
@@ -34,15 +44,22 @@ public class KnightEnemy implements Enemy {
             row += rowDirection * 2;
             column += colDirection * 2;
         } else {
-            row += 2;
-            column += 2;
+            row += rowDirection * 1;
+            column += colDirection * 1;
         }
         onCollision();
     }
 
     public void onCollision() {
         if ((row == player.getRow()) && (column == player.getColumn())) {
-            player.takeDamage(damage);
+            if (Player.getInstance().getIsAttacking()) {
+
+                isPendingRemoval = true;
+                return;
+            }
+            if (isActive) {
+                player.takeDamage(damage);
+            }
         }
     }
 
@@ -54,6 +71,32 @@ public class KnightEnemy implements Enemy {
     @Override
     public boolean isPendingRemoval() {
         return isPendingRemoval;
+    }
+
+    public void setPendingRemoval(boolean isPendingRemoval) {
+        this.isPendingRemoval = isPendingRemoval;
+    }
+
+    @Override
+    public boolean isActive() {
+        return isActive;
+    }
+
+    @Override
+    public void setActive(boolean b) {
+        isActive = b;
+    }
+
+    @Override
+    public void setImageView(ImageView imageView) {
+        this.imageView = imageView;
+    }
+
+    @Override
+    public void setImageViewVisibility(boolean visible) {
+        if (imageView != null) {
+            imageView.setVisibility(visible ? View.VISIBLE : View.INVISIBLE);
+        }
     }
 
     @Override
