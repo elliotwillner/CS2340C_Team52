@@ -210,7 +210,7 @@ public class Player implements Observable {
         }
         enemyKilled += 1;
     }
-    private boolean isInRange(Enemy enemy) {
+    public boolean isInRange(Enemy enemy) {
         int playerRow = getRow();
         int playerColumn = getColumn();
         int enemyRow = enemy.getRow();
